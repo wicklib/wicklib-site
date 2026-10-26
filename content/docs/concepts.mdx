@@ -1,0 +1,34 @@
+---
+title: Concepts
+description: The architecture and the rules that keep it stable.
+---
+
+## The boundary
+
+Wicklib is open core. The free engine is Apache-2.0. The commercial analytics are a
+separate package under a commercial license.
+
+The boundary is physical, not stylistic:
+
+- `@wicklib/pro` consumes `@wicklib/core` through its published entrypoint only.
+- Core never imports pro, script, indicators, or wrappers.
+- Deep imports fail at resolution time, at typecheck time, and in lint.
+
+## One registry
+
+Every extension registers with core: series types, indicators, drawing tools, and script
+runtimes. Plugins declare core as a peer dependency so exactly one registry instance
+exists, even when several plugins are installed.
+
+## Rendering
+
+Canvas2D with layered redraws. A WebGL2 backend will slot in behind the same renderer
+interface for very large datasets. The public API does not change.
+
+## WickScript
+
+Scripts are TypeScript against a fixed API, executed once per bar. History is replayed
+bar-by-bar, then realtime bars flow through the same function. Execution happens in a
+QuickJS sandbox inside a Web Worker, with instruction and memory limits.
+
+This is documented normatively in the repository before implementation begins.

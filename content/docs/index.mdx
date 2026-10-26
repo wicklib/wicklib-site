@@ -1,0 +1,32 @@
+---
+title: Wicklib
+description: Open-source, Canvas-first charting engine for the web.
+---
+
+Wicklib is a charting engine for web applications. It renders on Canvas, exposes a frozen
+TypeScript API, and separates the free engine from the commercial analytics at the package
+boundary.
+
+This site is the documentation and landing page for the libraries. The engine itself is
+built in phases; see [Getting started](/docs/getting-started) for the current status.
+
+## What is available today
+
+Phase 1 ships the foundation:
+
+- `@wicklib/core` — public API seams as typed stubs
+- `@wicklib/indicators` — reserved package boundary
+- `@wicklib/script` — normative plan and ADRs for WickScript
+- `@wicklib/script-editor` — reserved editor boundary
+- `@wicklib/pro` — commercial add-on, typed stubs and license contract
+
+No chart renders yet. That is deliberate: the contract is frozen before implementation so
+the later work is additive.
+
+## Design rules
+
+1. `@wicklib/core` has zero runtime dependencies.
+2. Plugins declare `core` as a peer dependency; there is exactly one registry.
+3. Rendering is Canvas2D behind a renderer interface, with WebGL2 planned.
+4. Public API changes are gated by API Extractor.
+5. WickScript is TypeScript against a fixed API, executed per bar in a QuickJS sandbox.

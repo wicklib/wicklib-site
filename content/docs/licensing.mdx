@@ -1,0 +1,33 @@
+---
+title: Licensing
+description: Free engine, commercial analytics, offline license keys.
+---
+
+## Free tier
+
+The engine packages are Apache-2.0 and free to use, including in commercial products.
+There is no runtime license check in the free tier.
+
+## Commercial tier
+
+`@wicklib/pro` is published to npm under the Wicklib Commercial License. Installing it does
+not grant a license; a signed license token is required at runtime.
+
+- Tokens are Ed25519-signed and verified offline.
+- The payload describes the plan, seats, domains, expiry, features, and key id.
+- No usage data is sent anywhere to validate a license.
+- Public keys are embedded by key id, so keys rotate without a release.
+
+## What is paid
+
+Orderflow, footprint and volume profile; multi-pane layouts and workspaces; premium
+script functions; strategy and backtesting; alert runtime.
+
+## What is free
+
+The renderer, built-in indicators, the WickScript language and runtime, the editor, and
+the extension API.
+
+## Trademark
+
+The Wicklib name and logo are not covered by the Apache-2.0 license.
