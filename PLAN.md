@@ -1,15 +1,16 @@
 # wicklib-site — Implementation Plan
 
-Status: Phase 1 complete. Landing page and docs shell build.
+Status: Phase 2 in progress. Landing page, docs shell, and usage guides build.
 
 ## Phase 2 — docs content
 
-1. Getting started with installation from the first published prerelease.
-2. Core concepts: renderer architecture, extension registry, datafeed contract.
-3. API reference generated from the published `.d.ts` (TypeDoc → MDX), not hand-written.
-4. Guides: candlestick chart, custom series, crosshair sync, theming.
-5. Demo page that installs `@wicklib/core` pinned to an exact version.
-6. Link checking and heading anchors in CI.
+1. [done] Getting started, package overview, and installation expectations.
+2. [done] Core concepts, time model, renderer, and package boundaries.
+3. [in progress] API reference generated from the published `.d.ts`, not hand-written.
+4. [done] Guides: charts, series, datafeeds, drawings, themes, export, React, WickScript,
+   migration, and licensing.
+5. [pending] Demo page pinned to an exact published core version.
+6. [pending] Link checking and heading anchors in CI.
 
 ## Phase 3 — versioned docs
 

@@ -1,0 +1,34 @@
+---
+title: Themes
+description: Neutral presets with host-controlled application.
+---
+
+Wicklib ships neutral light and dark presets for chart chrome.
+
+```ts
+import { DarkTheme, LightTheme, createChart } from "@wicklib/core";
+
+const chart = createChart(container, { ...DarkTheme });
+chart.setOptions(LightTheme);
+```
+
+Themes cover:
+
+- Background and text color.
+- Grid line colors.
+- Crosshair color and label background.
+
+They intentionally do not cover candle, series, drawing, or indicator colors. Those remain
+explicit because market semantics and product branding differ.
+
+## Host ownership
+
+Wicklib never reads CSS variables, Tailwind classes, or `prefers-color-scheme`. The host:
+
+- Selects light, dark, or system mode.
+- Maps its design tokens to chart options.
+- Persists the user's choice.
+- Applies changes with `setOptions()` without recreating the chart.
+
+For a shared theme with lightweight-charts, keep one host-side theme object and map it to both
+libraries.

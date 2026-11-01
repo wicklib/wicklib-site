@@ -1,34 +1,58 @@
 ---
 title: Concepts
-description: The architecture and the rules that keep it stable.
+description: The data model, renderer, time model, and package boundaries.
 ---
 
-## The boundary
+## Data model
 
-Wicklib is open core. The free engine is Apache-2.0. The commercial analytics are a
-separate package under a commercial license.
+Series data is ordered by time and stored in typed arrays. Every built-in series uses one of
+two public shapes:
 
-The boundary is physical, not stylistic:
+```ts
+interface OhlcData {
+  time: number;
+  open: number;
+  high: number;
+  low: number;
+  close: number;
+  volume?: number;
+}
 
-- `@wicklib/pro` consumes `@wicklib/core` through its published entrypoint only.
-- Core never imports pro, script, indicators, or wrappers.
-- Deep imports fail at resolution time, at typecheck time, and in lint.
+interface LineData {
+  time: number;
+  value: number;
+}
+```
 
-## One registry
-
-Every extension registers with core: series types, indicators, drawing tools, and script
-runtimes. Plugins declare core as a peer dependency so exactly one registry instance
-exists, even when several plugins are installed.
+Times must be strictly ascending and unique. `update()` may revise the last point or append a
+new one.
 
 ## Rendering
 
-Canvas2D with layered redraws. A WebGL2 backend will slot in behind the same renderer
-interface for very large datasets. The public API does not change.
+Wicklib uses layered Canvas2D rendering:
 
-## WickScript
+1. Grid and axes
+2. Series
+3. Extension overlays
+4. Drawings
+5. Crosshair
 
-Scripts are TypeScript against a fixed API, executed once per bar. History is replayed
-bar-by-bar, then realtime bars flow through the same function. Execution happens in a
-QuickJS sandbox inside a Web Worker, with instruction and memory limits.
+Each layer is redrawn independently. The renderer is internal; stable extension points are the
+public overlay and drawing APIs.
 
-This is documented normatively in the repository before implementation begins.
+## Time scale and price scale
+
+The time scale is index-based. Missing timestamps do not create gaps unless a trading calendar
+enables session gaps. The price scale is linear and can auto-scale or be controlled manually.
+
+## Package boundary
+
+- `@wicklib/core` never imports sibling packages.
+- Extensions consume the published core entrypoint.
+- Pro extensions use the same public APIs as third-party extensions.
+- Hosts own licensing decisions; core does not inspect paid entitlements.
+
+## Host ownership
+
+Wicklib is a charting engine, not an application. Hosts own data transport, persistence,
+accounts, menus, settings panels, undo/redo, and product-specific UI.

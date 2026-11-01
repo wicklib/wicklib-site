@@ -1,0 +1,28 @@
+---
+title: Export
+description: Composite a chart screenshot or data URL.
+---
+
+```ts
+const canvas = chart.takeScreenshot();
+const png = chart.exportImage("image/png", 0.95);
+```
+
+`takeScreenshot()` flushes pending rendering and composites every canvas layer at
+backing-store resolution:
+
+- Grid and axes
+- Series
+- Extension overlays
+- Drawings
+- Crosshair
+
+`exportImage()` returns a data URL and validates quality when provided.
+
+The host owns downloads, uploads, sharing, and storage. For example, convert the returned
+canvas to a blob and pass it to the application's asset pipeline.
+
+## High-DPI
+
+Screenshots use the current device pixel ratio. On a 2× display, a 1200×800 CSS chart returns
+a 2400×1600 backing-store canvas.

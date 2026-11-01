@@ -1,0 +1,51 @@
+---
+title: Datafeeds
+description: Load and update series data through a host-provided transport.
+---
+
+A datafeed lets the host own network transport, authentication, caching, retries, and
+reconnection while Wicklib owns request planning and series updates.
+
+```ts
+series.setDatafeed(feed, {
+  symbol: "BTC/USD",
+  interval: "1m",
+  initialBars: 500,
+});
+
+chart.on("data-loading", ({ loading }) => {
+  console.log("loading", loading);
+});
+```
+
+## Contract
+
+The feed returns an ordered, unique data array for an initial count request or a time range.
+It may also provide a realtime subscription.
+
+Wicklib handles:
+
+- Initial count loads.
+- Debounced range loads with 50% prefetch.
+- Aborting stale requests.
+- Prepend anchoring.
+- Realtime revisions.
+- Loading and error events.
+
+## Realtime data
+
+The subscription receives one realtime point at a time. Use the same millisecond time base as
+historical data. Updating an existing last timestamp revises it; later timestamps append.
+
+## Stopping
+
+```ts
+series.clearDatafeed();
+```
+
+This aborts requests and unsubscribes without discarding already loaded data.
+
+## Errors
+
+Datafeed failures are emitted on the chart `error` event with `source: "datafeed"` and the
+series id.

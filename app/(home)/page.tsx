@@ -3,27 +3,29 @@ import Link from "next/link";
 const features = [
   {
     title: "Canvas-first",
-    body: "Layered Canvas2D rendering with a WebGL2 backend planned behind the same renderer interface.",
+    body: "Layered Canvas2D rendering, four series types, panes, session-aware axes, and high-DPI export.",
   },
   {
     title: "Typed API",
-    body: "A frozen, API-Extractor-gated TypeScript surface. No any, no leaking internals.",
+    body: "An API-Extractor-gated TypeScript surface with typed datafeeds, events, and extension contracts.",
   },
   {
-    title: "Extension registry",
-    body: "Series, indicators, drawings and script runtimes plug into one registry with license metadata.",
+    title: "Analyst tools",
+    body: "A complete drawing suite with multi-selection, per-tool settings, keyboard navigation, and host-owned menus.",
   },
   {
     title: "Open core",
-    body: "Apache-2.0 engine, commercially licensed analytics. One boundary, enforced in CI.",
+    body: "Apache-2.0 engine, separate commercial analytics, and a boundary enforced in CI.",
   },
 ];
 
 const packages = [
-  ["@wicklib/core", "Renderer, scales, series, panes, datafeed"],
+  ["@wicklib/core", "Chart, series, panes, indicators, drawings, themes, export"],
   ["@wicklib/indicators", "Built-in indicator catalog"],
-  ["@wicklib/script", "WickScript runtime — TypeScript for charts"],
-  ["@wicklib/pro", "Orderflow, volume profile, layouts and strategy"],
+  ["@wicklib/react", "React mount wrapper and useChart"],
+  ["@wicklib/script", "WickScript compiler, QuickJS runtime, and free ta.*"],
+  ["@wicklib/script-editor", "Monaco editor with generated script declarations"],
+  ["@wicklib/pro", "Orderflow, volume profile, depth, alerts, and strategy"],
 ];
 
 export default function HomePage() {
@@ -50,7 +52,7 @@ export default function HomePage() {
 
       <section className="mx-auto max-w-5xl px-6 py-24">
         <p className="mb-6 inline-flex items-center rounded-full border border-neutral-200 px-3 py-1 text-xs text-neutral-600 dark:border-neutral-800 dark:text-neutral-300">
-          Phase 1 — foundation
+          Canvas-first charting engine
         </p>
         <h1 className="max-w-3xl text-5xl font-semibold tracking-tight text-neutral-950 dark:text-white">
           The charting engine you can build a platform on.

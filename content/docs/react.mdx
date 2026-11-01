@@ -1,0 +1,45 @@
+---
+title: React
+description: Mount and control a Wicklib chart from React.
+---
+
+```sh
+pnpm add @wicklib/core @wicklib/react react react-dom
+```
+
+```tsx
+import { useEffect } from "react";
+import { CandlestickSeries, type OhlcData } from "@wicklib/core";
+import { WickChart, useChart } from "@wicklib/react";
+
+function Series({ data }: { data: readonly OhlcData[] }) {
+  const chart = useChart();
+
+  useEffect(() => {
+    if (!chart) return;
+    const series = chart.addSeries(CandlestickSeries, { title: "BTC/USD" });
+    series.setData(data);
+    chart.timeScale().fitContent();
+    return () => series.remove();
+  }, [chart, data]);
+
+  return null;
+}
+
+export function PriceChart({ data }: { data: readonly OhlcData[] }) {
+  return (
+    <WickChart style={{ height: 480 }}>
+      <Series data={data} />
+    </WickChart>
+  );
+}
+```
+
+`WickChart` forwards chart options and applies updates with `setOptions()`. Changing
+`extensions` recreates the chart because extensions are snapshotted at creation.
+
+The wrapper is client-only: the chart is created in an effect, so server rendering emits only
+the container. Give the wrapper a measurable size.
+
+Wicklib does not provide declarative series, indicator, drawing, or settings components. Use
+`useChart()` or `onChart` with the core API.

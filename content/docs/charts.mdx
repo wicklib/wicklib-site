@@ -1,0 +1,89 @@
+---
+title: Charts
+description: Create, configure, and interact with a chart.
+---
+
+## Create and destroy
+
+```ts
+import { createChart } from "@wicklib/core";
+
+const chart = createChart(container, {
+  autoSize: true,
+  locale: "en-US",
+  timezone: "UTC",
+  layout: { background: "#0b0e14", textColor: "#d1d4dc" },
+  grid: {
+    vertLines: { color: "#161b24" },
+    horzLines: { color: "#161b24" },
+  },
+});
+
+chart.destroy();
+```
+
+The chart tracks size with `ResizeObserver` when `autoSize` is enabled. Call `resize()` when
+using a fixed-size container that changes outside CSS.
+
+## Options
+
+Chart options cover:
+
+- Layout: background, text color, font size.
+- Grid: vertical and horizontal line colors and visibility.
+- Crosshair: mode, colors, labels, and line styles.
+- Interaction: wheel, drag, pinch, axis drag, and double-click reset.
+- Time scale: spacing, margins, visible bar limits, labels, and sessions.
+- Price scale: auto-scale, inversion, margins, border, and mode.
+- Extensions: snapshotted at chart creation.
+
+Runtime option patches use `chart.setOptions()`. Changes are merged with current values.
+
+## Panes
+
+```ts
+const pane = chart.addPane({ height: 160 });
+const series = chart.addSeries(SomeSeries, { paneId: pane.id });
+```
+
+Panes share the time axis and own independent price scales. Removing a pane removes its series,
+indicators, drawings, and overlays.
+
+## Interactions
+
+- Drag to pan.
+- Wheel to zoom; horizontal trackpad movement pans time.
+- Drag the time axis horizontally to zoom time.
+- Drag the price axis vertically to scale price.
+- Double-click the price axis to restore auto-scale.
+- Pinch to zoom on touch.
+- Arrow keys pan; `+` and `-` zoom; `Home` fits.
+
+Disable individual interactions with `interaction.wheel`, `interaction.drag`,
+`interaction.pinch`, `interaction.axisDrag`, and `interaction.axisDoubleClickReset`.
+
+## Reset
+
+`chart.resetView()` fits the time scale and restores auto-scale on every pane.
+
+## Events
+
+The chart emits:
+
+- `ready`
+- `crosshair`
+- `visible-range`
+- `click`
+- `data-loading`
+- `error`
+- drawing lifecycle events
+- `drawing-selection`
+- `drawing-double-click`
+
+All subscriptions return an unsubscribe function and are safe after destruction.
+
+## Accessibility
+
+The chart root is focusable and announces drawing selection through a polite live region.
+Delete/Backspace removes selected drawings, `[` and `]` navigate between drawings, and
+Cmd/Ctrl+A selects all drawings.

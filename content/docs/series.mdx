@@ -1,0 +1,76 @@
+---
+title: Series
+description: Candlestick, line, area, histogram, markers, and price lines.
+---
+
+## Built-in series
+
+```ts
+import { AreaSeries, CandlestickSeries, HistogramSeries, LineSeries } from "@wicklib/core";
+
+chart.addSeries(CandlestickSeries, { title: "Price" });
+chart.addSeries(LineSeries, { color: "#2962ff", lineWidth: 2 });
+chart.addSeries(AreaSeries, { topColor: "rgba(41,98,255,0.35)" });
+chart.addSeries(HistogramSeries, { base: 0 });
+```
+
+| Type        | Data       | Notes                                      |
+| ----------- | ---------- | ------------------------------------------ |
+| Candlestick | `OhlcData` | Candle body, wick, border, up/down colors  |
+| Line        | `LineData` | Color, width, solid/dotted/dashed style    |
+| Area        | `LineData` | Line plus gradient fill to the pane bottom |
+| Histogram   | `LineData` | Bars from a configurable baseline          |
+
+Indicators currently require a candlestick source series. Custom series renderers are not part
+of the public API.
+
+## Data
+
+`setData()` replaces the full series. `update()` revises or appends the last point.
+
+```ts
+series.setData(points);
+series.update({ time: Date.now(), value: 104 });
+```
+
+## Multiple series
+
+Multiple series can share a pane and price scale. Auto-scale combines their visible ranges.
+A histogram contributes its baseline to the range.
+
+## Price lines
+
+```ts
+const line = series.createPriceLine({
+  price: 105,
+  color: "#10b981",
+  lineStyle: "dashed",
+  title: "Entry",
+  titlePosition: "plot",
+});
+
+line.applyOptions({ price: 106 });
+line.remove();
+```
+
+`titlePosition: "plot"` draws the title inside the chart while the axis label keeps the value.
+The default is `"axis"`.
+
+## Markers
+
+```ts
+series.setMarkers([
+  { time: sampleTime, position: "belowBar", shape: "arrowUp", text: "Buy" },
+  { time: exitTime, position: "aboveBar", shape: "arrowDown", text: "Sell" },
+]);
+```
+
+Markers replace the complete set. Pass an empty array to clear them. Times use milliseconds.
+
+## Removing a series
+
+```ts
+series.remove();
+```
+
+Removing the source series also removes indicators that depend on it.

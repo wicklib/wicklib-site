@@ -1,0 +1,72 @@
+---
+title: WickScript
+description: TypeScript scripts for bars, plots, and alerts.
+---
+
+WickScript is TypeScript against a fixed API. It runs once per bar in a QuickJS sandbox inside
+a Web Worker.
+
+```sh
+pnpm add @wicklib/script
+```
+
+```ts
+// @wicklib/api 1
+import { defineScript, ta } from "@wicklib/script";
+
+export default defineScript({
+  inputs: {
+    period: { type: "number", title: "Period", defaultValue: 20, min: 1 },
+  },
+  plots: [{ id: "sma", title: "SMA", type: "line" }],
+  onBar(ctx) {
+    ctx.plot("sma", ta.sma(ctx, "close", ctx.inputs.period));
+  },
+});
+```
+
+## Execution
+
+- Compile strips types and validates imports, globals, syntax, and entry shape.
+- Replay runs history bar by bar.
+- Stream runs realtime bars through the same per-bar path.
+- API v1 accepts closed bars only with strictly increasing times.
+- Revision requires a new session and replay.
+
+## Free `ta.*`
+
+`sma`, `ema`, `rsi`, `atr`, `highest`, `lowest`, `stdev`, `change`, `roc`, `cum`, `vwma`,
+`wma`, `rma`, `cci`, `mfi`, `wpr`, `highestbars`, `lowestbars`, `tr`, `obv`, `linreg`,
+`barssince`, `crossover`, and `crossunder`.
+
+All helpers are deterministic. Stateful functions keep state per session.
+
+## Alerts
+
+`ctx.alert(message)` emits an alert. Results include both:
+
+- `alerts`: message strings.
+- `alertEvents`: message, time, and bar index.
+
+Hosts decide how to deliver or persist alerts.
+
+## Worker runtime
+
+```ts
+import ScriptWorker from "@wicklib/script/worker?worker";
+import { createScriptWorkerRuntime } from "@wicklib/script";
+
+const runtime = createScriptWorkerRuntime(new ScriptWorker());
+const script = await runtime.compile(source);
+const result = await script.replay(bars);
+
+await script.dispose();
+runtime.dispose();
+```
+
+## Editor
+
+`@wicklib/script-editor` mounts Monaco with generated WickScript declarations, TypeScript
+diagnostics, compiler markers, and an `onValidate` callback.
+
+It is a separate package because Monaco is large.

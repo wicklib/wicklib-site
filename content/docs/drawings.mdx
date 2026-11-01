@@ -1,0 +1,112 @@
+---
+title: Drawings
+description: Built-in tools, selection, settings, keyboard control, and persistence.
+---
+
+Drawings are chart annotations anchored in time and price. They survive pan, zoom, and resize.
+
+## Tools
+
+The built-in catalog includes:
+
+- Lines: trend line, horizontal line, horizontal ray, vertical line, cross line.
+- Channels: parallel channel.
+- Fibonacci: retracement and extension.
+- Shapes: rectangle and circle.
+- Positions: long/short position.
+- Ranges: price/date range.
+- Patterns: Elliott impulse, correction, triangle, double combo, and triple combo.
+- Freehand: brush, highlighter, and path.
+- Text.
+- Measure.
+
+Use `DRAWING_TOOL_CATALOG` to build host menus. It provides tool definitions, categories, and
+the applicable settings for each tool.
+
+## Create programmatically
+
+```ts
+import { HorizontalLine, TrendLine } from "@wicklib/core";
+
+const level = chart.addDrawing(HorizontalLine, {
+  anchors: [{ time: time, price: 105 }],
+});
+
+chart.addDrawing(TrendLine, {
+  anchors: [
+    { time: startTime, price: 95 },
+    { time: endTime, price: 108 },
+  ],
+  options: { color: "#f0b90b", lineWidth: 2 },
+});
+```
+
+Interactive tools start with `chart.startDrawing(tool)`. The host decides how the tool is
+chosen and styled.
+
+## Selection
+
+```ts
+chart.selectDrawing(id);
+chart.selectDrawing(id, { mode: "add" });
+chart.selectDrawing(id, { mode: "toggle" });
+chart.selectDrawing(null);
+
+chart.selectedDrawings();
+chart.selectAllDrawings();
+```
+
+- Cmd/Ctrl-click toggles a drawing in the selection.
+- Cmd/Ctrl-drag on empty chart space creates an additive marquee selection.
+- Dragging a selected drawing moves the complete selection.
+- Delete/Backspace removes all selected unlocked drawings.
+- `[` and `]` cycle through drawings.
+- Cmd/Ctrl+A selects all drawings.
+
+## Settings
+
+Each drawing exposes its resolved options and partial updates:
+
+```ts
+drawing.getOptions();
+drawing.setOptions({ color: "#ffffff", lineWidth: 2 });
+chart.updateSelectedDrawings({ visible: false });
+```
+
+Per-chart defaults apply to new drawings:
+
+```ts
+chart.setDrawingDefaults("trend-line", { lineWidth: 2 });
+chart.drawingDefaults("trend-line");
+```
+
+Use `drawingToolSettings(toolId)` to show only relevant controls. For example, Elliott waves
+support labels but not text, while the text tool supports text and font size but not line width
+or fill. Filled shapes expose fill color and opacity.
+
+Settings precedence:
+
+1. Core defaults
+2. Tool defaults
+3. Chart-level defaults
+4. Explicit creation options
+
+Styles can be changed on locked drawings; locking only prevents geometry changes, movement,
+and deletion.
+
+## Editing and events
+
+`drawing-double-click` lets the host open a tool-specific editor, such as a text prompt. Other
+events cover creation, selection, updates, removal, and cancellation.
+
+## Persistence
+
+Wicklib serializes drawings but never persists them. The host owns storage, undo/redo, and
+sharing.
+
+```ts
+const document = chart.serializeDrawings();
+chart.loadDrawings(document);
+```
+
+Documents are versioned and use stable tool ids.

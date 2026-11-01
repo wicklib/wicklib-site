@@ -2,9 +2,9 @@
 
 Landing page and documentation for [Wicklib](https://wicklib.com).
 
-**Status: Phase 1 — shell.** The landing page and docs routes exist. The live chart
-demo is added after the first core release; it will install `@wicklib/core` from npm
-pinned to an exact version.
+**Status: Phase 2 — documentation content.** The landing page, docs routes, and the first
+usage guides are in place. API-reference generation and the live demo follow once the target
+core release is published.
 
 ## Development
 

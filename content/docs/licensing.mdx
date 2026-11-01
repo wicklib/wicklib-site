@@ -1,32 +1,40 @@
 ---
 title: Licensing
-description: Free engine, commercial analytics, offline license keys.
+description: Free engine, commercial analytics, and offline license tokens.
 ---
 
-## Free tier
+## Free engine
 
-The engine packages are Apache-2.0 and free to use, including in commercial products.
-There is no runtime license check in the free tier.
+The engine packages are Apache-2.0 and free to use, including in commercial products. There is
+no runtime license check in the free tier.
 
-## Commercial tier
+## Commercial analytics
 
-`@wicklib/pro` is published to npm under the Wicklib Commercial License. Installing it does
-not grant a license; a signed license token is required at runtime.
+`@wicklib/pro` is a separate commercial package. Installing it does not grant a license; a
+signed license token is required at runtime.
+
+Current commercial capabilities include:
+
+- Volume profile.
+- Trade-tick footprint and orderflow.
+- L2 depth aggregation.
+- Absorption detection.
+- Price alerts.
+- Strategy backtesting.
+- Script-to-strategy adaptation.
+
+## License verification
 
 - Tokens are Ed25519-signed and verified offline.
-- The payload describes the plan, seats, domains, expiry, features, and key id.
-- No usage data is sent anywhere to validate a license.
-- Public keys are embedded by key id, so keys rotate without a release.
+- The payload carries features, expiry, and customer metadata.
+- No telemetry is sent to validate a license.
+- The public key ships with Pro; the signing private key never ships.
+- A license can be application-level or issued per customer by your backend.
 
-## What is paid
+## What remains free
 
-Orderflow, footprint and volume profile; multi-pane layouts and workspaces; premium
-script functions; strategy and backtesting; alert runtime.
-
-## What is free
-
-The renderer, built-in indicators, the WickScript language and runtime, the editor, and
-the extension API.
+The renderer, series, panes, indicators, drawings, themes, export, the WickScript runtime,
+free `ta.*` functions, and the editor are free packages.
 
 ## Trademark
 

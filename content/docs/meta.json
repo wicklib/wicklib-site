@@ -1,4 +1,18 @@
 {
   "title": "Documentation",
-  "pages": ["index", "getting-started", "concepts", "licensing"]
+  "pages": [
+    "index",
+    "getting-started",
+    "concepts",
+    "charts",
+    "series",
+    "datafeeds",
+    "drawings",
+    "themes",
+    "export",
+    "react",
+    "script",
+    "migration",
+    "licensing"
+  ]
 }

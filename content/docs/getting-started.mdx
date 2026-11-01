@@ -1,33 +1,57 @@
 ---
 title: Getting started
-description: Current status and the Phase 1 foundation.
+description: Install Wicklib and render a chart.
 ---
 
-## Status
+## Install
 
-Wicklib is in Phase 1. The public API exists as typed stubs and every function throws
-`WICKLIB_NOT_IMPLEMENTED`. Do not use it in production yet.
+```sh
+pnpm add @wicklib/core
+```
 
-## Packages
+Add the indicator catalog if you need built-in indicators:
 
-| Package                  | Status  | Tier             |
-| ------------------------ | ------- | ---------------- |
-| `@wicklib/core`          | stubbed | free, Apache-2.0 |
-| `@wicklib/indicators`    | planned | free             |
-| `@wicklib/react`         | stubbed | free             |
-| `@wicklib/script`        | planned | free runtime     |
-| `@wicklib/script-editor` | planned | free             |
-| `@wicklib/pro`           | stubbed | commercial       |
+```sh
+pnpm add @wicklib/indicators
+```
 
-## Roadmap
+WickScript and its editor are separate opt-in packages.
 
-1. Foundation: toolchain, CI, API seams. Current.
-2. Core rendering: scales, series, interactions, datafeed.
-3. Indicators and drawings.
-4. WickScript runtime and editor.
-5. Commercial analytics in `@wicklib/pro`.
+## Render a chart
 
-## Installing
+```ts
+import { CandlestickSeries, createChart } from "@wicklib/core";
 
-Packages are not published yet. The first prerelease will be available under the `next`
-dist-tag.
+const chart = createChart(document.getElementById("chart")!, {
+  autoSize: true,
+  timeScale: { maxVisibleBars: 720 },
+});
+
+const series = chart.addSeries(CandlestickSeries, {
+  title: "BTC/USD",
+  upColor: "#26a69a",
+  downColor: "#ef5350",
+});
+
+series.setData([
+  { time: Date.UTC(2024, 0, 1), open: 100, high: 105, low: 95, close: 102 },
+  { time: Date.UTC(2024, 0, 2), open: 102, high: 108, low: 100, close: 106 },
+]);
+
+chart.timeScale().fitContent();
+```
+
+The container needs a measurable width and height. With `autoSize` enabled, Wicklib tracks it
+with a `ResizeObserver`.
+
+## Important: time is milliseconds
+
+All public time values are non-negative integer **milliseconds** since the Unix epoch. Convert
+exchange data that uses seconds before calling `setData`, `update`, or `setMarkers`.
+
+## Next
+
+- [Charts](/docs/charts)
+- [Series](/docs/series)
+- [Datafeeds](/docs/datafeeds)
+- [Drawings](/docs/drawings)

@@ -1,0 +1,60 @@
+---
+title: Migrating from lightweight-charts
+description: Map common lightweight-charts options, series, annotations, and screenshots.
+---
+
+Wicklib provides a compatibility mapper for the supported chart-option subset.
+
+```ts
+import { createChart, mapLightweightChartOptions } from "@wicklib/core";
+
+const chart = createChart(container, mapLightweightChartOptions(lightweightOptions));
+```
+
+## Key differences
+
+- Wicklib time values are **milliseconds**; lightweight-charts commonly uses seconds.
+- `addSeries(CandlestickSeries, options)` returns a Wicklib series API.
+- Price lines use `series.createPriceLine()`.
+- Markers use `series.setMarkers()` with one complete replacement array.
+- Screenshots use `chart.takeScreenshot()`.
+- Interaction options are explicit and chart-wide.
+- Unsupported price modes fail instead of silently changing meaning.
+
+## Price lines
+
+```ts
+series.createPriceLine({
+  price: 105,
+  color: "#10b981",
+  lineStyle: "dashed",
+  title: "Entry",
+  titlePosition: "plot",
+});
+```
+
+Use `titlePosition: "plot"` when the title should appear inside the chart instead of only in
+the price axis.
+
+## Markers
+
+```ts
+series.setMarkers([{ time: entryTimeMs, position: "belowBar", shape: "arrowUp", text: "Buy" }]);
+```
+
+Convert times to milliseconds and replace the full marker set on each update.
+
+## Screenshots
+
+```ts
+const canvas = chart.takeScreenshot();
+```
+
+The result includes all chart layers at the current device pixel ratio.
+
+## Options
+
+The mapper handles supported layout, grid, crosshair, price-scale, time-scale, locale, and
+interaction fields. Disabling either lightweight-charts wheel path disables Wicklib's
+chart-wide wheel handling. Unknown fields are ignored; unsupported price modes throw a typed
+error.
