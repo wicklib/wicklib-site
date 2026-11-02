@@ -17,7 +17,7 @@ Status: Phase 2 complete. Landing page, docs shell, usage guides, generated API 
 1. Version selector wired to Fumadocs; `v1` route from the first stable release.
 2. Changelog page generated from Changesets output.
 3. Search tuned for API symbols.
-4. Open Graph images and sitemap.
+4. [done] Open Graph image, sitemap, robots, and canonical metadata.
 
 ## Phase 4 — commercial surface
 

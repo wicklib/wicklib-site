@@ -3,7 +3,8 @@
 Landing page and documentation for [Wicklib](https://wicklib.com).
 
 **Status: Phase 2 complete.** Landing page, docs routes, usage guides, renderer documentation,
-generated API reference, live demo, and docs validation are in place.
+generated API reference, live demo, docs validation, sitemap, robots, and Open Graph metadata
+are in place.
 
 ## Development
 
