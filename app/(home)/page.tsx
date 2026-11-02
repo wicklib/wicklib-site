@@ -3,7 +3,7 @@ import Link from "next/link";
 const features = [
   {
     title: "Canvas-first",
-    body: "Layered Canvas2D rendering, four series types, panes, session-aware axes, and high-DPI export.",
+    body: "Layered Canvas2D with an experimental hybrid WebGL2 backend, four series types, panes, and high-DPI export.",
   },
   {
     title: "Typed API",

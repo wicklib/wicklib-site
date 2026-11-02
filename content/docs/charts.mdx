@@ -25,6 +25,18 @@ chart.destroy();
 The chart tracks size with `ResizeObserver` when `autoSize` is enabled. Call `resize()` when
 using a fixed-size container that changes outside CSS.
 
+## Renderers
+
+Canvas2D is the default. The experimental hybrid WebGL2 backend is available at creation:
+
+```ts
+const chart = createChart(container, { renderer: "webgl2" });
+```
+
+WebGL2 renders series and indicator geometry; text, axes, annotations, drawings, overlays,
+and crosshair remain on Canvas2D. Canvas2D is used automatically if WebGL2 is unavailable.
+See [Renderers](/docs/renderers) for the target workload and tradeoffs.
+
 ## Options
 
 Chart options cover:

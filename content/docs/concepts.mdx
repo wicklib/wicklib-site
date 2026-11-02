@@ -29,16 +29,19 @@ new one.
 
 ## Rendering
 
-Wicklib uses layered Canvas2D rendering:
+Wicklib uses a backend-neutral render model with layered rendering:
 
 1. Grid and axes
-2. Series
-3. Extension overlays
-4. Drawings
-5. Crosshair
+2. Series geometry
+3. Annotations
+4. Extension overlays
+5. Drawings
+6. Crosshair
 
-Each layer is redrawn independently. The renderer is internal; stable extension points are the
-public overlay and drawing APIs.
+Canvas2D is the default and reference backend. The hybrid WebGL2 backend renders dense series
+geometry in WebGL2 while keeping text, axes, annotations, drawings, overlays, and crosshair on
+Canvas2D. Each layer is redrawn independently. The public extension points remain the overlay
+and drawing APIs.
 
 ## Time scale and price scale
 

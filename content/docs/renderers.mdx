@@ -1,0 +1,78 @@
+---
+title: Renderers
+description: Canvas2D, the hybrid WebGL2 backend, fallback, and performance targets.
+---
+
+Wicklib separates the chart model from the renderer backend. The public chart API is the same
+for both backends.
+
+## Canvas2D
+
+Canvas2D is the default and reference backend. All chart layers render on layered 2D canvases.
+
+Use it unless you have a measured reason to opt into WebGL2.
+
+## Hybrid WebGL2
+
+The experimental WebGL2 backend renders dense series geometry in WebGL2 while keeping the
+rest of the chart on Canvas2D:
+
+**WebGL2**
+
+- Candles
+- Lines
+- Areas
+- Histograms
+- Indicator geometry
+
+**Canvas2D**
+
+- Background and grid
+- Axes and text
+- Price lines and markers
+- Legends and last values
+- Drawings
+- Extension overlays
+- Crosshair
+
+Enable it at chart creation:
+
+```ts
+const chart = createChart(container, {
+  autoSize: true,
+  renderer: "webgl2",
+});
+```
+
+Canvas2D remains the default. If WebGL2 initialization fails, the chart falls back to Canvas2D
+automatically.
+
+## Target workload
+
+The backend target is:
+
+- One million OHLC bars.
+- 60 fps pan and zoom on desktop hardware.
+- Four series.
+- Up to eight indicator panes.
+- DPR 2.
+- Interactive drawings and crosshair.
+
+The local 1M-bar WebGL baseline currently holds 60 fps with p95 around 33 ms. Canvas2D remains
+faster on fully aggregated views, which is why WebGL2 is opt-in while parity is validated.
+
+## Screenshots
+
+`takeScreenshot()` composites every layer, including the WebGL canvas, at backing-store
+resolution. It also flushes pending rendering first, so the screenshot matches the current
+chart state.
+
+## Choosing a backend
+
+- Start with Canvas2D.
+- Measure your actual dataset, zoom level, and interaction cost.
+- Try WebGL2 when dense series geometry becomes the bottleneck.
+- Do not switch solely because WebGL is newer.
+
+WebGL2 remains experimental until visual and interaction parity across all supported series,
+drawings, annotations, and themes is complete.

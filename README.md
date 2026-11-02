@@ -2,9 +2,8 @@
 
 Landing page and documentation for [Wicklib](https://wicklib.com).
 
-**Status: Phase 2 — documentation content.** The landing page, docs routes, and the first
-usage guides are in place. API-reference generation and the live demo follow once the target
-core release is published.
+**Status: Phase 2 — documentation content.** The landing page, docs routes, usage guides,
+and renderer documentation are in place. API-reference generation and the live demo remain.
 
 ## Development
 

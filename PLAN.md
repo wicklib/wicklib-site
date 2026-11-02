@@ -7,8 +7,8 @@ Status: Phase 2 in progress. Landing page, docs shell, and usage guides build.
 1. [done] Getting started, package overview, and installation expectations.
 2. [done] Core concepts, time model, renderer, and package boundaries.
 3. [in progress] API reference generated from the published `.d.ts`, not hand-written.
-4. [done] Guides: charts, series, datafeeds, drawings, themes, export, React, WickScript,
-   migration, and licensing.
+4. [done] Guides: charts, renderers, series, datafeeds, drawings, themes, export, React,
+   WickScript, migration, and licensing.
 5. [pending] Demo page pinned to an exact published core version.
 6. [pending] Link checking and heading anchors in CI.
 
