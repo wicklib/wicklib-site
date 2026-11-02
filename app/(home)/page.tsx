@@ -33,8 +33,17 @@ export default function HomePage() {
     <main className="flex-1">
       <header className="border-b border-neutral-200 dark:border-neutral-800">
         <div className="mx-auto flex max-w-5xl items-center justify-between px-6 py-4">
-          <Link href="/" className="text-sm font-semibold tracking-tight">
-            wicklib
+          <Link href="/" aria-label="Wicklib home" className="inline-flex items-center">
+            <img
+              src="/brand/wicklib-lockup-light.svg"
+              alt="Wicklib"
+              className="h-7 w-auto dark:hidden"
+            />
+            <img
+              src="/brand/wicklib-lockup-dark.svg"
+              alt="Wicklib"
+              className="hidden h-7 w-auto dark:block"
+            />
           </Link>
           <nav className="flex items-center gap-6 text-sm text-neutral-600 dark:text-neutral-300">
             <Link href="/docs" className="hover:text-neutral-950 dark:hover:text-white">

@@ -12,8 +12,18 @@ export default function DemoPage() {
     <main className="flex min-h-screen flex-col bg-neutral-50 text-neutral-950 dark:bg-neutral-950 dark:text-white">
       <header className="border-b border-neutral-200 dark:border-neutral-800">
         <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
-          <a href="/" className="text-sm font-semibold tracking-tight">
-            wicklib <span className="font-normal text-neutral-500">demo</span>
+          <a href="/" aria-label="Wicklib home" className="inline-flex items-center gap-3">
+            <img
+              src="/brand/wicklib-lockup-light.svg"
+              alt="Wicklib"
+              className="h-7 w-auto dark:hidden"
+            />
+            <img
+              src="/brand/wicklib-lockup-dark.svg"
+              alt="Wicklib"
+              className="hidden h-7 w-auto dark:block"
+            />
+            <span className="text-xs font-normal text-neutral-500">demo</span>
           </a>
           <nav className="flex items-center gap-6 text-sm text-neutral-600 dark:text-neutral-300">
             <a href="/docs" className="hover:text-neutral-950 dark:hover:text-white">

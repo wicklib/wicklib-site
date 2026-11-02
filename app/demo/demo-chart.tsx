@@ -7,6 +7,7 @@ import {
   LightTheme,
   createChart,
   type ChartApi,
+  type ChartOverlayApi,
   type OhlcData,
 } from "@wicklib/core";
 
@@ -28,6 +29,8 @@ function makeBars(): OhlcData[] {
 export function DemoChart() {
   const containerRef = useRef<HTMLDivElement | null>(null);
   const chartRef = useRef<ChartApi | null>(null);
+  const overlayRef = useRef<ChartOverlayApi | null>(null);
+  const logoRef = useRef<HTMLImageElement | null>(null);
   const [dark, setDark] = useState(true);
 
   useEffect(() => {
@@ -43,6 +46,37 @@ export function DemoChart() {
       timeScale: { rightOffset: 4, maxVisibleBars: 900 },
     });
     chartRef.current = chart;
+
+    const logo = new Image();
+    const setLogo = (source: string): void => {
+      logo.onload = () => overlayRef.current?.requestRender();
+      logo.src = source;
+    };
+    logoRef.current = logo;
+    setLogo("/brand/wicklib-logo-dark.svg");
+
+    const overlay = chart.addOverlay({
+      id: "wicklib-watermark",
+      draw(context, frame) {
+        const image = logoRef.current;
+        if (!image || !image.complete || image.naturalWidth === 0) {
+          return;
+        }
+        const width = 44;
+        const height = width * (image.naturalHeight / image.naturalWidth);
+        context.save();
+        context.globalAlpha = 0.5;
+        context.drawImage(
+          image,
+          frame.plot.left + 14,
+          frame.plot.bottom - height - 14,
+          width,
+          height,
+        );
+        context.restore();
+      },
+    });
+    overlayRef.current = overlay;
 
     const bars = makeBars();
     const series = chart.addSeries(CandlestickSeries, { title: "WICK/USD" });
@@ -81,6 +115,8 @@ export function DemoChart() {
 
     return () => {
       chartRef.current = null;
+      overlayRef.current = null;
+      logoRef.current = null;
       chart.destroy();
     };
   }, []);
@@ -90,6 +126,11 @@ export function DemoChart() {
       ...(dark ? DarkTheme : LightTheme),
       crosshair: { ...(dark ? DarkTheme : LightTheme).crosshair, mode: "magnet" },
     });
+    const logo = logoRef.current;
+    if (logo) {
+      logo.onload = () => overlayRef.current?.requestRender();
+      logo.src = dark ? "/brand/wicklib-logo-dark.svg" : "/brand/wicklib-logo-light.svg";
+    }
   }, [dark]);
 
   return (
