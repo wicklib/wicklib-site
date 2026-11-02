@@ -9,6 +9,7 @@
     "start": "next start",
     "typecheck": "tsc --noEmit",
     "api:generate": "node scripts/generate-api.mjs",
+    "docs:check": "node scripts/check-docs.mjs",
     "format": "prettier --write .",
     "format:check": "prettier --check ."
   },
@@ -31,6 +32,7 @@
     "@wicklib/react": "0.10.0",
     "@wicklib/script": "0.10.0",
     "@wicklib/script-editor": "0.10.0",
+    "github-slugger": "^2.0.0",
     "prettier": "^3.9.10",
     "tailwindcss": "^4.3.3",
     "typedoc": "^0.28.20",

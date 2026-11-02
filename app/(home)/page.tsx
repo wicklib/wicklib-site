@@ -40,6 +40,9 @@ export default function HomePage() {
             <Link href="/docs" className="hover:text-neutral-950 dark:hover:text-white">
               Docs
             </Link>
+            <Link href="/demo" className="hover:text-neutral-950 dark:hover:text-white">
+              Demo
+            </Link>
             <Link
               href="https://github.com/wicklib/wicklib"
               className="hover:text-neutral-950 dark:hover:text-white"
@@ -68,6 +71,12 @@ export default function HomePage() {
             className="rounded-md bg-neutral-950 px-5 py-3 text-sm font-medium text-white hover:bg-neutral-800 dark:bg-white dark:text-neutral-950 dark:hover:bg-neutral-200"
           >
             Read the docs
+          </Link>
+          <Link
+            href="/demo"
+            className="rounded-md border border-neutral-300 px-5 py-3 text-sm font-medium hover:border-neutral-950 dark:border-neutral-700 dark:hover:border-white"
+          >
+            Live demo
           </Link>
           <Link
             href="https://github.com/wicklib/wicklib"

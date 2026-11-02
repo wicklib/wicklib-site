@@ -2,8 +2,8 @@
 
 Landing page and documentation for [Wicklib](https://wicklib.com).
 
-**Status: Phase 2 — documentation content.** The landing page, docs routes, usage guides,
-renderer documentation, and generated API reference are in place. The live demo remains.
+**Status: Phase 2 complete.** Landing page, docs routes, usage guides, renderer documentation,
+generated API reference, live demo, and docs validation are in place.
 
 ## Development
 
@@ -18,6 +18,7 @@ pnpm dev
 pnpm build
 pnpm typecheck
 pnpm api:generate
+pnpm docs:check
 ```
 
 Build runs first because Next generates route types and `next-env.d.ts`.
@@ -25,9 +26,12 @@ Build runs first because Next generates route types and `next-env.d.ts`.
 ## Structure
 
 - `app/(home)` — landing page
+- `app/demo` — live chart pinned to the published core version
 - `app/docs` — Fumadocs documentation
-- `content/docs` — MDX source
+- `content/docs` — MDX source, including generated API pages
 - `lib/source.ts` — Fumadocs content source
+- `scripts/generate-api.mjs` — TypeDoc generation
+- `scripts/check-docs.mjs` — internal link and heading-anchor validation
 
 ## Deployment
 

@@ -1,6 +1,6 @@
 # wicklib-site — Implementation Plan
 
-Status: Phase 2 in progress. Landing page, docs shell, usage guides, and generated API reference build.
+Status: Phase 2 complete. Landing page, docs shell, usage guides, generated API reference, live demo, and docs validation build.
 
 ## Phase 2 — docs content
 
@@ -9,8 +9,8 @@ Status: Phase 2 in progress. Landing page, docs shell, usage guides, and generat
 3. [done] API reference generated from the published `.d.ts` with TypeDoc, not hand-written.
 4. [done] Guides: charts, renderers, series, datafeeds, drawings, themes, export, React,
    WickScript, migration, and licensing.
-5. [pending] Demo page pinned to an exact published core version.
-6. [pending] Link checking and heading anchors in CI.
+5. [done] Demo page pinned to exact `@wicklib/core@0.10.0`.
+6. [done] Internal link and heading-anchor validation in CI.
 
 ## Phase 3 — versioned docs
 

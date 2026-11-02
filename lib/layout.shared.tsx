@@ -11,6 +11,10 @@ export function baseOptions(): BaseLayoutProps {
         url: "/docs",
       },
       {
+        text: "Live demo",
+        url: "/demo",
+      },
+      {
         text: "GitHub",
         url: "https://github.com/wicklib/wicklib",
         external: true,
