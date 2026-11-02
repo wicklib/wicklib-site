@@ -1,0 +1,214 @@
+---
+title: "@wicklib/react API"
+description: "React chart wrapper and useChart."
+---
+
+## Interfaces
+
+### WickChartProps
+
+Props for [WickChart](#wickchart).
+
+Chart options are forwarded to createChart. Changes are applied with
+`chart.setOptions()`; changing `extensions` recreates the chart because extensions are
+snapshotted at creation.
+
+#### Extends
+
+- `ChartOptions`
+
+#### Properties
+
+##### autoSize?
+
+> `optional` **autoSize?**: `boolean`
+
+Track the container size. Defaults to true.
+
+###### Inherited from
+
+`ChartOptions.autoSize`
+
+##### children?
+
+> `optional` **children?**: `ReactNode`
+
+Overlay content rendered above the chart. Descendants can call [useChart](#usechart) to
+access the chart instance.
+
+##### className?
+
+> `optional` **className?**: `string`
+
+Class name applied to the wrapper element.
+
+##### crosshair?
+
+> `optional` **crosshair?**: `CrosshairOptions`
+
+###### Inherited from
+
+`ChartOptions.crosshair`
+
+##### extensions?
+
+> `optional` **extensions?**: readonly `WickExtension`[]
+
+Extensions snapshotted at creation. Cannot be changed later.
+
+###### Inherited from
+
+`ChartOptions.extensions`
+
+##### grid?
+
+> `optional` **grid?**: `GridOptions`
+
+###### Inherited from
+
+`ChartOptions.grid`
+
+##### height?
+
+> `optional` **height?**: `number`
+
+Fixed height when `autoSize` is false.
+
+###### Inherited from
+
+`ChartOptions.height`
+
+##### interaction?
+
+> `optional` **interaction?**: `InteractionOptions`
+
+###### Inherited from
+
+`ChartOptions.interaction`
+
+##### layout?
+
+> `optional` **layout?**: `LayoutOptions`
+
+###### Inherited from
+
+`ChartOptions.layout`
+
+##### locale?
+
+> `optional` **locale?**: `string`
+
+BCP-47 locale used for number and time formatting. Defaults to `en-US`.
+
+###### Inherited from
+
+`ChartOptions.locale`
+
+##### onChart?
+
+> `optional` **onChart?**: (`chart`) => `void`
+
+Called with each chart instance created by this component.
+
+###### Parameters
+
+###### chart
+
+`ChartApi`
+
+###### Returns
+
+`void`
+
+##### priceScale?
+
+> `optional` **priceScale?**: `PriceScaleOptions`
+
+###### Inherited from
+
+`ChartOptions.priceScale`
+
+##### renderer?
+
+> `optional` **renderer?**: `"canvas2d"` \| `"webgl2"`
+
+Rendering backend. Experimental; defaults to Canvas2D and falls back if WebGL2 fails.
+
+###### Inherited from
+
+`ChartOptions.renderer`
+
+##### style?
+
+> `optional` **style?**: `CSSProperties`
+
+Inline styles applied to the wrapper element.
+
+##### timeScale?
+
+> `optional` **timeScale?**: `TimeScaleOptions`
+
+###### Inherited from
+
+`ChartOptions.timeScale`
+
+##### timezone?
+
+> `optional` **timezone?**: `string`
+
+IANA time zone used for time labels. Defaults to `UTC`.
+
+###### Inherited from
+
+`ChartOptions.timezone`
+
+##### width?
+
+> `optional` **width?**: `number`
+
+Fixed width when `autoSize` is false.
+
+###### Inherited from
+
+`ChartOptions.width`
+
+## Functions
+
+### useChart()
+
+> **useChart**(): `ChartApi` \| `null`
+
+Returns the chart owned by the nearest [WickChart](#wickchart).
+
+Returns `null` until the chart has mounted. Throws when used outside a `WickChart`.
+
+#### Returns
+
+`ChartApi` \| `null`
+
+---
+
+### WickChart()
+
+> **WickChart**(`__namedParameters`): `ReactElement`
+
+Mounts a Wicklib chart and disposes it on unmount.
+
+Rendering is client-only: the chart is created in an effect, so server rendering emits
+only the container. Give the wrapper a measurable size through `className` or `style`.
+
+#### Parameters
+
+##### \_\_namedParameters
+
+[`WickChartProps`](#wickchartprops)
+
+#### Returns
+
+`ReactElement`
+
+#### Example
+
+```tsx
+<WickChart style={{ height: 420 }} autoSize />
+```

@@ -1,0 +1,115 @@
+---
+title: "@wicklib/script-editor API"
+description: "Monaco-based WickScript editor."
+---
+
+## Interfaces
+
+### ScriptEditor
+
+A mounted script editor.
+
+#### Methods
+
+##### dispose()
+
+> **dispose**(): `void`
+
+###### Returns
+
+`void`
+
+##### getValue()
+
+> **getValue**(): `string`
+
+###### Returns
+
+`string`
+
+##### setValue()
+
+> **setValue**(`value`): `void`
+
+###### Parameters
+
+###### value
+
+`string`
+
+###### Returns
+
+`void`
+
+---
+
+### ScriptEditorOptions
+
+Options for mounting the editor.
+
+#### Properties
+
+##### apiVersion?
+
+> `optional` **apiVersion?**: `number`
+
+WickScript API version the editor should type against.
+
+##### container
+
+> **container**: `HTMLElement`
+
+##### onChange?
+
+> `optional` **onChange?**: (`value`) => `void`
+
+###### Parameters
+
+###### value
+
+`string`
+
+###### Returns
+
+`void`
+
+##### onValidate?
+
+> `optional` **onValidate?**: (`error`) => `void`
+
+Called after each validation pass with the compiler error, or null when valid.
+
+###### Parameters
+
+###### error
+
+`ScriptError` \| `null`
+
+###### Returns
+
+`void`
+
+##### value?
+
+> `optional` **value?**: `string`
+
+## Functions
+
+### createScriptEditor()
+
+> **createScriptEditor**(`options`): [`ScriptEditor`](#scripteditor)
+
+Mounts a Monaco-based WickScript editor.
+
+The host must configure Monaco workers before creating an editor. See the README for the
+Vite setup.
+
+#### Parameters
+
+##### options
+
+[`ScriptEditorOptions`](#scripteditoroptions)
+
+#### Returns
+
+[`ScriptEditor`](#scripteditor)

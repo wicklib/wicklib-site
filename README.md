@@ -3,7 +3,7 @@
 Landing page and documentation for [Wicklib](https://wicklib.com).
 
 **Status: Phase 2 — documentation content.** The landing page, docs routes, usage guides,
-and renderer documentation are in place. API-reference generation and the live demo remain.
+renderer documentation, and generated API reference are in place. The live demo remains.
 
 ## Development
 
@@ -17,6 +17,7 @@ pnpm dev
 ```sh
 pnpm build
 pnpm typecheck
+pnpm api:generate
 ```
 
 Build runs first because Next generates route types and `next-env.d.ts`.
