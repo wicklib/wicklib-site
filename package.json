@@ -9,6 +9,7 @@
     "start": "next start",
     "typecheck": "tsc --noEmit",
     "api:generate": "node scripts/generate-api.mjs",
+    "changelog:generate": "node scripts/generate-changelog.mjs",
     "docs:check": "node scripts/check-docs.mjs",
     "format": "prettier --write .",
     "format:check": "prettier --check ."

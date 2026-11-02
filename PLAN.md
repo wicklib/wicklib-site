@@ -1,6 +1,7 @@
 # wicklib-site — Implementation Plan
 
-Status: Phase 2 complete. Landing page, docs shell, usage guides, generated API reference, live demo, and docs validation build.
+Status: Phase 3 in progress. Phase 2 is complete; generated changelogs and SEO metadata are
+implemented. Versioned docs and API-symbol search tuning remain.
 
 ## Phase 2 — docs content
 
@@ -15,7 +16,7 @@ Status: Phase 2 complete. Landing page, docs shell, usage guides, generated API 
 ## Phase 3 — versioned docs
 
 1. Version selector wired to Fumadocs; `v1` route from the first stable release.
-2. Changelog page generated from Changesets output.
+2. [done] Changelog pages generated from Changesets output.
 3. Search tuned for API symbols.
 4. [done] Open Graph image, sitemap, robots, and canonical metadata.
 

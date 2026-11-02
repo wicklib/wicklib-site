@@ -2,9 +2,8 @@
 
 Landing page and documentation for [Wicklib](https://wicklib.com).
 
-**Status: Phase 2 complete.** Landing page, docs routes, usage guides, renderer documentation,
-generated API reference, live demo, docs validation, sitemap, robots, and Open Graph metadata
-are in place.
+**Status: Phase 3 in progress.** Landing page, docs, API reference, live demo, docs validation,
+sitemap, robots, Open Graph metadata, and generated changelogs are in place.
 
 ## Development
 
@@ -19,6 +18,7 @@ pnpm dev
 pnpm build
 pnpm typecheck
 pnpm api:generate
+pnpm changelog:generate
 pnpm docs:check
 ```
 
