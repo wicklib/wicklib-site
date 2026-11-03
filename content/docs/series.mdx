@@ -38,6 +38,28 @@ series.update({ time: Date.now(), value: 104 });
 Multiple series can share a pane and price scale. Auto-scale combines their visible ranges.
 A histogram contributes its baseline to the range.
 
+## Price formatting
+
+Instrument precision is configured on the pane price scale:
+
+```ts
+const chart = createChart(container, {
+  priceScale: {
+    priceFormat: {
+      precision: 2,
+      minMove: 0.01,
+    },
+  },
+});
+
+series.priceScale().setOptions({ priceFormat: { precision: 4 } });
+const resolved = series.priceScale().getOptions();
+```
+
+`precision` controls displayed decimal places. When omitted, `minMove` determines precision.
+If neither is set, Wicklib infers it from generated ticks. The format applies to axes,
+crosshair, drawings, price lines, and last-value labels.
+
 ## Price lines
 
 ```ts

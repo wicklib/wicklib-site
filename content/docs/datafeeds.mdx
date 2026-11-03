@@ -32,6 +32,27 @@ Wicklib handles:
 - Realtime revisions.
 - Loading and error events.
 
+## Switching symbols and intervals
+
+Call `setDatafeed()` again to replace the feed. Wicklib stops the old subscription, aborts
+pending requests, clears loaded bars, and starts the replacement.
+
+```ts
+series.setDatafeed(feed, {
+  symbol: "ETH/USD",
+  interval: "5m",
+  initialView: "fit",
+});
+```
+
+`initialView` controls the time view after the first load:
+
+- `auto` — fit only when the host has not chosen a view.
+- `fit` — always fit the new data.
+- `preserve` — keep the current view.
+
+`getDatafeedOptions()` returns the active symbol, interval, bar count, and view mode.
+
 ## Realtime data
 
 The subscription receives one realtime point at a time. Use the same millisecond time base as

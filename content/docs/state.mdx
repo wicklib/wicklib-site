@@ -1,0 +1,43 @@
+---
+title: Workspace state
+description: Read chart state for host-owned persistence and layout restoration.
+---
+
+Wicklib does not persist application state. It exposes resolved state so the host can save it
+alongside application data.
+
+```ts
+const workspace = {
+  visibleRange: chart.timeScale().getVisibleRange(),
+  timeScale: chart.timeScale().getOptions(),
+  panes: chart.getPanes().map((pane) => ({
+    id: pane.id,
+    height: pane.getHeight(),
+    options: pane.getOptions(),
+  })),
+  series: {
+    id: series.id,
+    type: series.typeId,
+    options: series.getOptions(),
+    datafeed: series.getDatafeedOptions(),
+  },
+  indicator: {
+    inputs: indicator.getInputs(),
+    plot: indicator.getPlotOptions("line"),
+  },
+  drawings: chart.serializeDrawings(),
+};
+```
+
+## Restore
+
+Bar data, symbol lists, and indicator definitions remain host-owned. Restore by recreating the
+chart and series with the stored configuration, reattaching datafeeds, and calling
+`loadDrawings()`.
+
+```ts
+chart.loadDrawings(savedWorkspace.drawings);
+```
+
+`DrawingDocument` is versioned. Drawing anchors use data-space time and price, so restore them
+with the same instrument and timeframe.

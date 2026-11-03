@@ -51,6 +51,20 @@ Chart options cover:
 
 Runtime option patches use `chart.setOptions()`. Changes are merged with current values.
 
+## Price scales
+
+Price scales are linear by default. Switch every pane to logarithmic mode at runtime, or update
+a single pane through its series:
+
+```ts
+chart.setOptions({ priceScale: { mode: "logarithmic" } });
+series.priceScale().setOptions({ mode: "logarithmic" });
+```
+
+Logarithmic mode requires positive prices. Explicit non-positive ranges throw
+`INVALID_ARGUMENT`; auto-ranges containing non-positive values are ignored so the last valid
+range remains. Margins are applied in log space.
+
 ## Panes
 
 ```ts
