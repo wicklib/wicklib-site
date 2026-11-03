@@ -1,0 +1,367 @@
+---
+title: "@wicklib/layouts API"
+description: "Free multi-chart grid, synchronization, and layout state."
+---
+
+## Interfaces
+
+### ChartLayoutApi
+
+A live multi-chart layout.
+
+#### Properties
+
+##### element
+
+> `readonly` **element**: `HTMLElement`
+
+Layout root inserted into the host container.
+
+#### Methods
+
+##### activeChartId()
+
+> **activeChartId**(): `string` \| `null`
+
+Returns the active chart id, or null.
+
+###### Returns
+
+`string` \| `null`
+
+##### addChart()
+
+> **addChart**(`options?`): [`ChartLayoutSlot`](#chartlayoutslot)
+
+Adds a chart cell and returns its live slot.
+
+###### Parameters
+
+###### options?
+
+[`ChartLayoutSlotOptions`](#chartlayoutslotoptions)
+
+###### Returns
+
+[`ChartLayoutSlot`](#chartlayoutslot)
+
+##### chartIds()
+
+> **chartIds**(): readonly `string`[]
+
+Returns slot ids in DOM order.
+
+###### Returns
+
+readonly `string`[]
+
+##### destroy()
+
+> **destroy**(): `void`
+
+Destroys every chart and removes the layout root.
+
+###### Returns
+
+`void`
+
+##### getChart()
+
+> **getChart**(`id`): `ChartApi` \| `null`
+
+Returns a live chart, or null when the id is unknown.
+
+###### Parameters
+
+###### id
+
+`string`
+
+###### Returns
+
+`ChartApi` \| `null`
+
+##### getSlots()
+
+> **getSlots**(): readonly [`ChartLayoutSlot`](#chartlayoutslot)[]
+
+Returns the current slots in DOM order.
+
+###### Returns
+
+readonly [`ChartLayoutSlot`](#chartlayoutslot)[]
+
+##### onActiveChange()
+
+> **onActiveChange**(`handler`): `Unsubscribe`
+
+Subscribes to active chart changes.
+
+###### Parameters
+
+###### handler
+
+(`chartId`) => `void`
+
+###### Returns
+
+`Unsubscribe`
+
+##### removeChart()
+
+> **removeChart**(`id`): `void`
+
+Destroys and removes one chart cell.
+
+###### Parameters
+
+###### id
+
+`string`
+
+###### Returns
+
+`void`
+
+##### serialize()
+
+> **serialize**(): [`ChartLayoutSnapshot`](#chartlayoutsnapshot)
+
+Returns structural layout state for host persistence.
+
+###### Returns
+
+[`ChartLayoutSnapshot`](#chartlayoutsnapshot)
+
+##### setActiveChart()
+
+> **setActiveChart**(`id`): `void`
+
+Marks one chart as active. Pass null to clear.
+
+###### Parameters
+
+###### id
+
+`string` \| `null`
+
+###### Returns
+
+`void`
+
+##### setColumns()
+
+> **setColumns**(`columns`): `void`
+
+Changes the grid column count.
+
+###### Parameters
+
+###### columns
+
+`number`
+
+###### Returns
+
+`void`
+
+##### setGap()
+
+> **setGap**(`gap`): `void`
+
+Changes the cell gap in CSS pixels.
+
+###### Parameters
+
+###### gap
+
+`number`
+
+###### Returns
+
+`void`
+
+##### syncNow()
+
+> **syncNow**(): `void`
+
+Applies the active chart's visible range to every other chart.
+
+###### Returns
+
+`void`
+
+---
+
+### ChartLayoutOptions
+
+Options for a multi-chart layout.
+
+#### Properties
+
+##### chartOptions?
+
+> `optional` **chartOptions?**: `ChartOptions`
+
+Default chart options applied to every slot.
+
+##### className?
+
+> `optional` **className?**: `string`
+
+Extra class name on the layout root.
+
+##### columns?
+
+> `optional` **columns?**: `number`
+
+Number of grid columns. Defaults to 2.
+
+##### crosshairColor?
+
+> `optional` **crosshairColor?**: `string`
+
+Crosshair line colour.
+
+##### gap?
+
+> `optional` **gap?**: `number`
+
+Gap between cells in CSS pixels. Defaults to 1.
+
+##### onActiveChange?
+
+> `optional` **onActiveChange?**: (`chartId`) => `void`
+
+Called when the active chart changes.
+
+###### Parameters
+
+###### chartId
+
+`string` \| `null`
+
+###### Returns
+
+`void`
+
+##### syncCrosshair?
+
+> `optional` **syncCrosshair?**: `boolean`
+
+Synchronize the vertical crosshair time line. Defaults to true.
+
+##### syncTimeRange?
+
+> `optional` **syncTimeRange?**: `boolean`
+
+Synchronize visible time ranges. Defaults to true.
+
+---
+
+### ChartLayoutSlot
+
+One chart cell in a layout.
+
+#### Properties
+
+##### chart
+
+> `readonly` **chart**: `ChartApi`
+
+##### columnSpan
+
+> `readonly` **columnSpan**: `number`
+
+##### element
+
+> `readonly` **element**: `HTMLElement`
+
+##### id
+
+> `readonly` **id**: `string`
+
+##### rowSpan
+
+> `readonly` **rowSpan**: `number`
+
+---
+
+### ChartLayoutSlotOptions
+
+Options for a layout chart cell.
+
+#### Properties
+
+##### chartOptions?
+
+> `optional` **chartOptions?**: `ChartOptions`
+
+Chart options for this slot. Merged over the layout defaults.
+
+##### columnSpan?
+
+> `optional` **columnSpan?**: `number`
+
+Number of grid columns covered by the cell. Defaults to 1.
+
+##### id?
+
+> `optional` **id?**: `string`
+
+Stable slot id. Generated when omitted.
+
+##### rowSpan?
+
+> `optional` **rowSpan?**: `number`
+
+Number of grid rows covered by the cell. Defaults to 1.
+
+---
+
+### ChartLayoutSnapshot
+
+Serializable structural layout state. Chart state is owned by the host.
+
+#### Properties
+
+##### columns
+
+> **columns**: `number`
+
+##### gap
+
+> **gap**: `number`
+
+##### slots
+
+> **slots**: readonly `object`[]
+
+##### version
+
+> **version**: `1`
+
+## Functions
+
+### createChartLayout()
+
+> **createChartLayout**(`container`, `options?`): [`ChartLayoutApi`](#chartlayoutapi)
+
+Creates a framework-agnostic grid of Wicklib charts.
+
+The layout owns chart creation, grid placement, time-range synchronization, and a
+mirrored crosshair line. It does not own data, symbol state, accounts, or persistence.
+
+#### Parameters
+
+##### container
+
+`HTMLElement`
+
+##### options?
+
+[`ChartLayoutOptions`](#chartlayoutoptions)
+
+#### Returns
+
+[`ChartLayoutApi`](#chartlayoutapi)

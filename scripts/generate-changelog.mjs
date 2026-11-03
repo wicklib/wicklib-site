@@ -4,6 +4,7 @@ import { join } from "node:path";
 const packages = [
   { name: "core", packageName: "@wicklib/core", title: "@wicklib/core" },
   { name: "indicators", packageName: "@wicklib/indicators", title: "@wicklib/indicators" },
+  { name: "layouts", packageName: "@wicklib/layouts", title: "@wicklib/layouts" },
   { name: "react", packageName: "@wicklib/react", title: "@wicklib/react" },
   { name: "script", packageName: "@wicklib/script", title: "@wicklib/script" },
   { name: "script-editor", packageName: "@wicklib/script-editor", title: "@wicklib/script-editor" },

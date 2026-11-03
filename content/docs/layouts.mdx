@@ -1,0 +1,116 @@
+---
+title: Multi-chart layouts
+description: Free grids, synchronized time ranges, and mirrored crosshairs.
+---
+
+`@wicklib/layouts` is the free companion package for multiple Wicklib charts. It is separate
+from `@wicklib/core` so core stays focused on a single chart.
+
+```sh
+pnpm add @wicklib/core@0.12.0 @wicklib/layouts@0.12.0
+```
+
+## Create a layout
+
+```ts
+import { CandlestickSeries } from "@wicklib/core";
+import { createChartLayout } from "@wicklib/layouts";
+
+const layout = createChartLayout(container, {
+  columns: 2,
+  gap: 8,
+  chartOptions: { autoSize: true },
+});
+
+const primary = layout.addChart({ id: "primary" });
+const comparison = layout.addChart({ id: "comparison" });
+
+primary.chart.addSeries(CandlestickSeries).setData(primaryBars);
+comparison.chart.addSeries(CandlestickSeries).setData(comparisonBars);
+
+layout.setActiveChart(primary.id);
+```
+
+The host container must have a measurable height. The layout creates a CSS grid and fills it.
+
+## Synchronization
+
+Time-range and vertical crosshair synchronization are enabled by default.
+
+```ts
+const layout = createChartLayout(container, {
+  columns: 2,
+  syncTimeRange: true,
+  syncCrosshair: true,
+});
+```
+
+- `visible-range` events update every other chart.
+- A guard prevents recursive synchronization.
+- The mirrored crosshair is a vertical time line. The hovered chart keeps its native crosshair.
+- Incompatible data ranges are ignored per chart.
+
+Disable either behavior with `syncTimeRange: false` or `syncCrosshair: false`.
+
+## Slots and active chart
+
+```ts
+layout.chartIds();
+layout.getSlots();
+layout.getChart("primary");
+layout.onActiveChange((id) => console.log(id));
+```
+
+Each slot exposes its chart, element, id, row span, and column span. The active cell receives
+`data-active="true"`:
+
+```css
+.wicklib-chart-layout__cell[data-active="true"] {
+  outline: 1px solid #5b8cff;
+  outline-offset: -1px;
+}
+```
+
+## Persistence
+
+```ts
+const snapshot = layout.serialize();
+```
+
+`serialize()` returns only structural layout state:
+
+```json
+{
+  "version": 1,
+  "columns": 2,
+  "gap": 8,
+  "slots": [
+    { "id": "primary", "rowSpan": 1, "columnSpan": 1 },
+    { "id": "comparison", "rowSpan": 1, "columnSpan": 1 }
+  ]
+}
+```
+
+Chart state, symbol metadata, datafeeds, drawings, and user preferences remain host-owned.
+
+## Boundaries
+
+Free:
+
+- Grid and spans
+- Multiple chart instances
+- Time-range synchronization
+- Mirrored vertical crosshair
+- Active chart
+- Structural snapshots
+
+Host-owned:
+
+- Persistence and accounts
+- Symbol/timeframe state
+- Data transport
+- Drag-and-drop docking
+- Product menus and layout UI
+- Free/paid decisions for the host product
+
+Basic panes and layouts are not Pro features.

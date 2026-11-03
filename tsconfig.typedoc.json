@@ -3,6 +3,7 @@
   "include": [
     "node_modules/@wicklib/core/dist/index.d.ts",
     "node_modules/@wicklib/indicators/dist/index.d.ts",
+    "node_modules/@wicklib/layouts/dist/index.d.ts",
     "node_modules/@wicklib/react/dist/index.d.ts",
     "node_modules/@wicklib/script/dist/index.d.ts",
     "node_modules/@wicklib/script-editor/dist/index.d.ts"

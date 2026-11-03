@@ -16,6 +16,12 @@ const packages = [
     description: "Built-in indicator definitions.",
   },
   {
+    name: "layouts",
+    packageName: "@wicklib/layouts",
+    title: "@wicklib/layouts API",
+    description: "Free multi-chart grid, synchronization, and layout state.",
+  },
+  {
     name: "react",
     packageName: "@wicklib/react",
     title: "@wicklib/react API",
