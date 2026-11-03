@@ -35,22 +35,54 @@ The host container must have a measurable height. The layout creates a CSS grid 
 
 ## Synchronization
 
-Time-range and vertical crosshair synchronization are enabled by default.
+Time-range and crosshair synchronization are enabled by default.
 
 ```ts
 const layout = createChartLayout(container, {
   columns: 2,
-  syncTimeRange: true,
-  syncCrosshair: true,
+  sync: {
+    timeRange: true,
+    crosshair: "time",
+  },
 });
 ```
 
-- `visible-range` events update every other chart.
+Crosshair modes:
+
+- `off` — no crosshair sync.
+- `time` — mirror the vertical time line.
+- `full` — mirror the vertical time line plus a horizontal line at the same relative pane height.
+
+Change synchronization without recreating charts:
+
+```ts
+layout.setSyncOptions({
+  timeRange: false,
+  crosshair: "full",
+});
+
+layout.getSyncOptions();
+```
+
+Boolean crosshair values remain supported: `true` maps to `time`, `false` to `off`.
+
+- `visible-range` events update every chart in the same sync group.
 - A guard prevents recursive synchronization.
-- The mirrored crosshair is a vertical time line. The hovered chart keeps its native crosshair.
+- The hovered chart keeps its native crosshair; other charts receive an overlay.
 - Incompatible data ranges are ignored per chart.
 
-Disable either behavior with `syncTimeRange: false` or `syncCrosshair: false`.
+## Sync groups
+
+Cells only synchronize with cells in the same group. The default group is `default`.
+
+```ts
+layout.addChart({ id: "btc", syncGroup: "crypto" });
+layout.addChart({ id: "eth", syncGroup: "crypto" });
+layout.addChart({ id: "spx", syncGroup: "equities" });
+```
+
+`btc` and `eth` share time ranges and crosshair state; `spx` stays independent.
+`syncNow()` also respects the active chart’s group.
 
 ## Slots and active chart
 
@@ -84,9 +116,13 @@ const snapshot = layout.serialize();
   "version": 1,
   "columns": 2,
   "gap": 8,
+  "sync": {
+    "timeRange": true,
+    "crosshair": "time"
+  },
   "slots": [
-    { "id": "primary", "rowSpan": 1, "columnSpan": 1 },
-    { "id": "comparison", "rowSpan": 1, "columnSpan": 1 }
+    { "id": "primary", "rowSpan": 1, "columnSpan": 1, "syncGroup": "default" },
+    { "id": "comparison", "rowSpan": 1, "columnSpan": 1, "syncGroup": "default" }
   ]
 }
 ```
@@ -100,7 +136,9 @@ Free:
 - Grid and spans
 - Multiple chart instances
 - Time-range synchronization
-- Mirrored vertical crosshair
+- Vertical or full crosshair modes
+- Runtime sync changes
+- Sync groups
 - Active chart
 - Structural snapshots
 

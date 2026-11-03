@@ -34,7 +34,7 @@ export default function DemoPage() {
       <section className="mx-auto w-full max-w-6xl flex-1 px-6 py-10">
         <div className="max-w-2xl">
           <p className="text-xs font-medium uppercase tracking-[0.18em] text-neutral-500">
-            Live demo · pinned to @wicklib/core 0.12.0
+            Live demo · pinned to @wicklib/core 0.13.0
           </p>
           <h1 className="mt-3 text-3xl font-semibold tracking-tight">
             Candles, annotations, and interaction from the published package.

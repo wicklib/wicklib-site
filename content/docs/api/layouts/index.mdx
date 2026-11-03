@@ -91,6 +91,16 @@ Returns the current slots in DOM order.
 
 readonly [`ChartLayoutSlot`](#chartlayoutslot)[]
 
+##### getSyncOptions()
+
+> **getSyncOptions**(): `Readonly`\<[`ChartLayoutSyncOptions`](#chartlayoutsyncoptions)\>
+
+Returns the resolved synchronization behavior.
+
+###### Returns
+
+`Readonly`\<[`ChartLayoutSyncOptions`](#chartlayoutsyncoptions)\>
+
 ##### onActiveChange()
 
 > **onActiveChange**(`handler`): `Unsubscribe`
@@ -181,11 +191,27 @@ Changes the cell gap in CSS pixels.
 
 `void`
 
+##### setSyncOptions()
+
+> **setSyncOptions**(`options`): `void`
+
+Changes synchronization behavior without recreating charts.
+
+###### Parameters
+
+###### options
+
+[`ChartLayoutSyncUpdate`](#chartlayoutsyncupdate)
+
+###### Returns
+
+`void`
+
 ##### syncNow()
 
 > **syncNow**(): `void`
 
-Applies the active chart's visible range to every other chart.
+Applies the active chart's visible range to every chart in its sync group.
 
 ###### Returns
 
@@ -245,11 +271,17 @@ Called when the active chart changes.
 
 `void`
 
+##### sync?
+
+> `optional` **sync?**: [`ChartLayoutSyncUpdate`](#chartlayoutsyncupdate)
+
+Synchronization options.
+
 ##### syncCrosshair?
 
-> `optional` **syncCrosshair?**: `boolean`
+> `optional` **syncCrosshair?**: `boolean` \| [`ChartLayoutCrosshairMode`](#chartlayoutcrosshairmode)
 
-Synchronize the vertical crosshair time line. Defaults to true.
+Crosshair synchronization. Defaults to `time`.
 
 ##### syncTimeRange?
 
@@ -285,6 +317,10 @@ One chart cell in a layout.
 
 > `readonly` **rowSpan**: `number`
 
+##### syncGroup
+
+> `readonly` **syncGroup**: `string`
+
 ---
 
 ### ChartLayoutSlotOptions
@@ -317,6 +353,12 @@ Stable slot id. Generated when omitted.
 
 Number of grid rows covered by the cell. Defaults to 1.
 
+##### syncGroup?
+
+> `optional` **syncGroup?**: `string`
+
+Synchronization group. Slots only sync with slots in the same group.
+
 ---
 
 ### ChartLayoutSnapshot
@@ -337,9 +379,64 @@ Serializable structural layout state. Chart state is owned by the host.
 
 > **slots**: readonly `object`[]
 
+##### sync
+
+> **sync**: [`ChartLayoutSyncOptions`](#chartlayoutsyncoptions)
+
 ##### version
 
 > **version**: `1`
+
+---
+
+### ChartLayoutSyncOptions
+
+Resolved synchronization behavior for a layout.
+
+#### Properties
+
+##### crosshair
+
+> **crosshair**: [`ChartLayoutCrosshairMode`](#chartlayoutcrosshairmode)
+
+Crosshair synchronization mode.
+
+##### timeRange
+
+> **timeRange**: `boolean`
+
+Synchronize visible time ranges.
+
+---
+
+### ChartLayoutSyncUpdate
+
+Partial synchronization update. Boolean crosshair values map to `time` and `off`.
+
+#### Properties
+
+##### crosshair?
+
+> `optional` **crosshair?**: `boolean` \| [`ChartLayoutCrosshairMode`](#chartlayoutcrosshairmode)
+
+Crosshair synchronization mode.
+
+##### timeRange?
+
+> `optional` **timeRange?**: `boolean`
+
+Synchronize visible time ranges.
+
+## Type Aliases
+
+### ChartLayoutCrosshairMode
+
+> **ChartLayoutCrosshairMode** = `"off"` \| `"time"` \| `"full"`
+
+Crosshair synchronization mode.
+
+`time` mirrors the vertical time line. `full` also mirrors a horizontal line at the same
+relative pane height.
 
 ## Functions
 
@@ -350,7 +447,7 @@ Serializable structural layout state. Chart state is owned by the host.
 Creates a framework-agnostic grid of Wicklib charts.
 
 The layout owns chart creation, grid placement, time-range synchronization, and a
-mirrored crosshair line. It does not own data, symbol state, accounts, or persistence.
+mirrored crosshair. It does not own data, symbol state, accounts, or persistence.
 
 #### Parameters
 
