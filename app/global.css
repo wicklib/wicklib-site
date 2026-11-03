@@ -4,6 +4,8 @@
 @import "@fontsource/space-grotesk/500.css";
 @import "@fontsource/space-grotesk/700.css";
 @import "@fontsource-variable/geist-mono/index.css";
+@custom-variant dark (&:where(.dark, .dark *));
+
 @import "tailwindcss";
 @import "fumadocs-ui/css/neutral.css";
 @import "fumadocs-ui/css/preset.css";

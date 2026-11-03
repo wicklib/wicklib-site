@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 
+import { Wordmark } from "@/components/wordmark";
+
 import { DemoChart } from "./demo-chart";
 
 export const metadata: Metadata = {
@@ -13,16 +15,7 @@ export default function DemoPage() {
       <header className="border-b border-neutral-200 dark:border-neutral-800">
         <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
           <a href="/" aria-label="Wicklib home" className="inline-flex items-center gap-3">
-            <img
-              src="/brand/wicklib-lockup-light.svg"
-              alt="Wicklib"
-              className="h-7 w-auto dark:hidden"
-            />
-            <img
-              src="/brand/wicklib-lockup-dark.svg"
-              alt="Wicklib"
-              className="hidden h-7 w-auto dark:block"
-            />
+            <Wordmark className="h-7" />
             <span className="text-xs font-normal text-neutral-500">demo</span>
           </a>
           <nav className="flex items-center gap-6 text-sm text-neutral-600 dark:text-neutral-300">
@@ -41,7 +34,7 @@ export default function DemoPage() {
       <section className="mx-auto w-full max-w-6xl flex-1 px-6 py-10">
         <div className="max-w-2xl">
           <p className="text-xs font-medium uppercase tracking-[0.18em] text-neutral-500">
-            Live demo · pinned to @wicklib/core 0.10.0
+            Live demo · pinned to @wicklib/core 0.11.0
           </p>
           <h1 className="mt-3 text-3xl font-semibold tracking-tight">
             Candles, annotations, and interaction from the published package.
