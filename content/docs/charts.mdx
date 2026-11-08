@@ -74,7 +74,8 @@ chart.setOptions({
 `layout.fontSize`. `axisLineColor` falls back to the price and time grid line colours
 respectively. Axis text styling covers axis ticks, last-value labels, and price-line axis labels;
 it does not affect the legend, drawings, or plot text. Crosshair price/time boxes use the same
-chart-aware contrast surface as stats boxes, with automatic text contrast. Axis borders only use
+canvas-aware contrast surface as stats boxes: the stronger of a light or dark neutral box is
+selected against the actual chart background, with matching contrast text. Axis borders only use
 `axisLineColor` while their `borderVisible` option is enabled.
 
 ## Price scales
