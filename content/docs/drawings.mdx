@@ -42,6 +42,7 @@ drawing.setOptions({
   priceLabels: "selected",
   timeLabels: "selected",
   stats: "selected",
+  statsFields: ["range", "change"],
   statsPosition: "auto",
 });
 ```
@@ -54,6 +55,9 @@ drawing.setOptions({
 - Price labels render endpoint prices on the price axis. Time labels render endpoint times on the
   time axis and skip anchors outside the visible plot.
 - `stats` is `off`, `selected`, or `always`.
+- `statsFields` orders the visible stats. Fields are `range`, `change`, `bars`, `date`,
+  `timeRange`, and `angle`. Omit it to keep the built-in set. `date` is date-only; `timeRange`
+  includes hours/minutes and seconds when the time scale shows seconds.
 - `statsPosition` is `auto`, `left`, `center`, or `right`. Left follows the start anchor, center
   follows the midpoint, and right follows the end anchor. Use start/end only for non-straight
   tools such as Elliott waves.

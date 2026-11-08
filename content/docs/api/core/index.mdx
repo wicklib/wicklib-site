@@ -1673,6 +1673,13 @@ Draw a small dot at the midpoint of a trend line.
 
 Show a stats box. Defaults to off.
 
+##### statsFields?
+
+> `optional` **statsFields?**: readonly [`DrawingStatsField`](#drawingstatsfield)[]
+
+Fields shown in the stats box, in display order. Omit to keep the built-in set:
+range, change, bars, date, and angle where available.
+
 ##### statsPosition?
 
 > `optional` **statsPosition?**: [`DrawingStatsPosition`](#drawingstatsposition)
@@ -3968,9 +3975,17 @@ How `selectDrawing` changes the current selection.
 
 ### DrawingSetting
 
-> **DrawingSetting** = `"color"` \| `"lineWidth"` \| `"lineStyle"` \| `"fillColor"` \| `"fillOpacity"` \| `"showLabels"` \| `"labelPlacement"` \| `"labelFontSize"` \| `"labelBackgroundVisible"` \| `"showLine"` \| `"extendLeft"` \| `"extendRight"` \| `"showMidpoint"` \| `"priceLabels"` \| `"timeLabels"` \| `"stats"` \| `"statsPosition"` \| `"text"` \| `"textColor"` \| `"textStyle"` \| `"textAlign"` \| `"textVerticalAlign"` \| `"fontSize"` \| `"locked"` \| `"visible"`
+> **DrawingSetting** = `"color"` \| `"lineWidth"` \| `"lineStyle"` \| `"fillColor"` \| `"fillOpacity"` \| `"showLabels"` \| `"labelPlacement"` \| `"labelFontSize"` \| `"labelBackgroundVisible"` \| `"showLine"` \| `"extendLeft"` \| `"extendRight"` \| `"showMidpoint"` \| `"priceLabels"` \| `"timeLabels"` \| `"stats"` \| `"statsFields"` \| `"statsPosition"` \| `"text"` \| `"textColor"` \| `"textStyle"` \| `"textAlign"` \| `"textVerticalAlign"` \| `"fontSize"` \| `"locked"` \| `"visible"`
 
 A setting that can be edited for a drawing tool.
+
+***
+
+### DrawingStatsField
+
+> **DrawingStatsField** = `"range"` \| `"change"` \| `"bars"` \| `"date"` \| `"timeRange"` \| `"angle"`
+
+One value shown in a drawing stats box.
 
 ***
 
