@@ -56,8 +56,9 @@ drawing.setOptions({
   time axis and skip anchors outside the visible plot.
 - `stats` is `off`, `selected`, or `always`.
 - `statsFields` orders the visible stats. Fields are `range`, `change`, `bars`, `date`,
-  `timeRange`, and `angle`. Omit it to keep the built-in set. `date` is date-only; `timeRange`
-  includes hours/minutes and seconds when the time scale shows seconds.
+  `timeRange`, `duration`, and `angle`. Omit it to keep the built-in set. `date` is date-only;
+  `timeRange` includes hours/minutes and seconds when the time scale shows seconds. `duration`
+  shows the elapsed first-to-last anchor span in compact units, such as `2h 15m` or `3d 4h`.
 - `statsPosition` is `auto`, `left`, `center`, or `right`. Left follows the start anchor, center
   follows the midpoint, and right follows the end anchor. Use start/end only for non-straight
   tools such as Elliott waves.
