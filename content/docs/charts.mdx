@@ -72,9 +72,10 @@ chart.setOptions({
 
 `axisTextColor` falls back to `layout.textColor`, and `axisFontSize` falls back to
 `layout.fontSize`. `axisLineColor` falls back to the price and time grid line colours
-respectively. Axis text styling covers axis ticks, crosshair labels, last-value labels, and
-price-line axis labels; it does not affect the legend, drawings, or plot text. Axis borders only
-use `axisLineColor` while their `borderVisible` option is enabled.
+respectively. Axis text styling covers axis ticks, last-value labels, and price-line axis labels;
+it does not affect the legend, drawings, or plot text. Crosshair price/time boxes use the same
+chart-aware contrast surface as stats boxes, with automatic text contrast. Axis borders only use
+`axisLineColor` while their `borderVisible` option is enabled.
 
 ## Price scales
 
