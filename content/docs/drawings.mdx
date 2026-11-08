@@ -17,8 +17,8 @@ The built-in catalog includes:
 - Gann: Gann fan.
 - Speed: speed lines.
 - Shapes: rectangle and circle.
-- Positions: long/short position.
-- Ranges: price/date range.
+- Positions: long position, short position, and legacy long/short position.
+- Ranges: price range, time range, and date/price range.
 - Patterns: Elliott impulse, correction, triangle, double combo, and triple combo.
 - Freehand: brush, highlighter, and path.
 - Text.
@@ -66,6 +66,64 @@ drawing.setOptions({
   The box has no border and selects a light or dark surface automatically for chart contrast.
 - Text supports normal/bold/italic styles and top/middle/bottom vertical alignment. Horizontal
   left/right places text outside the start/end anchor; center places it at the midpoint.
+
+## Position drawings
+
+`LongPosition` and `ShortPosition` place with one click. The initial setup uses recent volatility
+(ATR) for the stop and a 1:2 target ratio:
+
+```ts
+const position = chart.addDrawing(LongPosition, {
+  anchors: [{ time, price: entryPrice }],
+  options: {
+    stopColor: "#ef5350",
+    targetColor: "#26a69a",
+    labelTextColor: "#ffffff",
+    stats: "selected",
+    statsFields: ["riskReward"],
+  },
+});
+```
+
+The generated drawing has four draggable anchors: entry, stop, target, and right edge. Drag the
+right edge to change the width; the position is not extended to the chart edge. Stop and target
+zones are filled without borders, and only the entry line remains. Stop/entry/profit labels use
+their zone colours; label and axis text contrast is selected automatically unless
+`labelTextColor` is set.
+
+Position stats include `risk`, `reward`, `riskReward`, `riskPercent`, and `rewardPercent`.
+Axis price labels use `priceLabels: "always"` by default.
+
+## Range drawings
+
+`PriceRangeDrawing`, `TimeRangeDrawing`, and `PriceDateRange` use two draggable anchors and a
+shared settings model:
+
+```ts
+chart.addDrawing(TimeRangeDrawing, {
+  anchors: [
+    { time: startTime, price: lowPrice },
+    { time: endTime, price: highPrice },
+  ],
+  options: {
+    color: "#787b86",
+    fillColor: "#787b86",
+    fillOpacity: 0.1,
+    extendTop: true,
+    extendBottom: true,
+    statsFields: ["bars", "timeRange", "volume"],
+  },
+});
+```
+
+Range settings include line colour/style, fill colour/opacity, `extend` plus individual
+`extendTop`, `extendBottom`, `extendLeft`, and `extendRight`, and `labelTextColor` /
+`labelFontSize`. Price Range extends left/right by default; Time Range extends top/bottom by
+default; Date and Price Range is bounded by default.
+
+Range info boxes show bars, date/time range, price range where relevant, and OHLC volume when
+available. Volume is summed from the first visible OHLC series with volume and formatted
+compactly.
 
 ## Label styling
 

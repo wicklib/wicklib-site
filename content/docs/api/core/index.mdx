@@ -1585,17 +1585,35 @@ Drawing style and state options.
 
 > `optional` **color?**: `string` \| `null`
 
+##### extend?
+
+> `optional` **extend?**: `boolean`
+
+Extend a drawing beyond all four anchor edges.
+
+##### extendBottom?
+
+> `optional` **extendBottom?**: `boolean`
+
+Extend beyond the bottom price edge.
+
 ##### extendLeft?
 
 > `optional` **extendLeft?**: `boolean`
 
-Extend a trend line beyond its first anchor.
+Extend beyond the first/left edge.
 
 ##### extendRight?
 
 > `optional` **extendRight?**: `boolean`
 
-Extend a trend line beyond its second anchor.
+Extend beyond the second/right edge.
+
+##### extendTop?
+
+> `optional` **extendTop?**: `boolean`
+
+Extend beyond the top price edge.
 
 ##### fillColor?
 
@@ -1634,6 +1652,12 @@ Label placement relative to its anchor. Defaults to `auto`.
 > `optional` **labels?**: readonly `string`[]
 
 Custom label sequence for drawing tools that render one label per anchor.
+
+##### labelTextColor?
+
+> `optional` **labelTextColor?**: `string` \| `null`
+
+Optional label text colour. Defaults to automatic contrast.
 
 ##### lineStyle?
 
@@ -1687,6 +1711,18 @@ range, change, bars, date, and angle where available.
 > `optional` **statsPosition?**: [`DrawingStatsPosition`](#drawingstatsposition)
 
 Stats box horizontal placement. Defaults to auto.
+
+##### stopColor?
+
+> `optional` **stopColor?**: `string` \| `null`
+
+Stop/loss colour for position drawings.
+
+##### targetColor?
+
+> `optional` **targetColor?**: `string` \| `null`
+
+Win/target colour for position drawings.
 
 ##### text?
 
@@ -1765,7 +1801,7 @@ Number of anchors required to create the drawing.
 
 ##### capture?
 
-> `readonly` `optional` **capture?**: `"freehand"` \| `"anchors"` \| `"path"`
+> `readonly` `optional` **capture?**: `"freehand"` \| `"anchors"` \| `"path"` \| `"position"`
 
 How anchors are collected. Defaults to discrete clicks.
 
@@ -3995,7 +4031,7 @@ How `selectDrawing` changes the current selection.
 
 ### DrawingSetting
 
-> **DrawingSetting** = `"color"` \| `"lineWidth"` \| `"lineStyle"` \| `"fillColor"` \| `"fillOpacity"` \| `"showLabels"` \| `"labelPlacement"` \| `"labelFontSize"` \| `"labelBackgroundVisible"` \| `"showLine"` \| `"extendLeft"` \| `"extendRight"` \| `"showMidpoint"` \| `"priceLabels"` \| `"timeLabels"` \| `"stats"` \| `"statsFields"` \| `"statsPosition"` \| `"text"` \| `"textColor"` \| `"textStyle"` \| `"textAlign"` \| `"textVerticalAlign"` \| `"fontSize"` \| `"locked"` \| `"visible"`
+> **DrawingSetting** = `"color"` \| `"lineWidth"` \| `"lineStyle"` \| `"fillColor"` \| `"fillOpacity"` \| `"showLabels"` \| `"labelPlacement"` \| `"labelFontSize"` \| `"labelBackgroundVisible"` \| `"showLine"` \| `"extendLeft"` \| `"extendRight"` \| `"showMidpoint"` \| `"priceLabels"` \| `"timeLabels"` \| `"stopColor"` \| `"targetColor"` \| `"extend"` \| `"extendTop"` \| `"extendBottom"` \| `"labelTextColor"` \| `"stats"` \| `"statsFields"` \| `"statsPosition"` \| `"text"` \| `"textColor"` \| `"textStyle"` \| `"textAlign"` \| `"textVerticalAlign"` \| `"fontSize"` \| `"locked"` \| `"visible"`
 
 A setting that can be edited for a drawing tool.
 
@@ -4003,7 +4039,7 @@ A setting that can be edited for a drawing tool.
 
 ### DrawingStatsField
 
-> **DrawingStatsField** = `"range"` \| `"change"` \| `"bars"` \| `"date"` \| `"timeRange"` \| `"duration"` \| `"angle"`
+> **DrawingStatsField** = `"range"` \| `"change"` \| `"bars"` \| `"date"` \| `"timeRange"` \| `"duration"` \| `"volume"` \| `"angle"` \| `"risk"` \| `"reward"` \| `"riskReward"` \| `"riskPercent"` \| `"rewardPercent"`
 
 One value shown in a drawing stats box.
 
@@ -4403,6 +4439,12 @@ Built-in line series token.
 
 ***
 
+### LongPosition
+
+> `const` **LongPosition**: [`DrawingToolDefinition`](#drawingtooldefinition)
+
+***
+
 ### LongShortPosition
 
 > `const` **LongShortPosition**: [`DrawingToolDefinition`](#drawingtooldefinition)
@@ -4445,6 +4487,12 @@ Built-in line series token.
 
 ***
 
+### PriceRangeDrawing
+
+> `const` **PriceRangeDrawing**: [`DrawingToolDefinition`](#drawingtooldefinition)
+
+***
+
 ### Ray
 
 > `const` **Ray**: [`DrawingToolDefinition`](#drawingtooldefinition)
@@ -4469,6 +4517,12 @@ Built-in line series token.
 
 ***
 
+### ShortPosition
+
+> `const` **ShortPosition**: [`DrawingToolDefinition`](#drawingtooldefinition)
+
+***
+
 ### SpeedLines
 
 > `const` **SpeedLines**: [`DrawingToolDefinition`](#drawingtooldefinition)
@@ -4484,6 +4538,12 @@ Built-in line series token.
 ### Text
 
 > `const` **Text**: [`DrawingToolDefinition`](#drawingtooldefinition)
+
+***
+
+### TimeRangeDrawing
+
+> `const` **TimeRangeDrawing**: [`DrawingToolDefinition`](#drawingtooldefinition)
 
 ***
 
