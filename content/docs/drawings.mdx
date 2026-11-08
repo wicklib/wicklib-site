@@ -27,6 +27,33 @@ The built-in catalog includes:
 Use `DRAWING_TOOL_CATALOG` to build host menus. It provides tool definitions, categories, and
 the applicable settings for each tool.
 
+## Drawing presentation
+
+Theme-aware colors and drawing presentation are configured per drawing:
+
+```ts
+drawing.setOptions({
+  color: "theme",
+  fillColor: null,
+  showLine: true,
+  extendLeft: true,
+  extendRight: true,
+  showMidpoint: true,
+  priceLabels: "selected",
+  stats: "selected",
+  statsPosition: "auto",
+});
+```
+
+- `"theme"` resolves to the chart layout text color. `""` and `null` clear color overrides.
+- `showLine: false` hides line geometry while keeping labels, text, and stats.
+- Trend lines support left/right extension, midpoint dots, endpoint axis labels, and styled text.
+- `priceLabels` is `never`, `selected`, or `always`.
+- `stats` is `off`, `selected`, or `always`.
+- `statsPosition` is `auto`, `left`, `center`, or `right`.
+- Stats include price range, percentage change, bars, date range, and angle where applicable.
+- Text supports normal/bold/italic styles, left/center/right alignment, and top/middle/bottom alignment.
+
 ## Label styling
 
 Labels use the chart layout font size and a filled background by default. Override them per
