@@ -27,6 +27,27 @@ The built-in catalog includes:
 Use `DRAWING_TOOL_CATALOG` to build host menus. It provides tool definitions, categories, and
 the applicable settings for each tool.
 
+## Elliott labels
+
+Elliott tools use their built-in label sequence by default. Hosts can override the labels for a
+specific degree or convention:
+
+```ts
+const wave = chart.addDrawing(ElliottImpulse, {
+  anchors,
+  options: {
+    labels: ["0", "i", "ii", "iii", "iv", "v"],
+  },
+});
+
+wave.setOptions({
+  labels: ["0", "(i)", "(ii)", "(iii)", "(iv)", "(v)"],
+});
+```
+
+Label overrides are copied, validated, returned by `getOptions()`, and persisted with the
+drawing. Degree names, degree catalogs, defaults, and menus remain host-owned.
+
 ## Create programmatically
 
 ```ts
