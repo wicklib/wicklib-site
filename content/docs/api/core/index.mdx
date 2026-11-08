@@ -1595,7 +1595,19 @@ Drawing style and state options.
 
 > `optional` **fontSize?**: `number`
 
-Text size in CSS pixels.
+Text size in CSS pixels for text drawings.
+
+##### labelBackgroundVisible?
+
+> `optional` **labelBackgroundVisible?**: `boolean`
+
+Draw a background behind labels. Defaults to true.
+
+##### labelFontSize?
+
+> `optional` **labelFontSize?**: `number`
+
+Label font size in CSS pixels. Defaults to the chart layout font size.
 
 ##### labels?
 
@@ -3853,7 +3865,7 @@ How `selectDrawing` changes the current selection.
 
 ### DrawingSetting
 
-> **DrawingSetting** = `"color"` \| `"lineWidth"` \| `"lineStyle"` \| `"fillColor"` \| `"fillOpacity"` \| `"showLabels"` \| `"text"` \| `"fontSize"` \| `"locked"` \| `"visible"`
+> **DrawingSetting** = `"color"` \| `"lineWidth"` \| `"lineStyle"` \| `"fillColor"` \| `"fillOpacity"` \| `"showLabels"` \| `"labelFontSize"` \| `"labelBackgroundVisible"` \| `"text"` \| `"fontSize"` \| `"locked"` \| `"visible"`
 
 A setting that can be edited for a drawing tool.
 

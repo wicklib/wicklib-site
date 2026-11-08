@@ -27,6 +27,22 @@ The built-in catalog includes:
 Use `DRAWING_TOOL_CATALOG` to build host menus. It provides tool definitions, categories, and
 the applicable settings for each tool.
 
+## Label styling
+
+Labels use the chart layout font size and a filled background by default. Override them per
+drawing:
+
+```ts
+drawing.setOptions({
+  labelFontSize: 24,
+  labelBackgroundVisible: false,
+});
+```
+
+With `labelBackgroundVisible: false`, the box is skipped and the text uses the drawing-specific
+label color. This applies to Elliott, Fibonacci, range, position, Gann, angle, channel, measure,
+and stats labels. Text drawings continue to use `fontSize` for their own text.
+
 ## Elliott labels
 
 Elliott tools use their built-in label sequence by default. Hosts can override the labels for a
