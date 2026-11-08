@@ -41,7 +41,7 @@ See [Renderers](/docs/renderers) for the target workload and tradeoffs.
 
 Chart options cover:
 
-- Layout: background, text color, font size.
+- Layout: background, base text color/font, and shared axis line/text/font styling.
 - Grid: vertical and horizontal line colors and visibility.
 - Crosshair: mode, colors, labels, and line styles.
 - Interaction: wheel, drag, pinch, axis drag, and double-click reset.
@@ -50,6 +50,31 @@ Chart options cover:
 - Extensions: snapshotted at chart creation.
 
 Runtime option patches use `chart.setOptions()`. Changes are merged with current values.
+
+## Axis styling
+
+Axis labels and borders can be styled independently from the rest of the chart:
+
+```ts
+const chart = createChart(container, {
+  layout: {
+    textColor: "#d1d4dc",
+    axisLineColor: "#2a2e39",
+    axisTextColor: "#9ca3af",
+    axisFontSize: 11,
+  },
+});
+
+chart.setOptions({
+  layout: { axisTextColor: "#f3f4f6", axisFontSize: 12 },
+});
+```
+
+`axisTextColor` falls back to `layout.textColor`, and `axisFontSize` falls back to
+`layout.fontSize`. `axisLineColor` falls back to the price and time grid line colours
+respectively. Axis text styling covers axis ticks, crosshair labels, last-value labels, and
+price-line axis labels; it does not affect the legend, drawings, or plot text. Axis borders only
+use `axisLineColor` while their `borderVisible` option is enabled.
 
 ## Price scales
 
