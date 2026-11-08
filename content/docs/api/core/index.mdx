@@ -1609,6 +1609,12 @@ Draw a background behind labels. Defaults to true.
 
 Label font size in CSS pixels. Defaults to the chart layout font size.
 
+##### labelPlacement?
+
+> `optional` **labelPlacement?**: [`DrawingLabelPlacement`](#drawinglabelplacement)
+
+Label placement relative to its anchor. Defaults to `auto`.
+
 ##### labels?
 
 > `optional` **labels?**: readonly `string`[]
@@ -3847,6 +3853,14 @@ data. `preserve` keeps the current view.
 
 ---
 
+### DrawingLabelPlacement
+
+> **DrawingLabelPlacement** = `"auto"` \| `"above"` \| `"below"`
+
+Placement of drawing labels relative to their anchor.
+
+---
+
 ### DrawingLineStyle
 
 > **DrawingLineStyle** = `"solid"` \| `"dotted"` \| `"dashed"`
@@ -3865,7 +3879,7 @@ How `selectDrawing` changes the current selection.
 
 ### DrawingSetting
 
-> **DrawingSetting** = `"color"` \| `"lineWidth"` \| `"lineStyle"` \| `"fillColor"` \| `"fillOpacity"` \| `"showLabels"` \| `"labelFontSize"` \| `"labelBackgroundVisible"` \| `"text"` \| `"fontSize"` \| `"locked"` \| `"visible"`
+> **DrawingSetting** = `"color"` \| `"lineWidth"` \| `"lineStyle"` \| `"fillColor"` \| `"fillOpacity"` \| `"showLabels"` \| `"labelPlacement"` \| `"labelFontSize"` \| `"labelBackgroundVisible"` \| `"text"` \| `"fontSize"` \| `"locked"` \| `"visible"`
 
 A setting that can be edited for a drawing tool.
 

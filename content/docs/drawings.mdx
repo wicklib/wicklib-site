@@ -34,10 +34,15 @@ drawing:
 
 ```ts
 drawing.setOptions({
+  labelPlacement: "auto",
   labelFontSize: 24,
   labelBackgroundVisible: false,
 });
 ```
+
+`labelPlacement` defaults to `auto`. Elliott labels center on their anchor, above local highs and
+below local lows. Use `"above"` or `"below"` to force a side. Labels flip inside the pane when
+needed.
 
 With `labelBackgroundVisible: false`, the box is skipped and the text uses the drawing-specific
 label color. This applies to Elliott, Fibonacci, range, position, Gann, angle, channel, measure,
