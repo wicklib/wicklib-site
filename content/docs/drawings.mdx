@@ -9,16 +9,20 @@ Drawings are chart annotations anchored in time and price. They survive pan, zoo
 
 The built-in catalog includes:
 
-- Lines: trend line, horizontal line, horizontal ray, vertical line, cross line.
-- Channels: parallel channel.
-- Fibonacci: retracement and extension.
+- Lines: trend line, ray, extended line, trend angle, arrow, horizontal line, horizontal ray,
+  vertical line, cross line.
+- Channels: parallel channel, regression trend, flat top/bottom, disjoint channel, Fib channel,
+  pitchfork, Schiff pitchfork, and modified Schiff pitchfork.
+- Fibonacci: retracement, extension, and Fib time zone.
+- Gann: Gann fan.
+- Speed: speed lines.
 - Shapes: rectangle and circle.
 - Positions: long/short position.
 - Ranges: price/date range.
 - Patterns: Elliott impulse, correction, triangle, double combo, and triple combo.
 - Freehand: brush, highlighter, and path.
 - Text.
-- Measure.
+- Measurement: measure and stats line.
 
 Use `DRAWING_TOOL_CATALOG` to build host menus. It provides tool definitions, categories, and
 the applicable settings for each tool.
@@ -82,7 +86,8 @@ chart.drawingDefaults("trend-line");
 
 Use `drawingToolSettings(toolId)` to show only relevant controls. For example, Elliott waves
 support labels but not text, while the text tool supports text and font size but not line width
-or fill. Filled shapes expose fill color and opacity.
+or fill. Filled shapes expose fill color and opacity. Stats Line uses the configured drawing
+color; Measure uses directional green/red coloring and remains transient.
 
 Settings precedence:
 
