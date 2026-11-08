@@ -293,6 +293,16 @@ Fill gradient end at the pane bottom. Defaults to transparent.
 
 [`LineSeriesOptions`](#lineseriesoptions).[`color`](#color-8)
 
+##### lastValueMode?
+
+> `optional` **lastValueMode?**: [`LastValueMode`](#lastvaluemode-5)
+
+Which last value the label represents. Defaults to `visible`.
+
+###### Inherited from
+
+[`LineSeriesOptions`](#lineseriesoptions).[`lastValueMode`](#lastvaluemode-3)
+
 ##### lastValueVisible?
 
 > `optional` **lastValueVisible?**: `boolean`
@@ -339,7 +349,7 @@ Pane identifier. Only the default pane exists in Phase 2.
 
 > `optional` **priceLineVisible?**: `boolean`
 
-Draw a horizontal line at the most recent value.
+Draw a horizontal line at the visible last value.
 
 ###### Inherited from
 
@@ -403,6 +413,16 @@ Draw a border around each candle body.
 
 > `optional` **downColor?**: `string`
 
+##### lastValueMode?
+
+> `optional` **lastValueMode?**: [`LastValueMode`](#lastvaluemode-5)
+
+Which last value the label represents. Defaults to `visible`.
+
+###### Inherited from
+
+[`SeriesOptions`](#seriesoptions).[`lastValueMode`](#lastvaluemode-4)
+
 ##### lastValueVisible?
 
 > `optional` **lastValueVisible?**: `boolean`
@@ -427,7 +447,7 @@ Pane identifier. Only the default pane exists in Phase 2.
 
 > `optional` **priceLineVisible?**: `boolean`
 
-Draw a horizontal line at the most recent value.
+Draw a horizontal line at the visible last value.
 
 ###### Inherited from
 
@@ -1751,6 +1771,16 @@ Baseline in price units. Defaults to 0.
 
 > `optional` **color?**: `string`
 
+##### lastValueMode?
+
+> `optional` **lastValueMode?**: [`LastValueMode`](#lastvaluemode-5)
+
+Which last value the label represents. Defaults to `visible`.
+
+###### Inherited from
+
+[`SeriesOptions`](#seriesoptions).[`lastValueMode`](#lastvaluemode-4)
+
 ##### lastValueVisible?
 
 > `optional` **lastValueVisible?**: `boolean`
@@ -1775,7 +1805,7 @@ Pane identifier. Only the default pane exists in Phase 2.
 
 > `optional` **priceLineVisible?**: `boolean`
 
-Draw a horizontal line at the most recent value.
+Draw a horizontal line at the visible last value.
 
 ###### Inherited from
 
@@ -2508,6 +2538,16 @@ Line series options.
 
 > `optional` **color?**: `string`
 
+##### lastValueMode?
+
+> `optional` **lastValueMode?**: [`LastValueMode`](#lastvaluemode-5)
+
+Which last value the label represents. Defaults to `visible`.
+
+###### Inherited from
+
+[`SeriesOptions`](#seriesoptions).[`lastValueMode`](#lastvaluemode-4)
+
 ##### lastValueVisible?
 
 > `optional` **lastValueVisible?**: `boolean`
@@ -2540,7 +2580,7 @@ Pane identifier. Only the default pane exists in Phase 2.
 
 > `optional` **priceLineVisible?**: `boolean`
 
-Draw a horizontal line at the most recent value.
+Draw a horizontal line at the visible last value.
 
 ###### Inherited from
 
@@ -3193,6 +3233,16 @@ True while initial or range loads are in flight.
 
 `boolean`
 
+##### lastValue()
+
+> **lastValue**(): [`SeriesValueInfo`](#seriesvalueinfo) \| `null`
+
+Newest data point, even when it is outside the visible time range.
+
+###### Returns
+
+[`SeriesValueInfo`](#seriesvalueinfo) \| `null`
+
 ##### priceScale()
 
 > **priceScale**(): [`PriceScaleApi`](#pricescaleapi)
@@ -3286,6 +3336,16 @@ readonly [`SeriesMarker`](#seriesmarker)[]
 ###### Returns
 
 `void`
+
+##### visibleLastValue()
+
+> **visibleLastValue**(): [`SeriesValueInfo`](#seriesvalueinfo) \| `null`
+
+Last value at the visible right edge.
+
+###### Returns
+
+[`SeriesValueInfo`](#seriesvalueinfo) \| `null`
 
 ---
 
@@ -3386,6 +3446,12 @@ Options shared by every series type.
 
 #### Properties
 
+##### lastValueMode?
+
+> `optional` **lastValueMode?**: [`LastValueMode`](#lastvaluemode-5)
+
+Which last value the label represents. Defaults to `visible`.
+
 ##### lastValueVisible?
 
 > `optional` **lastValueVisible?**: `boolean`
@@ -3402,7 +3468,7 @@ Pane identifier. Only the default pane exists in Phase 2.
 
 > `optional` **priceLineVisible?**: `boolean`
 
-Draw a horizontal line at the most recent value.
+Draw a horizontal line at the visible last value.
 
 ##### priceScaleId?
 
@@ -3447,6 +3513,32 @@ A series type token. Built-ins are imported; third-party types use the same shap
 ##### meta
 
 > `readonly` **meta**: [`ExtensionMeta`](#extensionmeta)
+
+---
+
+### SeriesValueInfo
+
+Information about a series price value.
+
+#### Properties
+
+##### index
+
+> **index**: `number`
+
+##### time
+
+> **time**: `number`
+
+##### value
+
+> **value**: `number`
+
+##### visible
+
+> **visible**: `boolean`
+
+True when the value's time is inside the current visible time range.
 
 ---
 
@@ -3814,6 +3906,17 @@ One array per plot id, index-aligned with the source bars. `null` marks a missin
 > **Interval** = `string`
 
 Opaque interval label, for example `1m`, `1h`, or `1D`.
+
+---
+
+### LastValueMode
+
+> **LastValueMode** = `"visible"` \| `"data"` \| `"both"`
+
+Which price the last-value label represents.
+
+`visible` follows the right edge of the chart, `data` follows the newest data point, and
+`both` renders both labels.
 
 ---
 

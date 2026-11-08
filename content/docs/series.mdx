@@ -38,6 +38,27 @@ series.update({ time: Date.now(), value: 104 });
 Multiple series can share a pane and price scale. Auto-scale combines their visible ranges.
 A histogram contributes its baseline to the range.
 
+## Last value labels
+
+By default, the last-value label follows the visible right edge. It can instead follow the
+newest data point, or show both:
+
+```ts
+series.setOptions({ lastValueMode: "visible" });
+series.setOptions({ lastValueMode: "data" });
+series.setOptions({ lastValueMode: "both" });
+
+const current = series.lastValue();
+const visible = series.visibleLastValue();
+```
+
+`lastValue()` returns the newest data point even when the user has panned away from it.
+`visibleLastValue()` returns the value at the visible right edge. Both return
+`{ value, time, index, visible }` or `null`.
+
+With `"both"`, an off-screen current price is clamped to the top or bottom of the price axis
+and marked with an arrow. The price line and legend remain tied to the visible edge.
+
 ## Price formatting
 
 Instrument precision is configured on the pane price scale:
