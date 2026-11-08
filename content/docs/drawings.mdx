@@ -40,6 +40,7 @@ drawing.setOptions({
   extendRight: true,
   showMidpoint: true,
   priceLabels: "selected",
+  timeLabels: "selected",
   stats: "selected",
   statsPosition: "auto",
 });
@@ -47,12 +48,19 @@ drawing.setOptions({
 
 - `"theme"` resolves to the chart layout text color. `""` and `null` clear color overrides.
 - `showLine: false` hides line geometry while keeping labels, text, and stats.
-- Trend lines support left/right extension, midpoint dots, endpoint axis labels, and styled text.
-- `priceLabels` is `never`, `selected`, or `always`.
+- Trend lines support left/right extension, midpoint dots, endpoint price/time axis labels, and
+  styled text.
+- `priceLabels` and `timeLabels` are `never`, `selected`, or `always`.
+- Price labels render endpoint prices on the price axis. Time labels render endpoint times on the
+  time axis and skip anchors outside the visible plot.
 - `stats` is `off`, `selected`, or `always`.
-- `statsPosition` is `auto`, `left`, `center`, or `right`.
+- `statsPosition` is `auto`, `left`, `center`, or `right`. Left follows the start anchor, center
+  follows the midpoint, and right follows the end anchor. Use start/end only for non-straight
+  tools such as Elliott waves.
 - Stats include price range, percentage change, bars, date range, and angle where applicable.
-- Text supports normal/bold/italic styles, left/center/right alignment, and top/middle/bottom alignment.
+  The box has no border and selects a light or dark surface automatically for chart contrast.
+- Text supports normal/bold/italic styles and top/middle/bottom vertical alignment. Horizontal
+  left/right places text outside the start/end anchor; center places it at the midpoint.
 
 ## Label styling
 

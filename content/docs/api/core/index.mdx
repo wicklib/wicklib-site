@@ -114,7 +114,7 @@ a string representing the location in the code at which
 ```js
 const myObject = {};
 Error.captureStackTrace(myObject);
-myObject.stack; // Similar to `new Error().stack`
+myObject.stack;  // Similar to `new Error().stack`
 ```
 
 The first line of the trace will be prefixed with
@@ -237,7 +237,7 @@ Options for adding a drawing programmatically.
 
 Defaults to the main pane.
 
----
+***
 
 ### AddIndicatorOptions
 
@@ -247,7 +247,7 @@ Options for adding an indicator to a chart.
 
 ##### TInputs
 
-`TInputs` _extends_ [`IndicatorInputs`](#indicatorinputs) = [`IndicatorInputs`](#indicatorinputs)
+`TInputs` *extends* [`IndicatorInputs`](#indicatorinputs) = [`IndicatorInputs`](#indicatorinputs)
 
 #### Properties
 
@@ -267,7 +267,7 @@ Options for adding an indicator to a chart.
 
 Defaults to the first series in the chart.
 
----
+***
 
 ### AreaSeriesOptions
 
@@ -391,7 +391,7 @@ Whether the series is rendered.
 
 [`LineSeriesOptions`](#lineseriesoptions).[`visible`](#visible-8)
 
----
+***
 
 ### CandlestickSeriesOptions
 
@@ -495,7 +495,7 @@ Whether the series is rendered.
 
 > `optional` **wickUpColor?**: `string`
 
----
+***
 
 ### ChartApi
 
@@ -529,7 +529,7 @@ A live chart.
 
 ###### TInputs
 
-`TInputs` _extends_ [`IndicatorInputs`](#indicatorinputs)
+`TInputs` *extends* [`IndicatorInputs`](#indicatorinputs)
 
 ###### Parameters
 
@@ -581,11 +581,11 @@ A live chart.
 
 ###### TData
 
-`TData` _extends_ [`SeriesData`](#seriesdata)
+`TData` *extends* [`SeriesData`](#seriesdata)
 
 ###### TOptions
 
-`TOptions` _extends_ [`SeriesOptions`](#seriesoptions)
+`TOptions` *extends* [`SeriesOptions`](#seriesoptions)
 
 ###### Parameters
 
@@ -685,7 +685,7 @@ readonly [`PaneApi`](#paneapi)[]
 
 ###### K
 
-`K` _extends_ keyof [`ChartEventMap`](#charteventmap)
+`K` *extends* keyof [`ChartEventMap`](#charteventmap)
 
 ###### Parameters
 
@@ -883,7 +883,7 @@ Applies a partial style update to every selected drawing.
 
 `void`
 
----
+***
 
 ### ChartClickEvent
 
@@ -911,7 +911,7 @@ Payload for the `click` event.
 
 > **time**: `number` \| `null`
 
----
+***
 
 ### ChartErrorEvent
 
@@ -945,7 +945,7 @@ Present when the error came from a series datafeed.
 
 > **source**: `"chart"` \| `"series"` \| `"extension"` \| `"datafeed"` \| `"indicator"` \| `"drawing"`
 
----
+***
 
 ### ChartEventMap
 
@@ -1037,7 +1037,7 @@ Map of chart events to their payloads.
 
 > **visible-range**: [`VisibleRangeEvent`](#visiblerangeevent)
 
----
+***
 
 ### ChartOptions
 
@@ -1111,7 +1111,7 @@ IANA time zone used for time labels. Defaults to `UTC`.
 
 Fixed width when `autoSize` is false.
 
----
+***
 
 ### ChartOverlay
 
@@ -1149,7 +1149,7 @@ Pane to draw in. Defaults to the main pane.
 
 `void`
 
----
+***
 
 ### ChartOverlayApi
 
@@ -1183,7 +1183,7 @@ A live chart overlay.
 
 `void`
 
----
+***
 
 ### ChartTheme
 
@@ -1236,7 +1236,7 @@ part of a theme.
 
 > `readonly` **textColor**: `string`
 
----
+***
 
 ### CrosshairEvent
 
@@ -1260,7 +1260,7 @@ Payload for the `crosshair` event.
 
 > **time**: `number` \| `null`
 
----
+***
 
 ### CrosshairLineOptions
 
@@ -1284,7 +1284,7 @@ Crosshair line options.
 
 > `optional` **width?**: `number`
 
----
+***
 
 ### CrosshairOptions
 
@@ -1314,7 +1314,7 @@ Crosshair options.
 
 > `optional` **vertLine?**: [`CrosshairLineOptions`](#crosshairlineoptions)
 
----
+***
 
 ### Datafeed
 
@@ -1325,7 +1325,7 @@ retries, and reconnection.
 
 ##### TData
 
-`TData` _extends_ [`SeriesData`](#seriesdata) = [`SeriesData`](#seriesdata)
+`TData` *extends* [`SeriesData`](#seriesdata) = [`SeriesData`](#seriesdata)
 
 #### Methods
 
@@ -1369,7 +1369,7 @@ retries, and reconnection.
 
 [`Unsubscribe`](#unsubscribe)
 
----
+***
 
 ### DatafeedContext
 
@@ -1382,7 +1382,7 @@ needed.
 
 > **signal**: `AbortSignal`
 
----
+***
 
 ### DataLoadingEvent
 
@@ -1398,7 +1398,7 @@ Payload for the `data-loading` event.
 
 > **seriesId**: `string`
 
----
+***
 
 ### DataRequest
 
@@ -1435,7 +1435,7 @@ Inclusive lower bound.
 
 Inclusive upper bound.
 
----
+***
 
 ### DataResponse
 
@@ -1445,7 +1445,7 @@ A datafeed response. `data` must be ascending and unique by time.
 
 ##### TData
 
-`TData` _extends_ [`SeriesData`](#seriesdata) = [`SeriesData`](#seriesdata)
+`TData` *extends* [`SeriesData`](#seriesdata) = [`SeriesData`](#seriesdata)
 
 #### Properties
 
@@ -1465,7 +1465,7 @@ True when no data exists later than the requested range.
 
 True when no data exists earlier than the requested range.
 
----
+***
 
 ### DrawingAnchor
 
@@ -1481,7 +1481,7 @@ A drawing anchor in data space. Anchors survive pan, zoom, and resize.
 
 > **time**: `number`
 
----
+***
 
 ### DrawingApi
 
@@ -1555,7 +1555,7 @@ readonly [`DrawingAnchor`](#drawinganchor)[]
 
 `void`
 
----
+***
 
 ### DrawingDocument
 
@@ -1571,7 +1571,7 @@ Versioned drawing document owned and persisted by the host.
 
 > **version**: `1`
 
----
+***
 
 ### DrawingOptions
 
@@ -1689,7 +1689,8 @@ Text content for text drawings.
 
 > `optional` **textAlign?**: [`DrawingTextAlign`](#drawingtextalign)
 
-Horizontal alignment for trend-line text. Defaults to center.
+Horizontal placement for trend-line text. Left/right place it outside the start/end
+anchor; center places it at the midpoint. Defaults to center.
 
 ##### textColor?
 
@@ -1709,11 +1710,17 @@ Font style for trend-line text. Defaults to normal.
 
 Vertical alignment for trend-line text. Defaults to middle.
 
+##### timeLabels?
+
+> `optional` **timeLabels?**: [`DrawingTimeLabelsMode`](#drawingtimelabelsmode)
+
+Show trend-line endpoint times on the time axis. Defaults to never.
+
 ##### visible?
 
 > `optional` **visible?**: `boolean`
 
----
+***
 
 ### DrawingToolCatalogEntry
 
@@ -1733,7 +1740,7 @@ One entry in the built-in drawing-tool catalog.
 
 > `readonly` **settings**: readonly [`DrawingSetting`](#drawingsetting)[]
 
----
+***
 
 ### DrawingToolDefinition
 
@@ -1771,7 +1778,7 @@ How anchors are collected. Defaults to discrete clicks.
 
 False for transient tools such as measure. Defaults to true.
 
----
+***
 
 ### ExtensionMeta
 
@@ -1803,7 +1810,7 @@ Human-readable name.
 
 Semver of the extension.
 
----
+***
 
 ### GridLineOptions
 
@@ -1823,7 +1830,7 @@ Line colour.
 
 Whether the lines are drawn.
 
----
+***
 
 ### GridOptions
 
@@ -1839,7 +1846,7 @@ Grid options.
 
 > `optional` **vertLines?**: [`GridLineOptions`](#gridlineoptions)
 
----
+***
 
 ### HistogramSeriesOptions
 
@@ -1931,7 +1938,7 @@ Whether the series is rendered.
 
 [`SeriesOptions`](#seriesoptions).[`visible`](#visible-9)
 
----
+***
 
 ### IndicatorApi
 
@@ -1941,7 +1948,7 @@ A live indicator.
 
 ##### TInputs
 
-`TInputs` _extends_ [`IndicatorInputs`](#indicatorinputs) = [`IndicatorInputs`](#indicatorinputs)
+`TInputs` *extends* [`IndicatorInputs`](#indicatorinputs) = [`IndicatorInputs`](#indicatorinputs)
 
 #### Properties
 
@@ -2025,7 +2032,7 @@ Read-only copy of the effective options for one plot.
 
 `void`
 
----
+***
 
 ### IndicatorBars
 
@@ -2125,7 +2132,7 @@ Undefined when the source did not provide volume.
 
 `number` \| `undefined`
 
----
+***
 
 ### IndicatorContext
 
@@ -2135,7 +2142,7 @@ Context passed to an indicator's compute function.
 
 ##### TInputs
 
-`TInputs` _extends_ [`IndicatorInputs`](#indicatorinputs)
+`TInputs` *extends* [`IndicatorInputs`](#indicatorinputs)
 
 #### Properties
 
@@ -2147,7 +2154,7 @@ Context passed to an indicator's compute function.
 
 > `readonly` **inputs**: `Readonly`\<`TInputs`\>
 
----
+***
 
 ### IndicatorDefinition
 
@@ -2157,7 +2164,7 @@ A pure indicator definition.
 
 ##### TInputs
 
-`TInputs` _extends_ [`IndicatorInputs`](#indicatorinputs) = [`IndicatorInputs`](#indicatorinputs)
+`TInputs` *extends* [`IndicatorInputs`](#indicatorinputs) = [`IndicatorInputs`](#indicatorinputs)
 
 #### Properties
 
@@ -2195,7 +2202,7 @@ Default placement. Defaults to "main".
 
 [`IndicatorOutput`](#indicatoroutput)
 
----
+***
 
 ### IndicatorInputDefinition
 
@@ -2237,7 +2244,7 @@ Allowed values for string and source inputs.
 
 > **type**: `"string"` \| `"number"` \| `"boolean"` \| `"source"`
 
----
+***
 
 ### IndicatorPlotDefinition
 
@@ -2281,7 +2288,7 @@ Histogram or area baseline. Defaults to 0.
 
 Initial visibility. Defaults to true.
 
----
+***
 
 ### IndicatorPlotOptions
 
@@ -2305,7 +2312,7 @@ Runtime plot overrides.
 
 > `optional` **visible?**: `boolean`
 
----
+***
 
 ### InteractionOptions
 
@@ -2343,7 +2350,7 @@ Two-pointer pinch zooms. Defaults to true.
 
 Wheel pans and zooms. Defaults to true.
 
----
+***
 
 ### LayoutOptions
 
@@ -2369,7 +2376,7 @@ Base font size in CSS pixels.
 
 Axis and label text colour.
 
----
+***
 
 ### LicenseContext
 
@@ -2391,7 +2398,7 @@ Runtime license context exposed to commercial extensions.
 
 `boolean`
 
----
+***
 
 ### LightweightChartOptions
 
@@ -2584,7 +2591,7 @@ Unknown fields are ignored.
 
 > `optional` **width?**: `number`
 
----
+***
 
 ### LineData
 
@@ -2608,7 +2615,7 @@ Single-value data point used by line, area, and histogram series.
 
 > **value**: `number`
 
----
+***
 
 ### LineSeriesOptions
 
@@ -2706,7 +2713,7 @@ Whether the series is rendered.
 
 [`SeriesOptions`](#seriesoptions).[`visible`](#visible-9)
 
----
+***
 
 ### OhlcData
 
@@ -2748,7 +2755,7 @@ OHLC bar used by candlestick series.
 
 Optional volume. Non-negative and finite when present.
 
----
+***
 
 ### OverlayPlotRect
 
@@ -2780,7 +2787,7 @@ Plot geometry passed to a chart overlay.
 
 > **width**: `number`
 
----
+***
 
 ### OverlayRenderFrame
 
@@ -2844,7 +2851,7 @@ Per-draw frame passed to a chart overlay.
 
 `number`
 
----
+***
 
 ### PaneApi
 
@@ -2908,7 +2915,7 @@ Read-only copy of the pane's current options.
 
 `void`
 
----
+***
 
 ### PaneOptions
 
@@ -2928,7 +2935,7 @@ Preferred height in CSS pixels. Remaining height is distributed equally.
 
 Price scale options for this pane.
 
----
+***
 
 ### Point
 
@@ -2944,7 +2951,7 @@ A point in CSS pixels relative to the chart container.
 
 > **y**: `number`
 
----
+***
 
 ### PriceFormatOptions
 
@@ -2966,7 +2973,7 @@ omitted. Does not constrain generated tick values.
 Fixed number of decimal places. Overrides precision inferred from `minMove` or
 generated ticks.
 
----
+***
 
 ### PriceLineApi
 
@@ -2996,7 +3003,7 @@ A live price line.
 
 `void`
 
----
+***
 
 ### PriceLineOptions
 
@@ -3045,7 +3052,7 @@ Optional label prefix shown before the price.
 
 Where the title is rendered. Defaults to `axis`.
 
----
+***
 
 ### PriceRange
 
@@ -3061,7 +3068,7 @@ A visible price range.
 
 > **min**: `number`
 
----
+***
 
 ### PriceScaleApi
 
@@ -3141,7 +3148,7 @@ Applies a partial price scale option update.
 
 `void`
 
----
+***
 
 ### PriceScaleOptions
 
@@ -3193,7 +3200,7 @@ Fraction of the range reserved above and below the data.
 
 > **top**: `number`
 
----
+***
 
 ### SelectDrawingOptions
 
@@ -3207,7 +3214,7 @@ Options for changing drawing selection.
 
 Defaults to replace.
 
----
+***
 
 ### SerializedDrawing
 
@@ -3235,7 +3242,7 @@ Serialized drawing.
 
 > **toolId**: `string`
 
----
+***
 
 ### SeriesApi
 
@@ -3245,11 +3252,11 @@ A live series.
 
 ##### TData
 
-`TData` _extends_ [`SeriesData`](#seriesdata) = [`SeriesData`](#seriesdata)
+`TData` *extends* [`SeriesData`](#seriesdata) = [`SeriesData`](#seriesdata)
 
 ##### TOptions
 
-`TOptions` _extends_ [`SeriesOptions`](#seriesoptions) = [`SeriesOptions`](#seriesoptions)
+`TOptions` *extends* [`SeriesOptions`](#seriesoptions) = [`SeriesOptions`](#seriesoptions)
 
 #### Properties
 
@@ -3437,7 +3444,7 @@ Last value at the visible right edge.
 
 [`SeriesValueInfo`](#seriesvalueinfo) \| `null`
 
----
+***
 
 ### SeriesData
 
@@ -3454,7 +3461,7 @@ Base shape for any series data point.
 
 > **time**: `number`
 
----
+***
 
 ### SeriesDatafeedOptions
 
@@ -3482,7 +3489,7 @@ Initial time view behavior. Defaults to `auto`.
 
 > **symbol**: `string`
 
----
+***
 
 ### SeriesMarker
 
@@ -3522,7 +3529,7 @@ Relative shape size. Defaults to 1.
 
 > **time**: `number`
 
----
+***
 
 ### SeriesOptions
 
@@ -3578,7 +3585,7 @@ Display name. Drawn in the series legend.
 
 Whether the series is rendered.
 
----
+***
 
 ### SeriesType
 
@@ -3588,11 +3595,11 @@ A series type token. Built-ins are imported; third-party types use the same shap
 
 ##### TData
 
-`TData` _extends_ [`SeriesData`](#seriesdata) = [`SeriesData`](#seriesdata)
+`TData` *extends* [`SeriesData`](#seriesdata) = [`SeriesData`](#seriesdata)
 
 ##### TOptions
 
-`TOptions` _extends_ [`SeriesOptions`](#seriesoptions) = [`SeriesOptions`](#seriesoptions)
+`TOptions` *extends* [`SeriesOptions`](#seriesoptions) = [`SeriesOptions`](#seriesoptions)
 
 #### Properties
 
@@ -3604,7 +3611,7 @@ A series type token. Built-ins are imported; third-party types use the same shap
 
 > `readonly` **meta**: [`ExtensionMeta`](#extensionmeta)
 
----
+***
 
 ### SeriesValueInfo
 
@@ -3630,7 +3637,7 @@ Information about a series price value.
 
 True when the value's time is inside the current visible time range.
 
----
+***
 
 ### SessionWindow
 
@@ -3662,7 +3669,7 @@ ISO weekday: 1 = Monday, 7 = Sunday.
 
 Local open time in HH:mm form.
 
----
+***
 
 ### SubscriptionRequest
 
@@ -3678,7 +3685,7 @@ Realtime subscription request.
 
 > **symbol**: `string`
 
----
+***
 
 ### TimeScaleApi
 
@@ -3754,7 +3761,7 @@ Read-only copy of the resolved time scale options.
 
 `void`
 
----
+***
 
 ### TimeScaleOptions
 
@@ -3828,7 +3835,7 @@ Show seconds in time labels.
 
 Show time labels in the time axis.
 
----
+***
 
 ### TradingCalendar
 
@@ -3854,7 +3861,7 @@ Recurring weekly session windows.
 
 IANA time zone, for example America/New_York.
 
----
+***
 
 ### VisibleRange
 
@@ -3870,7 +3877,7 @@ A visible time range.
 
 > **to**: `number`
 
----
+***
 
 ### VisibleRangeEvent
 
@@ -3890,7 +3897,7 @@ Payload for the `visible-range` event.
 
 > **to**: `number`
 
----
+***
 
 ### WickExtension
 
@@ -3917,7 +3924,7 @@ How the time view is positioned after a datafeed's initial load.
 `auto` fits only when the host has not chosen a view. `fit` always fits the loaded
 data. `preserve` keeps the current view.
 
----
+***
 
 ### DrawingColor
 
@@ -3925,7 +3932,7 @@ data. `preserve` keeps the current view.
 
 A drawing colour. `theme` resolves to the chart's layout text colour.
 
----
+***
 
 ### DrawingLabelPlacement
 
@@ -3933,7 +3940,7 @@ A drawing colour. `theme` resolves to the chart's layout text colour.
 
 Placement of drawing labels relative to their anchor.
 
----
+***
 
 ### DrawingLineStyle
 
@@ -3941,7 +3948,7 @@ Placement of drawing labels relative to their anchor.
 
 Drawing line style.
 
----
+***
 
 ### DrawingPriceLabelsMode
 
@@ -3949,7 +3956,7 @@ Drawing line style.
 
 Endpoint price labels on the price axis.
 
----
+***
 
 ### DrawingSelectionMode
 
@@ -3957,15 +3964,15 @@ Endpoint price labels on the price axis.
 
 How `selectDrawing` changes the current selection.
 
----
+***
 
 ### DrawingSetting
 
-> **DrawingSetting** = `"color"` \| `"lineWidth"` \| `"lineStyle"` \| `"fillColor"` \| `"fillOpacity"` \| `"showLabels"` \| `"labelPlacement"` \| `"labelFontSize"` \| `"labelBackgroundVisible"` \| `"showLine"` \| `"extendLeft"` \| `"extendRight"` \| `"showMidpoint"` \| `"priceLabels"` \| `"stats"` \| `"statsPosition"` \| `"text"` \| `"textColor"` \| `"textStyle"` \| `"textAlign"` \| `"textVerticalAlign"` \| `"fontSize"` \| `"locked"` \| `"visible"`
+> **DrawingSetting** = `"color"` \| `"lineWidth"` \| `"lineStyle"` \| `"fillColor"` \| `"fillOpacity"` \| `"showLabels"` \| `"labelPlacement"` \| `"labelFontSize"` \| `"labelBackgroundVisible"` \| `"showLine"` \| `"extendLeft"` \| `"extendRight"` \| `"showMidpoint"` \| `"priceLabels"` \| `"timeLabels"` \| `"stats"` \| `"statsPosition"` \| `"text"` \| `"textColor"` \| `"textStyle"` \| `"textAlign"` \| `"textVerticalAlign"` \| `"fontSize"` \| `"locked"` \| `"visible"`
 
 A setting that can be edited for a drawing tool.
 
----
+***
 
 ### DrawingStatsMode
 
@@ -3973,7 +3980,7 @@ A setting that can be edited for a drawing tool.
 
 Drawing stats box visibility.
 
----
+***
 
 ### DrawingStatsPosition
 
@@ -3981,7 +3988,7 @@ Drawing stats box visibility.
 
 Horizontal placement of a drawing stats box.
 
----
+***
 
 ### DrawingTextAlign
 
@@ -3989,7 +3996,7 @@ Horizontal placement of a drawing stats box.
 
 Horizontal text alignment.
 
----
+***
 
 ### DrawingTextStyle
 
@@ -3997,7 +4004,7 @@ Horizontal text alignment.
 
 Font style for drawing text.
 
----
+***
 
 ### DrawingTextVerticalAlign
 
@@ -4005,7 +4012,15 @@ Font style for drawing text.
 
 Vertical text alignment.
 
----
+***
+
+### DrawingTimeLabelsMode
+
+> **DrawingTimeLabelsMode** = `"never"` \| `"selected"` \| `"always"`
+
+When to show drawing anchor times on the time axis.
+
+***
 
 ### DrawingToolCategory
 
@@ -4013,7 +4028,7 @@ Vertical text alignment.
 
 Stable grouping for host menus.
 
----
+***
 
 ### ExtensionKind
 
@@ -4021,7 +4036,7 @@ Stable grouping for host menus.
 
 Kinds of extension a chart can host.
 
----
+***
 
 ### Feature
 
@@ -4029,7 +4044,7 @@ Kinds of extension a chart can host.
 
 Features that can be licensed.
 
----
+***
 
 ### IndicatorInputs
 
@@ -4037,7 +4052,7 @@ Features that can be licensed.
 
 Resolved indicator inputs keyed by input id.
 
----
+***
 
 ### IndicatorInputValue
 
@@ -4045,7 +4060,7 @@ Resolved indicator inputs keyed by input id.
 
 A value accepted by an indicator input.
 
----
+***
 
 ### IndicatorOutput
 
@@ -4053,7 +4068,7 @@ A value accepted by an indicator input.
 
 One array per plot id, index-aligned with the source bars. `null` marks a missing value.
 
----
+***
 
 ### Interval
 
@@ -4061,7 +4076,7 @@ One array per plot id, index-aligned with the source bars. `null` marks a missin
 
 Opaque interval label, for example `1m`, `1h`, or `1D`.
 
----
+***
 
 ### LastValueMode
 
@@ -4072,7 +4087,7 @@ Which price the last-value label represents.
 `visible` follows the right edge of the chart, `data` follows the newest data point, and
 `both` renders both labels.
 
----
+***
 
 ### LicenseTier
 
@@ -4080,7 +4095,7 @@ Which price the last-value label represents.
 
 License tier attached to an extension.
 
----
+***
 
 ### PriceLineStyle
 
@@ -4088,7 +4103,7 @@ License tier attached to an extension.
 
 A horizontal price line drawn by a series.
 
----
+***
 
 ### PriceLineTitlePosition
 
@@ -4099,7 +4114,7 @@ Where a price line's title is rendered.
 `axis` keeps the title in the price-axis label. `plot` draws it inside the pane near
 the right edge of the line.
 
----
+***
 
 ### ReadyEvent
 
@@ -4107,7 +4122,7 @@ the right edge of the line.
 
 Payload for the `ready` event.
 
----
+***
 
 ### SeriesMarkerPosition
 
@@ -4115,7 +4130,7 @@ Payload for the `ready` event.
 
 Marker placement relative to a bar or an explicit price.
 
----
+***
 
 ### SeriesMarkerShape
 
@@ -4123,7 +4138,7 @@ Marker placement relative to a bar or an explicit price.
 
 Marker shape.
 
----
+***
 
 ### SessionGapMode
 
@@ -4131,7 +4146,7 @@ Marker shape.
 
 How closed sessions are represented on the time axis.
 
----
+***
 
 ### SourceValue
 
@@ -4139,7 +4154,7 @@ How closed sessions are represented on the time axis.
 
 Price source used by the built-in indicators.
 
----
+***
 
 ### Time
 
@@ -4147,7 +4162,7 @@ Price source used by the built-in indicators.
 
 Milliseconds since the Unix epoch, UTC.
 
----
+***
 
 ### Unsubscribe
 
@@ -4159,7 +4174,7 @@ Returned by [ChartApi.on](#on). Idempotent and safe after `destroy()`.
 
 `void`
 
----
+***
 
 ### WickErrorCode
 
@@ -4175,19 +4190,19 @@ Machine-readable error codes.
 
 Built-in area series token.
 
----
+***
 
 ### Arrow
 
 > `const` **Arrow**: [`DrawingToolDefinition`](#drawingtooldefinition)
 
----
+***
 
 ### Brush
 
 > `const` **Brush**: [`DrawingToolDefinition`](#drawingtooldefinition)
 
----
+***
 
 ### CandlestickSeries
 
@@ -4195,7 +4210,7 @@ Built-in area series token.
 
 Built-in candlestick series token.
 
----
+***
 
 ### ChartThemes
 
@@ -4203,19 +4218,19 @@ Built-in candlestick series token.
 
 Named neutral presets for hosts that switch themes dynamically.
 
----
+***
 
 ### Circle
 
 > `const` **Circle**: [`DrawingToolDefinition`](#drawingtooldefinition)
 
----
+***
 
 ### CrossLine
 
 > `const` **CrossLine**: [`DrawingToolDefinition`](#drawingtooldefinition)
 
----
+***
 
 ### DarkTheme
 
@@ -4223,99 +4238,99 @@ Named neutral presets for hosts that switch themes dynamically.
 
 Neutral dark chart theme.
 
----
+***
 
 ### DisjointChannel
 
 > `const` **DisjointChannel**: [`DrawingToolDefinition`](#drawingtooldefinition)
 
----
+***
 
-### DRAWING_TOOL_CATALOG
+### DRAWING\_TOOL\_CATALOG
 
-> `const` **DRAWING_TOOL_CATALOG**: readonly [`DrawingToolCatalogEntry`](#drawingtoolcatalogentry)[]
+> `const` **DRAWING\_TOOL\_CATALOG**: readonly [`DrawingToolCatalogEntry`](#drawingtoolcatalogentry)[]
 
 Built-in drawing tools in menu order. Hosts own labels, icons, localization, and layout.
 
----
+***
 
 ### ElliottCorrection
 
 > `const` **ElliottCorrection**: [`DrawingToolDefinition`](#drawingtooldefinition)
 
----
+***
 
 ### ElliottDoubleCombo
 
 > `const` **ElliottDoubleCombo**: [`DrawingToolDefinition`](#drawingtooldefinition)
 
----
+***
 
 ### ElliottImpulse
 
 > `const` **ElliottImpulse**: [`DrawingToolDefinition`](#drawingtooldefinition)
 
----
+***
 
 ### ElliottTriangle
 
 > `const` **ElliottTriangle**: [`DrawingToolDefinition`](#drawingtooldefinition)
 
----
+***
 
 ### ElliottTripleCombo
 
 > `const` **ElliottTripleCombo**: [`DrawingToolDefinition`](#drawingtooldefinition)
 
----
+***
 
 ### ExtendedLine
 
 > `const` **ExtendedLine**: [`DrawingToolDefinition`](#drawingtooldefinition)
 
----
+***
 
 ### FibChannel
 
 > `const` **FibChannel**: [`DrawingToolDefinition`](#drawingtooldefinition)
 
----
+***
 
 ### FibExtension
 
 > `const` **FibExtension**: [`DrawingToolDefinition`](#drawingtooldefinition)
 
----
+***
 
 ### FibRetracement
 
 > `const` **FibRetracement**: [`DrawingToolDefinition`](#drawingtooldefinition)
 
----
+***
 
 ### FibTimeZone
 
 > `const` **FibTimeZone**: [`DrawingToolDefinition`](#drawingtooldefinition)
 
----
+***
 
 ### FlatTopBottom
 
 > `const` **FlatTopBottom**: [`DrawingToolDefinition`](#drawingtooldefinition)
 
----
+***
 
 ### GannFan
 
 > `const` **GannFan**: [`DrawingToolDefinition`](#drawingtooldefinition)
 
----
+***
 
 ### Highlighter
 
 > `const` **Highlighter**: [`DrawingToolDefinition`](#drawingtooldefinition)
 
----
+***
 
 ### HistogramSeries
 
@@ -4323,19 +4338,19 @@ Built-in drawing tools in menu order. Hosts own labels, icons, localization, and
 
 Built-in histogram series token.
 
----
+***
 
 ### HorizontalLine
 
 > `const` **HorizontalLine**: [`DrawingToolDefinition`](#drawingtooldefinition)
 
----
+***
 
 ### HorizontalRay
 
 > `const` **HorizontalRay**: [`DrawingToolDefinition`](#drawingtooldefinition)
 
----
+***
 
 ### LightTheme
 
@@ -4343,7 +4358,7 @@ Built-in histogram series token.
 
 Neutral light chart theme.
 
----
+***
 
 ### LineSeries
 
@@ -4351,103 +4366,103 @@ Neutral light chart theme.
 
 Built-in line series token.
 
----
+***
 
 ### LongShortPosition
 
 > `const` **LongShortPosition**: [`DrawingToolDefinition`](#drawingtooldefinition)
 
----
+***
 
 ### Measure
 
 > `const` **Measure**: [`DrawingToolDefinition`](#drawingtooldefinition)
 
----
+***
 
 ### ModifiedSchiffPitchfork
 
 > `const` **ModifiedSchiffPitchfork**: [`DrawingToolDefinition`](#drawingtooldefinition)
 
----
+***
 
 ### ParallelChannel
 
 > `const` **ParallelChannel**: [`DrawingToolDefinition`](#drawingtooldefinition)
 
----
+***
 
 ### Path
 
 > `const` **Path**: [`DrawingToolDefinition`](#drawingtooldefinition)
 
----
+***
 
 ### Pitchfork
 
 > `const` **Pitchfork**: [`DrawingToolDefinition`](#drawingtooldefinition)
 
----
+***
 
 ### PriceDateRange
 
 > `const` **PriceDateRange**: [`DrawingToolDefinition`](#drawingtooldefinition)
 
----
+***
 
 ### Ray
 
 > `const` **Ray**: [`DrawingToolDefinition`](#drawingtooldefinition)
 
----
+***
 
 ### Rectangle
 
 > `const` **Rectangle**: [`DrawingToolDefinition`](#drawingtooldefinition)
 
----
+***
 
 ### RegressionTrend
 
 > `const` **RegressionTrend**: [`DrawingToolDefinition`](#drawingtooldefinition)
 
----
+***
 
 ### SchiffPitchfork
 
 > `const` **SchiffPitchfork**: [`DrawingToolDefinition`](#drawingtooldefinition)
 
----
+***
 
 ### SpeedLines
 
 > `const` **SpeedLines**: [`DrawingToolDefinition`](#drawingtooldefinition)
 
----
+***
 
 ### StatsLine
 
 > `const` **StatsLine**: [`DrawingToolDefinition`](#drawingtooldefinition)
 
----
+***
 
 ### Text
 
 > `const` **Text**: [`DrawingToolDefinition`](#drawingtooldefinition)
 
----
+***
 
 ### TrendAngle
 
 > `const` **TrendAngle**: [`DrawingToolDefinition`](#drawingtooldefinition)
 
----
+***
 
 ### TrendLine
 
 > `const` **TrendLine**: [`DrawingToolDefinition`](#drawingtooldefinition)
 
----
+***
 
 ### VERSION
 
@@ -4455,7 +4470,7 @@ Built-in line series token.
 
 Semantic version of the installed core package.
 
----
+***
 
 ### VerticalLine
 
@@ -4484,7 +4499,7 @@ feature. Commercial extensions call this before enabling a paid capability.
 
 `void`
 
----
+***
 
 ### createChart()
 
@@ -4509,7 +4524,7 @@ with a `ResizeObserver`.
 
 [`ChartApi`](#chartapi)
 
----
+***
 
 ### drawingToolSettings()
 
@@ -4525,7 +4540,7 @@ with a `ResizeObserver`.
 
 readonly [`DrawingSetting`](#drawingsetting)[]
 
----
+***
 
 ### isWickError()
 
@@ -4543,7 +4558,7 @@ Narrowing helper.
 
 `value is WickError`
 
----
+***
 
 ### mapLightweightChartOptions()
 

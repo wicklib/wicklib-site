@@ -124,7 +124,7 @@ a string representing the location in the code at which
 ```js
 const myObject = {};
 Error.captureStackTrace(myObject);
-myObject.stack; // Similar to `new Error().stack`
+myObject.stack;  // Similar to `new Error().stack`
 ```
 
 The first line of the trace will be prefixed with
@@ -225,7 +225,7 @@ https://v8.dev/docs/stack-trace-api#customizing-stack-traces
 
 `Error.prepareStackTrace`
 
----
+***
 
 ### ScriptRuntimeError
 
@@ -336,7 +336,7 @@ a string representing the location in the code at which
 ```js
 const myObject = {};
 Error.captureStackTrace(myObject);
-myObject.stack; // Similar to `new Error().stack`
+myObject.stack;  // Similar to `new Error().stack`
 ```
 
 The first line of the trace will be prefixed with
@@ -457,7 +457,7 @@ Declares a boolean script input.
 
 > `readonly` **type**: `"boolean"`
 
----
+***
 
 ### CompiledScript
 
@@ -511,7 +511,7 @@ Runs one realtime bar through the same execution path as replay.
 
 `Promise`\<[`ScriptResult`](#scriptresult)\>
 
----
+***
 
 ### NumberScriptInput
 
@@ -543,7 +543,7 @@ Declares the value produced by a script input.
 
 > `readonly` **type**: `"number"`
 
----
+***
 
 ### ScriptAlertEvent
 
@@ -563,7 +563,7 @@ One alert emitted by a script, bound to its bar.
 
 > **time**: `number`
 
----
+***
 
 ### ScriptCompileOptions
 
@@ -579,7 +579,7 @@ Options for compiling a script.
 
 > `optional` **limits?**: [`ScriptLimits`](#scriptlimits)
 
----
+***
 
 ### ScriptContext
 
@@ -589,11 +589,11 @@ Per-bar context passed to [ScriptDefinition.onBar](#onbar).
 
 ##### TInputs
 
-`TInputs` _extends_ [`ScriptInputMap`](#scriptinputmap) = [`ScriptInputMap`](#scriptinputmap)
+`TInputs` *extends* [`ScriptInputMap`](#scriptinputmap) = [`ScriptInputMap`](#scriptinputmap)
 
 ##### TPlotId
 
-`TPlotId` _extends_ `string` = `string`
+`TPlotId` *extends* `string` = `string`
 
 #### Properties
 
@@ -659,7 +659,7 @@ Emits one value for the current bar.
 
 `void`
 
----
+***
 
 ### ScriptDefinition
 
@@ -669,11 +669,11 @@ A complete script definition returned by [defineScript](#definescript).
 
 ##### TInputs
 
-`TInputs` _extends_ [`ScriptInputMap`](#scriptinputmap) = [`ScriptInputMap`](#scriptinputmap)
+`TInputs` *extends* [`ScriptInputMap`](#scriptinputmap) = [`ScriptInputMap`](#scriptinputmap)
 
 ##### TPlots
 
-`TPlots` _extends_ readonly [`ScriptPlotDefinition`](#scriptplotdefinition)[] = readonly [`ScriptPlotDefinition`](#scriptplotdefinition)[]
+`TPlots` *extends* readonly [`ScriptPlotDefinition`](#scriptplotdefinition)[] = readonly [`ScriptPlotDefinition`](#scriptplotdefinition)[]
 
 #### Properties
 
@@ -703,7 +703,7 @@ A complete script definition returned by [defineScript](#definescript).
 
 > `readonly` **plots**: `TPlots`
 
----
+***
 
 ### ScriptFunctionMeta
 
@@ -719,7 +719,7 @@ Metadata for a script-callable function.
 
 > **name**: `string`
 
----
+***
 
 ### ScriptLimits
 
@@ -751,7 +751,7 @@ Execution limits for a script session.
 
 > `optional` **timeLimitMs?**: `number`
 
----
+***
 
 ### ScriptMetadata
 
@@ -771,7 +771,7 @@ Metadata declared by a script.
 
 > **plots**: readonly [`ScriptPlotDefinition`](#scriptplotdefinition)[]
 
----
+***
 
 ### ScriptPlotDefinition
 
@@ -799,7 +799,7 @@ Declares one stable script output series.
 
 > `readonly` **type**: [`ScriptPlotType`](#scriptplottype)
 
----
+***
 
 ### ScriptResult
 
@@ -819,7 +819,7 @@ Output of a completed replay or stream step.
 
 > **plots**: `Readonly`\<`Record`\<`string`, `ReadonlyArray`\<`number` \| `null`\>\>\>
 
----
+***
 
 ### ScriptRuntime
 
@@ -853,7 +853,7 @@ Compiles and executes WickScript sources.
 
 `void`
 
----
+***
 
 ### ScriptRuntimeExtension
 
@@ -885,7 +885,7 @@ Extension descriptor used to register a runtime with the core.
 
 > **runtime**: [`ScriptRuntime`](#scriptruntime)
 
----
+***
 
 ### ScriptTa
 
@@ -1389,7 +1389,7 @@ Deterministic technical-analysis helpers available inside WickScript.
 
 `number` \| `null`
 
----
+***
 
 ### ScriptWorkerPort
 
@@ -1453,7 +1453,7 @@ Deterministic technical-analysis helpers available inside WickScript.
 
 `void`
 
----
+***
 
 ### SourceScriptInput
 
@@ -1477,7 +1477,7 @@ Declares an OHLC source input.
 
 > `readonly` **type**: `"source"`
 
----
+***
 
 ### StringScriptInput
 
@@ -1509,7 +1509,7 @@ Declares a string script input.
 
 A bar accepted by the script runtime.
 
----
+***
 
 ### ScriptErrorCode
 
@@ -1517,7 +1517,7 @@ A bar accepted by the script runtime.
 
 Machine-readable WickScript failure codes.
 
----
+***
 
 ### ScriptFunctionImpl
 
@@ -1535,7 +1535,7 @@ Implementation of a script-callable function.
 
 `number`
 
----
+***
 
 ### ScriptFunctionLicense
 
@@ -1543,7 +1543,7 @@ Implementation of a script-callable function.
 
 Whether a script-callable function is free or requires a commercial license.
 
----
+***
 
 ### ScriptInputDefinition
 
@@ -1551,7 +1551,7 @@ Whether a script-callable function is free or requires a commercial license.
 
 One declared script input.
 
----
+***
 
 ### ScriptInputMap
 
@@ -1559,7 +1559,7 @@ One declared script input.
 
 A script's declared inputs.
 
----
+***
 
 ### ScriptInputs
 
@@ -1567,7 +1567,7 @@ A script's declared inputs.
 
 Resolved input values supplied by the host.
 
----
+***
 
 ### ScriptInputValues
 
@@ -1579,9 +1579,9 @@ Resolved input values inferred from their declarations.
 
 ##### TInputs
 
-`TInputs` _extends_ [`ScriptInputMap`](#scriptinputmap)
+`TInputs` *extends* [`ScriptInputMap`](#scriptinputmap)
 
----
+***
 
 ### ScriptPlotId
 
@@ -1593,9 +1593,9 @@ Union of plot ids declared by a script.
 
 ##### TPlots
 
-`TPlots` _extends_ readonly [`ScriptPlotDefinition`](#scriptplotdefinition)[]
+`TPlots` *extends* readonly [`ScriptPlotDefinition`](#scriptplotdefinition)[]
 
----
+***
 
 ### ScriptPlotType
 
@@ -1603,7 +1603,7 @@ Union of plot ids declared by a script.
 
 Supported plot renderers.
 
----
+***
 
 ### ScriptRuntimeErrorCode
 
@@ -1611,7 +1611,7 @@ Supported plot renderers.
 
 Runtime failure codes for a sandboxed script.
 
----
+***
 
 ### TaSeries
 
@@ -1621,13 +1621,13 @@ A price source or a constant number accepted by a `ta.*` function.
 
 ## Variables
 
-### SCRIPT_NOT_IMPLEMENTED
+### SCRIPT\_NOT\_IMPLEMENTED
 
-> `const` **SCRIPT_NOT_IMPLEMENTED**: `"WICKLIB_NOT_IMPLEMENTED"` = `"WICKLIB_NOT_IMPLEMENTED"`
+> `const` **SCRIPT\_NOT\_IMPLEMENTED**: `"WICKLIB_NOT_IMPLEMENTED"` = `"WICKLIB_NOT_IMPLEMENTED"`
 
 Error code used by unimplemented Phase 1 stubs.
 
----
+***
 
 ### ta
 
@@ -1635,11 +1635,11 @@ Error code used by unimplemented Phase 1 stubs.
 
 Type-facing `ta` object. Execution is provided by the QuickJS worker realm.
 
----
+***
 
-### WICKSCRIPT_API_VERSION
+### WICKSCRIPT\_API\_VERSION
 
-> `const` **WICKSCRIPT_API_VERSION**: `1` = `1`
+> `const` **WICKSCRIPT\_API\_VERSION**: `1` = `1`
 
 Version of the WickScript API surface.
 
@@ -1664,7 +1664,7 @@ bundler's worker helper.
 
 [`ScriptRuntime`](#scriptruntime)
 
----
+***
 
 ### defineScript()
 
@@ -1678,11 +1678,11 @@ Scripts must export the returned definition as their default export.
 
 ##### TInputs
 
-`TInputs` _extends_ `Readonly`\<`Record`\<`string`, [`ScriptInputDefinition`](#scriptinputdefinition)\>\>
+`TInputs` *extends* `Readonly`\<`Record`\<`string`, [`ScriptInputDefinition`](#scriptinputdefinition)\>\>
 
 ##### TPlots
 
-`TPlots` _extends_ readonly [`ScriptPlotDefinition`](#scriptplotdefinition)[]
+`TPlots` *extends* readonly [`ScriptPlotDefinition`](#scriptplotdefinition)[]
 
 #### Parameters
 
@@ -1694,7 +1694,7 @@ Scripts must export the returned definition as their default export.
 
 [`ScriptDefinition`](#scriptdefinition)\<`TInputs`, `TPlots`\>
 
----
+***
 
 ### registerScriptFunction()
 
@@ -1721,7 +1721,7 @@ functions without making the script package depend on pro.
 
 `void`
 
----
+***
 
 ### validateScript()
 
