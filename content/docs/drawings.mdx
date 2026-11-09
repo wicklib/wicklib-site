@@ -79,20 +79,27 @@ const position = chart.addDrawing(LongPosition, {
     stopColor: "#ef5350",
     targetColor: "#26a69a",
     labelTextColor: "#ffffff",
-    stats: "selected",
-    statsFields: ["riskReward"],
+    accountSize: 10000,
+    riskPercent: 1,
+    leverage: 1,
+    contractSize: 1,
+    positionStatsFields: ["loss", "riskAmount", "entry", "profit", "riskReward"],
   },
 });
 ```
 
-The generated drawing has four draggable anchors: entry, stop, target, and right edge. Drag the
-right edge to change the width; the position is not extended to the chart edge. Stop and target
-zones are filled without borders, and only the entry line remains. Stop/entry/profit labels use
-their zone colours; label and axis text contrast is selected automatically unless
-`labelTextColor` is set.
+The generated drawing has four draggable anchors: entry, stop, target, and right edge. Entry
+moves freely; stop/target move vertically; the right edge moves horizontally. Stop and target
+zones are filled without borders, and only the entry line remains.
 
-Position stats include `risk`, `reward`, `riskReward`, `riskPercent`, and `rewardPercent`.
-Axis price labels use `priceLabels: "always"` by default.
+Stop, entry, and profit each get a zone-coloured stats box instead of a simple label. Stats-box
+text uses `labelTextColor` without automatic contrast and `labelFontSize` for size. The boxes are
+right-anchored to the position and are not clamped to the chart's left edge.
+
+Position sizing options include `accountSize`, `riskPercent`, `leverage`, and `contractSize`.
+Risk mode derives risk amount, lot size, profit, loss, margin, and R/R. Available position stats
+fields are `accountSize`, `lotSize`, `riskPercent`, `riskAmount`, `riskReward`, `entry`, `profit`,
+`loss`, `leverage`, and `margin`. Axis price labels use `priceLabels: "always"` by default.
 
 ## Range drawings
 

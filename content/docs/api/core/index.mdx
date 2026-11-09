@@ -1581,9 +1581,21 @@ Drawing style and state options.
 
 #### Properties
 
+##### accountSize?
+
+> `optional` **accountSize?**: `number`
+
+Account size used by position drawings.
+
 ##### color?
 
 > `optional` **color?**: `string` \| `null`
+
+##### contractSize?
+
+> `optional` **contractSize?**: `number`
+
+Contract size multiplier used by position drawings.
 
 ##### extend?
 
@@ -1659,6 +1671,12 @@ Custom label sequence for drawing tools that render one label per anchor.
 
 Optional label text colour. Defaults to automatic contrast.
 
+##### leverage?
+
+> `optional` **leverage?**: `number`
+
+Leverage used by position drawings for margin calculations.
+
 ##### lineStyle?
 
 > `optional` **lineStyle?**: [`DrawingLineStyle`](#drawinglinestyle)
@@ -1671,11 +1689,23 @@ Optional label text colour. Defaults to automatic contrast.
 
 > `optional` **locked?**: `boolean`
 
+##### positionStatsFields?
+
+> `optional` **positionStatsFields?**: readonly [`DrawingStatsField`](#drawingstatsfield)[]
+
+Position stats shown in the stop, entry, and profit boxes.
+
 ##### priceLabels?
 
 > `optional` **priceLabels?**: [`DrawingPriceLabelsMode`](#drawingpricelabelsmode)
 
 Show trend-line endpoint prices on the price axis. Defaults to never.
+
+##### riskPercent?
+
+> `optional` **riskPercent?**: `number`
+
+Risk percentage used by position drawings.
 
 ##### showLabels?
 
@@ -4031,7 +4061,7 @@ How `selectDrawing` changes the current selection.
 
 ### DrawingSetting
 
-> **DrawingSetting** = `"color"` \| `"lineWidth"` \| `"lineStyle"` \| `"fillColor"` \| `"fillOpacity"` \| `"showLabels"` \| `"labelPlacement"` \| `"labelFontSize"` \| `"labelBackgroundVisible"` \| `"showLine"` \| `"extendLeft"` \| `"extendRight"` \| `"showMidpoint"` \| `"priceLabels"` \| `"timeLabels"` \| `"stopColor"` \| `"targetColor"` \| `"extend"` \| `"extendTop"` \| `"extendBottom"` \| `"labelTextColor"` \| `"stats"` \| `"statsFields"` \| `"statsPosition"` \| `"text"` \| `"textColor"` \| `"textStyle"` \| `"textAlign"` \| `"textVerticalAlign"` \| `"fontSize"` \| `"locked"` \| `"visible"`
+> **DrawingSetting** = `"color"` \| `"lineWidth"` \| `"lineStyle"` \| `"fillColor"` \| `"fillOpacity"` \| `"showLabels"` \| `"labelPlacement"` \| `"labelFontSize"` \| `"labelBackgroundVisible"` \| `"showLine"` \| `"extendLeft"` \| `"extendRight"` \| `"showMidpoint"` \| `"priceLabels"` \| `"timeLabels"` \| `"stopColor"` \| `"targetColor"` \| `"extend"` \| `"extendTop"` \| `"extendBottom"` \| `"labelTextColor"` \| `"accountSize"` \| `"riskPercent"` \| `"leverage"` \| `"contractSize"` \| `"positionStatsFields"` \| `"stats"` \| `"statsFields"` \| `"statsPosition"` \| `"text"` \| `"textColor"` \| `"textStyle"` \| `"textAlign"` \| `"textVerticalAlign"` \| `"fontSize"` \| `"locked"` \| `"visible"`
 
 A setting that can be edited for a drawing tool.
 
@@ -4039,7 +4069,7 @@ A setting that can be edited for a drawing tool.
 
 ### DrawingStatsField
 
-> **DrawingStatsField** = `"range"` \| `"change"` \| `"bars"` \| `"date"` \| `"timeRange"` \| `"duration"` \| `"volume"` \| `"angle"` \| `"risk"` \| `"reward"` \| `"riskReward"` \| `"riskPercent"` \| `"rewardPercent"`
+> **DrawingStatsField** = `"range"` \| `"change"` \| `"bars"` \| `"date"` \| `"timeRange"` \| `"duration"` \| `"volume"` \| `"angle"` \| `"risk"` \| `"reward"` \| `"riskReward"` \| `"riskPercent"` \| `"rewardPercent"` \| `"accountSize"` \| `"lotSize"` \| `"riskAmount"` \| `"entry"` \| `"profit"` \| `"loss"` \| `"leverage"` \| `"margin"`
 
 One value shown in a drawing stats box.
 
