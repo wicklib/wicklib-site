@@ -291,7 +291,7 @@ Fill gradient end at the pane bottom. Defaults to transparent.
 
 ###### Inherited from
 
-[`LineSeriesOptions`](#lineseriesoptions).[`color`](#color-8)
+[`LineSeriesOptions`](#lineseriesoptions).[`color`](#color-9)
 
 ##### lastValueMode?
 
@@ -325,7 +325,7 @@ Line colour. Defaults to the line series colour.
 
 ###### Inherited from
 
-[`LineSeriesOptions`](#lineseriesoptions).[`lineStyle`](#linestyle-4)
+[`LineSeriesOptions`](#lineseriesoptions).[`lineStyle`](#linestyle-5)
 
 ##### lineWidth?
 
@@ -333,7 +333,7 @@ Line colour. Defaults to the line series colour.
 
 ###### Inherited from
 
-[`LineSeriesOptions`](#lineseriesoptions).[`lineWidth`](#linewidth-4)
+[`LineSeriesOptions`](#lineseriesoptions).[`lineWidth`](#linewidth-5)
 
 ##### paneId?
 
@@ -389,7 +389,7 @@ Whether the series is rendered.
 
 ###### Inherited from
 
-[`LineSeriesOptions`](#lineseriesoptions).[`visible`](#visible-8)
+[`LineSeriesOptions`](#lineseriesoptions).[`visible`](#visible-9)
 
 ***
 
@@ -485,7 +485,7 @@ Whether the series is rendered.
 
 ###### Inherited from
 
-[`SeriesOptions`](#seriesoptions).[`visible`](#visible-9)
+[`SeriesOptions`](#seriesoptions).[`visible`](#visible-10)
 
 ##### wickDownColor?
 
@@ -1575,6 +1575,42 @@ Versioned drawing document owned and persisted by the host.
 
 ***
 
+### DrawingFibLevel
+
+Style for one Fibonacci level.
+
+#### Properties
+
+##### color?
+
+> `optional` **color?**: `string` \| `null`
+
+##### labelColor?
+
+> `optional` **labelColor?**: `string` \| `null`
+
+##### labelVisible?
+
+> `optional` **labelVisible?**: `boolean`
+
+##### lineStyle?
+
+> `optional` **lineStyle?**: [`DrawingLineStyle`](#drawinglinestyle)
+
+##### lineWidth?
+
+> `optional` **lineWidth?**: `number`
+
+##### ratio
+
+> **ratio**: `number`
+
+##### visible?
+
+> `optional` **visible?**: `boolean`
+
+***
+
 ### DrawingOptions
 
 Drawing style and state options.
@@ -1586,6 +1622,50 @@ Drawing style and state options.
 > `optional` **accountSize?**: `number`
 
 Account size used by position drawings.
+
+##### backgroundColor?
+
+> `optional` **backgroundColor?**: `string` \| `null`
+
+Text drawing background colour.
+
+##### backgroundOpacity?
+
+> `optional` **backgroundOpacity?**: `number`
+
+##### borderColor?
+
+> `optional` **borderColor?**: `string` \| `null`
+
+Text drawing border.
+
+##### borderRadius?
+
+> `optional` **borderRadius?**: `number`
+
+##### borderWidth?
+
+> `optional` **borderWidth?**: `number`
+
+##### bottomLineColor?
+
+> `optional` **bottomLineColor?**: `string` \| `null`
+
+Bottom channel/band line colour.
+
+##### bottomLineStyle?
+
+> `optional` **bottomLineStyle?**: [`DrawingLineStyle`](#drawinglinestyle)
+
+##### bottomLineWidth?
+
+> `optional` **bottomLineWidth?**: `number`
+
+##### channelBackgroundVisible?
+
+> `optional` **channelBackgroundVisible?**: `boolean`
+
+Show channel/regression background fill.
 
 ##### color?
 
@@ -1627,6 +1707,18 @@ Extend beyond the second/right edge.
 
 Extend beyond the top price edge.
 
+##### fibBackgroundVisible?
+
+> `optional` **fibBackgroundVisible?**: `boolean`
+
+Show Fibonacci background fill.
+
+##### fibLevels?
+
+> `optional` **fibLevels?**: readonly [`DrawingFibLevel`](#drawingfiblevel)[]
+
+Per-level Fibonacci settings.
+
 ##### fillColor?
 
 > `optional` **fillColor?**: `string` \| `null`
@@ -1634,6 +1726,12 @@ Extend beyond the top price edge.
 ##### fillOpacity?
 
 > `optional` **fillOpacity?**: `number`
+
+##### fontFamily?
+
+> `optional` **fontFamily?**: `string`
+
+Text drawing font family.
 
 ##### fontSize?
 
@@ -1677,6 +1775,12 @@ Optional label text colour. Defaults to automatic contrast.
 
 Leverage used by position drawings for margin calculations.
 
+##### lineOpacity?
+
+> `optional` **lineOpacity?**: `number`
+
+Line opacity from 0 to 1. Defaults to 1.
+
 ##### lineStyle?
 
 > `optional` **lineStyle?**: [`DrawingLineStyle`](#drawinglinestyle)
@@ -1688,6 +1792,30 @@ Leverage used by position drawings for margin calculations.
 ##### locked?
 
 > `optional` **locked?**: `boolean`
+
+##### middleLineColor?
+
+> `optional` **middleLineColor?**: `string` \| `null`
+
+Middle channel/band line colour.
+
+##### middleLineStyle?
+
+> `optional` **middleLineStyle?**: [`DrawingLineStyle`](#drawinglinestyle)
+
+##### middleLineVisible?
+
+> `optional` **middleLineVisible?**: `boolean`
+
+##### middleLineWidth?
+
+> `optional` **middleLineWidth?**: `number`
+
+##### padding?
+
+> `optional` **padding?**: `number`
+
+Text drawing padding in CSS pixels.
 
 ##### positionStatsFields?
 
@@ -1790,6 +1918,20 @@ Vertical alignment for trend-line text. Defaults to middle.
 > `optional` **timeLabels?**: [`DrawingTimeLabelsMode`](#drawingtimelabelsmode)
 
 Show trend-line endpoint times on the time axis. Defaults to never.
+
+##### topLineColor?
+
+> `optional` **topLineColor?**: `string` \| `null`
+
+Top channel/band line colour.
+
+##### topLineStyle?
+
+> `optional` **topLineStyle?**: [`DrawingLineStyle`](#drawinglinestyle)
+
+##### topLineWidth?
+
+> `optional` **topLineWidth?**: `number`
 
 ##### visible?
 
@@ -2011,7 +2153,7 @@ Whether the series is rendered.
 
 ###### Inherited from
 
-[`SeriesOptions`](#seriesoptions).[`visible`](#visible-9)
+[`SeriesOptions`](#seriesoptions).[`visible`](#visible-10)
 
 ***
 
@@ -2804,7 +2946,7 @@ Whether the series is rendered.
 
 ###### Inherited from
 
-[`SeriesOptions`](#seriesoptions).[`visible`](#visible-9)
+[`SeriesOptions`](#seriesoptions).[`visible`](#visible-10)
 
 ***
 
@@ -4061,7 +4203,7 @@ How `selectDrawing` changes the current selection.
 
 ### DrawingSetting
 
-> **DrawingSetting** = `"color"` \| `"lineWidth"` \| `"lineStyle"` \| `"fillColor"` \| `"fillOpacity"` \| `"showLabels"` \| `"labelPlacement"` \| `"labelFontSize"` \| `"labelBackgroundVisible"` \| `"showLine"` \| `"extendLeft"` \| `"extendRight"` \| `"showMidpoint"` \| `"priceLabels"` \| `"timeLabels"` \| `"stopColor"` \| `"targetColor"` \| `"extend"` \| `"extendTop"` \| `"extendBottom"` \| `"labelTextColor"` \| `"accountSize"` \| `"riskPercent"` \| `"leverage"` \| `"contractSize"` \| `"positionStatsFields"` \| `"stats"` \| `"statsFields"` \| `"statsPosition"` \| `"text"` \| `"textColor"` \| `"textStyle"` \| `"textAlign"` \| `"textVerticalAlign"` \| `"fontSize"` \| `"locked"` \| `"visible"`
+> **DrawingSetting** = `"color"` \| `"lineWidth"` \| `"lineStyle"` \| `"lineOpacity"` \| `"fillColor"` \| `"fillOpacity"` \| `"showLabels"` \| `"labelPlacement"` \| `"labelFontSize"` \| `"labelBackgroundVisible"` \| `"showLine"` \| `"extendLeft"` \| `"extendRight"` \| `"showMidpoint"` \| `"priceLabels"` \| `"timeLabels"` \| `"stopColor"` \| `"targetColor"` \| `"extend"` \| `"extendTop"` \| `"extendBottom"` \| `"labelTextColor"` \| `"topLineColor"` \| `"topLineWidth"` \| `"topLineStyle"` \| `"middleLineColor"` \| `"middleLineWidth"` \| `"middleLineStyle"` \| `"middleLineVisible"` \| `"bottomLineColor"` \| `"bottomLineWidth"` \| `"bottomLineStyle"` \| `"channelBackgroundVisible"` \| `"fontFamily"` \| `"backgroundColor"` \| `"backgroundOpacity"` \| `"borderColor"` \| `"borderWidth"` \| `"borderRadius"` \| `"padding"` \| `"fibLevels"` \| `"fibBackgroundVisible"` \| `"accountSize"` \| `"riskPercent"` \| `"leverage"` \| `"contractSize"` \| `"positionStatsFields"` \| `"stats"` \| `"statsFields"` \| `"statsPosition"` \| `"text"` \| `"textColor"` \| `"textStyle"` \| `"textAlign"` \| `"textVerticalAlign"` \| `"fontSize"` \| `"locked"` \| `"visible"`
 
 A setting that can be edited for a drawing tool.
 

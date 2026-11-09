@@ -67,6 +67,27 @@ drawing.setOptions({
 - Text supports normal/bold/italic styles and top/middle/bottom vertical alignment. Horizontal
   left/right places text outside the start/end anchor; center places it at the midpoint.
 
+## Modern drawing styles
+
+- Brush, highlighter, and path now support `lineOpacity` and only show selection handles at their
+  endpoints.
+- Parallel Channel removes its left/right borders and supports independent top/middle/bottom
+  line colors, widths, and styles. The middle line is enabled by default; background fill is off
+  by default. Extend left/right and background opacity are configurable.
+- Regression Trend uses the same top/middle/bottom line settings, channel background, and a
+  full-range selection hit area.
+- Fib Retracement and Fib Extension accept per-level `fibLevels` settings: ratio, visibility,
+  color, width, style, label visibility, and label color. Fibonacci background fill, extend
+  left/right, and shared label styling are configurable.
+- Price Range now draws only top/bottom lines. Time Range draws only left/right lines. Both keep
+  fill backgrounds and extension settings.
+- Text drawings support font family, size, bold/italic, alignment, background color/opacity,
+  border color/width/radius, and padding.
+
+Automatic linear price precision now keeps at least two decimal places, so prices such as BTC
+around 67,000 display cents. Explicit `priceFormat.precision` or `priceFormat.minMove` still
+override the automatic value.
+
 ## Position drawings
 
 `LongPosition` and `ShortPosition` place with one click. The initial setup uses recent volatility
