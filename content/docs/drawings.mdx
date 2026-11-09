@@ -92,9 +92,11 @@ The generated drawing has four draggable anchors: entry, stop, target, and right
 moves freely; stop/target move vertically; the right edge moves horizontally. Stop and target
 zones are filled without borders, and only the entry line remains.
 
-Stop, entry, and profit each get a zone-coloured stats box instead of a simple label. Stats-box
-text uses `labelTextColor` without automatic contrast and `labelFontSize` for size. The boxes are
-right-anchored to the position and are not clamped to the chart's left edge.
+Stop, entry, and profit each get a zone-coloured, rounded stats box instead of a simple label.
+Stats-box text uses `labelTextColor` without automatic contrast and `labelFontSize` for size.
+`statsPosition` aligns the boxes left, center, right, or auto; they are not clamped to the chart's
+left edge. `priceLabels` controls both axis labels and stats boxes: `never` hides both, while
+`selected` shows both only for the selected drawing.
 
 Position sizing options include `accountSize`, `riskPercent`, `leverage`, and `contractSize`.
 Risk mode derives risk amount, lot size, profit, loss, margin, and R/R. Available position stats
