@@ -78,6 +78,27 @@ canvas-aware contrast surface as stats boxes: the stronger of a light or dark ne
 selected against the actual chart background, with matching contrast text. Axis borders only use
 `axisLineColor` while their `borderVisible` option is enabled.
 
+## Crosshair magnet
+
+Magnet snapping supports weak and strong modes:
+
+```ts
+const chart = createChart(container, {
+  crosshair: {
+    mode: "normal",
+    magnet: "weak",
+    modifierMagnet: "strong",
+  },
+});
+```
+
+- `mode: "magnet"` keeps magnet active; otherwise hold Ctrl or Command to activate it temporarily.
+- Weak magnet snaps to the nearest open/high/low/close of the hovered bar.
+- Strong magnet also snaps to drawing anchors and price-line prices.
+- The snapped crosshair position, crosshair/click events, drawing placement, and anchor dragging
+  all use the same snap result.
+- Set `modifierMagnet: "off"` to disable temporary Ctrl/Command snapping.
+
 ## Price scales
 
 Price scales are linear by default. Switch every pane to logarithmic mode at runtime, or update

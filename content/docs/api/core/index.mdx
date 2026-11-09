@@ -1306,11 +1306,23 @@ Crosshair options.
 
 Crosshair label background.
 
+##### magnet?
+
+> `optional` **magnet?**: `"weak"` \| `"strong"`
+
+Strength used when magnet is active. Defaults to weak.
+
 ##### mode?
 
 > `optional` **mode?**: `"normal"` \| `"magnet"` \| `"hidden"`
 
-`normal` follows the pointer, `magnet` snaps to the nearest bar price.
+`normal` follows the pointer, `magnet` keeps magnet snapping active, `hidden` disables it.
+
+##### modifierMagnet?
+
+> `optional` **modifierMagnet?**: `"weak"` \| `"strong"` \| `"off"`
+
+Temporary magnet strength while Ctrl or Command is held. Defaults to weak.
 
 ##### vertLine?
 
