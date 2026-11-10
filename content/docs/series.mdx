@@ -6,9 +6,9 @@ description: Candlestick, line, area, histogram, markers, and price lines.
 ## Dense candle rendering
 
 When candle spacing becomes very small, for example in narrow multi-chart panes, candles switch to
-a high-density representation: a low-opacity high/low envelope with a stronger close-price line.
-This avoids solid 1px slabs while preserving direction, range, gaps, custom colours, and high-DPI
-rendering. Wide panes continue using normal candle bodies and wicks.
+sub-pixel candle geometry. Bodies and wicks scale below one CSS pixel instead of being forced into
+solid 1px slabs. Candles keep their own shape, direction, high/low, and colours. Wide panes continue
+using normal candle bodies and wicks.
 
 ## Built-in series
 
