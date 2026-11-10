@@ -69,6 +69,20 @@ drawing.setOptions({
 
 ## Modern drawing styles
 
+### Interaction polish
+
+- Channel interiors are click-through; only channel lines and handles are interactive.
+- Arrow now uses trend-line presentation: extensions, styled text, and optional price/time labels.
+- Horizontal and vertical lines drag only on their perpendicular axis, share the same default
+  colour, support styled text, and expose axis labels (selected by default). Cross Line exposes
+  both price and time axis labels.
+- Rectangle uses eight handles: four corners and four edge midpoints. It supports text, extend
+  left/right, fill visibility, and a styled middle line.
+- Position stats now include `lossPercent`, shown by default.
+- Measure is transient, removed after use or when another tool starts, and has no settings.
+- Path drawings show handles for every authored vertex.
+- All selection knobs use 4px rounded corners.
+
 ### Shift angle snapping
 
 Hold Shift while drawing or dragging line-based drawings to snap the active segment to the
