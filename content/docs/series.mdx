@@ -106,6 +106,32 @@ line.remove();
 `titlePosition: "plot"` draws the title inside the chart while the axis label keeps the value.
 The default is `"axis"`.
 
+### Draggable price lines
+
+```ts
+const stop = series.createPriceLine({
+  id: "stop-loss",
+  price: 95,
+  color: "#ef5350",
+  draggable: true,
+  dragConstraint: { kind: "below", max: 99 },
+  dragSnap: "tick",
+  onDragEnd: (event) => {
+    savePositionLevel(event.id, event.price);
+  },
+});
+
+stop.setPrice(96);
+stop.focus();
+```
+
+Dragging updates the line and price-axis label live. Escape or pointer cancel restores the original
+price. A focused line supports ArrowUp/ArrowDown, Shift for larger steps, Enter to commit, and
+Escape to cancel. `setPrice` updates programmatically without invoking drag callbacks.
+
+Constraints support `none`, `above`, `below`, and `range`. Tick snapping and instrument precision
+are respected when supplied. Optional magnet snapping uses the chart's existing magnet mode.
+
 ## Markers
 
 ```ts

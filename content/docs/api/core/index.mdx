@@ -3248,6 +3248,22 @@ A live price line.
 
 `void`
 
+##### focus()
+
+> **focus**(): `void`
+
+###### Returns
+
+`void`
+
+##### getPrice()
+
+> **getPrice**(): `number`
+
+###### Returns
+
+`number`
+
 ##### remove()
 
 > **remove**(): `void`
@@ -3255,6 +3271,116 @@ A live price line.
 ###### Returns
 
 `void`
+
+##### setDragConstraint()
+
+> **setDragConstraint**(`constraint`): `void`
+
+###### Parameters
+
+###### constraint
+
+[`PriceLineDragConstraint`](#pricelinedragconstraint)
+
+###### Returns
+
+`void`
+
+##### setDraggable()
+
+> **setDraggable**(`draggable`): `void`
+
+###### Parameters
+
+###### draggable
+
+`boolean`
+
+###### Returns
+
+`void`
+
+##### setPrice()
+
+> **setPrice**(`price`, `source?`): `void`
+
+###### Parameters
+
+###### price
+
+`number`
+
+###### source?
+
+`"api"` \| `"user"`
+
+###### Returns
+
+`void`
+
+***
+
+### PriceLineDragConstraint
+
+Boundary applied while dragging a price line.
+
+#### Properties
+
+##### kind
+
+> **kind**: `"range"` \| `"above"` \| `"below"` \| `"none"`
+
+##### max?
+
+> `optional` **max?**: `number`
+
+##### min?
+
+> `optional` **min?**: `number`
+
+***
+
+### PriceLineDragEvent
+
+Event emitted while a price line is interactively dragged.
+
+#### Properties
+
+##### id
+
+> **id**: `string`
+
+##### originalPrice
+
+> **originalPrice**: `number`
+
+##### phase
+
+> **phase**: `"start"` \| `"move"` \| `"end"` \| `"cancel"`
+
+##### pointer
+
+> **pointer**: `object`
+
+###### x
+
+> **x**: `number`
+
+###### y
+
+> **y**: `number`
+
+##### previousPrice
+
+> **previousPrice**: `number`
+
+##### price
+
+> **price**: `number`
+
+##### source
+
+> **source**: `"api"` \| `"pointer"` \| `"keyboard"`
 
 ***
 
@@ -3275,6 +3401,30 @@ Draw the value label on the price axis. Defaults to true.
 
 > `optional` **color?**: `string`
 
+##### dragConstraint?
+
+> `optional` **dragConstraint?**: [`PriceLineDragConstraint`](#pricelinedragconstraint)
+
+Price boundary while dragging.
+
+##### draggable?
+
+> `optional` **draggable?**: `boolean`
+
+Enable pointer and keyboard dragging. Defaults to false.
+
+##### dragSnap?
+
+> `optional` **dragSnap?**: [`PriceLineDragSnap`](#pricelinedragsnap)
+
+Optional price snapping while dragging.
+
+##### id?
+
+> `optional` **id?**: `string`
+
+Stable host-facing id for drag events. Generated when omitted.
+
 ##### lineStyle?
 
 > `optional` **lineStyle?**: [`PriceLineStyle`](#pricelinestyle)
@@ -3288,6 +3438,48 @@ Draw the horizontal line. Defaults to true.
 ##### lineWidth?
 
 > `optional` **lineWidth?**: `number`
+
+##### onDragEnd?
+
+> `optional` **onDragEnd?**: (`event`) => `void`
+
+###### Parameters
+
+###### event
+
+[`PriceLineDragEvent`](#pricelinedragevent)
+
+###### Returns
+
+`void`
+
+##### onDragMove?
+
+> `optional` **onDragMove?**: (`event`) => `void`
+
+###### Parameters
+
+###### event
+
+[`PriceLineDragEvent`](#pricelinedragevent)
+
+###### Returns
+
+`void`
+
+##### onDragStart?
+
+> `optional` **onDragStart?**: (`event`) => `void`
+
+###### Parameters
+
+###### event
+
+[`PriceLineDragEvent`](#pricelinedragevent)
+
+###### Returns
+
+`void`
 
 ##### price
 
@@ -4355,6 +4547,14 @@ Which price the last-value label represents.
 > **LicenseTier** = `"free"` \| `"pro"`
 
 License tier attached to an extension.
+
+***
+
+### PriceLineDragSnap
+
+> **PriceLineDragSnap** = `"none"` \| `"tick"` \| `"magnet"`
+
+Price snapping mode for draggable price lines.
 
 ***
 
