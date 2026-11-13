@@ -132,6 +132,23 @@ Automatic linear price precision now keeps at least two decimal places, so price
 around 67,000 display cents. Explicit `priceFormat.precision` or `priceFormat.minMove` still
 override the automatic value.
 
+## Timeframe visibility
+
+Drawings can be limited to specific chart intervals:
+
+```ts
+drawing.setOptions({
+  visibleIntervals: ["15m", "1h", "4h"],
+});
+```
+
+- Omitted or an empty array means all timeframes.
+- Non-empty arrays list the only intervals where the drawing renders.
+- Timeframe-hidden drawings remain in the document and serialization output.
+- They are skipped by rendering, hit testing, hover, and selection.
+- `selectAllDrawings()` skips timeframe-hidden drawings by default.
+- Set `ChartOptions.interval` or use a datafeed interval so core can resolve the current interval.
+
 ## Position drawings
 
 Position stats now place the profit box outside the target extreme and the stop box outside the

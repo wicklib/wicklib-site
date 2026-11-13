@@ -39,6 +39,13 @@ See [Renderers](/docs/renderers) for the target workload and tradeoffs.
 
 ## Options
 
+Set `interval` when using manual data so drawing timeframe visibility can resolve the current chart interval:
+
+```ts
+const chart = createChart(container, { interval: "15m" });
+chart.setOptions({ interval: "1h" });
+```
+
 Chart options cover:
 
 - Layout: background, base text color/font, and shared axis line/text/font styling.

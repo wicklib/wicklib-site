@@ -1081,6 +1081,12 @@ Fixed height when `autoSize` is false.
 
 > `optional` **interaction?**: [`InteractionOptions`](#interactionoptions)
 
+##### interval?
+
+> `optional` **interval?**: `string`
+
+Current chart interval used for drawing timeframe visibility.
+
 ##### layout?
 
 > `optional` **layout?**: [`LayoutOptions`](#layoutoptions)
@@ -1960,6 +1966,12 @@ Top channel/band line colour.
 ##### visible?
 
 > `optional` **visible?**: `boolean`
+
+##### visibleIntervals?
+
+> `optional` **visibleIntervals?**: readonly `string`[]
+
+Intervals where this drawing is visible. Empty or omitted means all intervals.
 
 ***
 
@@ -4433,7 +4445,7 @@ How `selectDrawing` changes the current selection.
 
 ### DrawingSetting
 
-> **DrawingSetting** = `"color"` \| `"lineWidth"` \| `"lineStyle"` \| `"lineOpacity"` \| `"fillColor"` \| `"fillOpacity"` \| `"fillVisible"` \| `"showLabels"` \| `"labelPlacement"` \| `"labelFontSize"` \| `"labelBackgroundVisible"` \| `"showLine"` \| `"extendLeft"` \| `"extendRight"` \| `"showMidpoint"` \| `"priceLabels"` \| `"timeLabels"` \| `"stopColor"` \| `"targetColor"` \| `"extend"` \| `"extendTop"` \| `"extendBottom"` \| `"labelTextColor"` \| `"topLineColor"` \| `"topLineWidth"` \| `"topLineStyle"` \| `"middleLineColor"` \| `"middleLineWidth"` \| `"middleLineStyle"` \| `"middleLineVisible"` \| `"bottomLineColor"` \| `"bottomLineWidth"` \| `"bottomLineStyle"` \| `"channelBackgroundVisible"` \| `"fontFamily"` \| `"backgroundColor"` \| `"backgroundOpacity"` \| `"borderColor"` \| `"borderWidth"` \| `"borderRadius"` \| `"padding"` \| `"fibLevels"` \| `"fibBackgroundVisible"` \| `"accountSize"` \| `"riskPercent"` \| `"leverage"` \| `"contractSize"` \| `"positionStatsFields"` \| `"stats"` \| `"statsFields"` \| `"statsPosition"` \| `"text"` \| `"textColor"` \| `"textStyle"` \| `"textAlign"` \| `"textVerticalAlign"` \| `"fontSize"` \| `"locked"` \| `"visible"`
+> **DrawingSetting** = `"color"` \| `"lineWidth"` \| `"lineStyle"` \| `"lineOpacity"` \| `"fillColor"` \| `"fillOpacity"` \| `"fillVisible"` \| `"showLabels"` \| `"labelPlacement"` \| `"labelFontSize"` \| `"labelBackgroundVisible"` \| `"showLine"` \| `"extendLeft"` \| `"extendRight"` \| `"showMidpoint"` \| `"priceLabels"` \| `"timeLabels"` \| `"stopColor"` \| `"targetColor"` \| `"extend"` \| `"extendTop"` \| `"extendBottom"` \| `"labelTextColor"` \| `"topLineColor"` \| `"topLineWidth"` \| `"topLineStyle"` \| `"middleLineColor"` \| `"middleLineWidth"` \| `"middleLineStyle"` \| `"middleLineVisible"` \| `"bottomLineColor"` \| `"bottomLineWidth"` \| `"bottomLineStyle"` \| `"channelBackgroundVisible"` \| `"fontFamily"` \| `"backgroundColor"` \| `"backgroundOpacity"` \| `"borderColor"` \| `"borderWidth"` \| `"borderRadius"` \| `"padding"` \| `"fibLevels"` \| `"fibBackgroundVisible"` \| `"accountSize"` \| `"riskPercent"` \| `"leverage"` \| `"contractSize"` \| `"positionStatsFields"` \| `"stats"` \| `"statsFields"` \| `"statsPosition"` \| `"text"` \| `"textColor"` \| `"textStyle"` \| `"textAlign"` \| `"textVerticalAlign"` \| `"fontSize"` \| `"locked"` \| `"visible"` \| `"visibleIntervals"`
 
 A setting that can be edited for a drawing tool.
 
