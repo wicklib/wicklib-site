@@ -67,6 +67,12 @@ drawing.setOptions({
 - Text supports normal/bold/italic styles and top/middle/bottom vertical alignment. Horizontal
   left/right places text outside the start/end anchor; center places it at the midpoint.
 
+## Measure
+
+Measure is a transient TradingView-style overlay: it shows endpoint markers, projection guides,
+price/percent change, bar count, and duration. It disappears on the next chart interaction or when
+another drawing tool starts.
+
 ## Modern drawing styles
 
 ### Consistency pass
@@ -127,6 +133,10 @@ around 67,000 display cents. Explicit `priceFormat.precision` or `priceFormat.mi
 override the automatic value.
 
 ## Position drawings
+
+Position stats now place the profit box outside the target extreme and the stop box outside the
+stop extreme. The entry box remains centered. `lossPercent` and `profitPercent` are based on the
+actual price distance from entry, while `riskPercent` remains the account-risk input.
 
 `LongPosition` and `ShortPosition` place with one click. The initial setup uses recent volatility
 (ATR) for the stop and a 1:2 target ratio:

@@ -52,23 +52,23 @@ importers:
         specifier: ^19.3.0
         version: 19.3.0(@types/react@19.3.0)
       '@wicklib/core':
-        specifier: 0.31.0
-        version: 0.31.0
+        specifier: 0.32.0
+        version: 0.32.0
       '@wicklib/indicators':
-        specifier: 0.31.0
-        version: 0.31.0(@wicklib/core@0.31.0)
+        specifier: 0.32.0
+        version: 0.32.0(@wicklib/core@0.32.0)
       '@wicklib/layouts':
-        specifier: 0.31.0
-        version: 0.31.0(@wicklib/core@0.31.0)
+        specifier: 0.32.0
+        version: 0.32.0(@wicklib/core@0.32.0)
       '@wicklib/react':
-        specifier: 0.31.0
-        version: 0.31.0(@wicklib/core@0.31.0)(react-dom@19.3.1(react@19.3.1))(react@19.3.1)
+        specifier: 0.32.0
+        version: 0.32.0(@wicklib/core@0.32.0)(react-dom@19.3.1(react@19.3.1))(react@19.3.1)
       '@wicklib/script':
-        specifier: 0.31.0
-        version: 0.31.0(@wicklib/core@0.31.0)
+        specifier: 0.32.0
+        version: 0.32.0(@wicklib/core@0.32.0)
       '@wicklib/script-editor':
-        specifier: 0.31.0
-        version: 0.31.0(@wicklib/core@0.31.0)(@wicklib/script@0.31.0(@wicklib/core@0.31.0))(monaco-editor@0.57.0)
+        specifier: 0.32.0
+        version: 0.32.0(@wicklib/core@0.32.0)(@wicklib/script@0.32.0(@wicklib/core@0.32.0))(monaco-editor@0.57.0)
       github-slugger:
         specifier: ^2.0.0
         version: 2.0.0
@@ -91,8 +91,8 @@ importers:
         specifier: ^5.9.3
         version: 5.9.3
       wicklib:
-        specifier: 0.31.0
-        version: 0.31.0
+        specifier: 0.32.0
+        version: 0.32.0
 
 packages:
 
@@ -1075,43 +1075,43 @@ packages:
   '@ungap/structured-clone@1.4.0':
     resolution: {integrity: sha512-1mEZtMKPM09vDmQt5y7YvmN2+DFTP7Tg0EWXdic8/C6VRnpb33e4ghisCIE3WZjsE2N8mf+QV1Zqh7ZFYLWInQ==}
 
-  '@wicklib/core@0.31.0':
-    resolution: {integrity: sha512-zQkOEuu03Qn+F806VYrHYlB3SBbN1KNhb4VnQ/03cQYjlOWmpG2u9bVEu1cN4nWKK7+ZJdiVh7DcS6wOtmTQZA==}
+  '@wicklib/core@0.32.0':
+    resolution: {integrity: sha512-DSgAmWP6DVPXjJGc4/bUuUOar4pZn4mXZ9DY42c7wuyPFIC3+zBm6yrdt2jWiBghDBE5dr5mVqjz2nUPQYJO0Q==}
     engines: {node: '>=24.0.0'}
 
-  '@wicklib/indicators@0.31.0':
-    resolution: {integrity: sha512-BrYPFwHSCGuchV4UWUpS64nTuG2deRA/YbxF1/T171N9NYWjmahS47IV5mA9tRQNvEH05znUHstgqlTtOBHD1A==}
+  '@wicklib/indicators@0.32.0':
+    resolution: {integrity: sha512-XNF42BewtYJ9BBv0BTyveAuPywDkYBPBqwyh3wdjPlq9V6Lny+tq72aP0P5ES4eui9xVnPPPlySSAQAtw/MzQA==}
     engines: {node: '>=24.0.0'}
     peerDependencies:
-      '@wicklib/core': ^0.31.0
+      '@wicklib/core': ^0.32.0
 
-  '@wicklib/layouts@0.31.0':
-    resolution: {integrity: sha512-K6rcISN0tfyap3g/rApqRzeD70JFuwH17YJvnR8wyosTYYc5eVfSOieEdHNoN+xieHYNitFQBZr/5dDFSj9ebQ==}
+  '@wicklib/layouts@0.32.0':
+    resolution: {integrity: sha512-oOnkYLShIsH57uvqdVyJ+7De5K5RULZyu1/QhvrhsMSDXsOxjuAkw+zI+BzU5FeuQD/JYQ8UNPviOen4nbMD3Q==}
     engines: {node: '>=24.0.0'}
     peerDependencies:
-      '@wicklib/core': ^0.31.0
+      '@wicklib/core': ^0.32.0
 
-  '@wicklib/react@0.31.0':
-    resolution: {integrity: sha512-OOya1rfKf7xHKkAR/2NHWCsXJvcN1XC8oIpoqTcWQQ7QnZMlTtuWEVjGsrHDuTerNjwve8hAPIKojFBVQ6kqJQ==}
+  '@wicklib/react@0.32.0':
+    resolution: {integrity: sha512-ONrV1gfYpJ3oHIdIu7xhqcik67jywul8PKVFIKb7ihNXenegZJjpd5O4B3VifZWoqPLqG5okTBoRIugdK6/6zw==}
     engines: {node: '>=24.0.0'}
     peerDependencies:
-      '@wicklib/core': ^0.31.0
+      '@wicklib/core': ^0.32.0
       react: '>=18'
       react-dom: '>=18'
 
-  '@wicklib/script-editor@0.31.0':
-    resolution: {integrity: sha512-IpHx2Fjwa1SEs6+iXNYydNiqvj5YbFMSwfrLltsGLHcX6uPVABCuHD5YUundtJA6rfE8+rTmpTGX/gTIGkg0yQ==}
+  '@wicklib/script-editor@0.32.0':
+    resolution: {integrity: sha512-ePCbsR4lfO/DNTAaDNCf8LrpJnDBS/gD2clowIKQ6tqDGaUkh/+smUjAin6Mc4+yrzCwXpTi7MA2hyZHt34MfA==}
     engines: {node: '>=24.0.0'}
     peerDependencies:
-      '@wicklib/core': ^0.31.0
-      '@wicklib/script': ^0.31.0
+      '@wicklib/core': ^0.32.0
+      '@wicklib/script': ^0.32.0
       monaco-editor: ^0.57.0
 
-  '@wicklib/script@0.31.0':
-    resolution: {integrity: sha512-xM6272tETNDEXJ7mU6GxixtSILGt/rTSUgOSOnIp3DhQKOsZexWUCYeuhPYGxbFSwvdhPFtyPdT1ueUYRN+D7A==}
+  '@wicklib/script@0.32.0':
+    resolution: {integrity: sha512-RHonS2fb+sg8E2qhpK4dV78B4nQ6OXrOO3ucRmPDxqopmOG/saFTgaMN4Me1u+2SmQESKMNoA+FHBbosHmBniw==}
     engines: {node: '>=24.0.0'}
     peerDependencies:
-      '@wicklib/core': ^0.31.0
+      '@wicklib/core': ^0.32.0
 
   '@yuku-core/binding-android-arm64@0.19.0':
     resolution: {integrity: sha512-wdL2XmTiZixAOaHk9Z0JJZ8u9Qm8d333Zjpc6gaxXFX+UR5BlsfxZ7a2+2Rm71pamppsPYGUGFq2oVLbh6DISw==}
@@ -2202,8 +2202,8 @@ packages:
   web-namespaces@2.0.1:
     resolution: {integrity: sha512-bKr1DkiNa2krS7qxNtdrtHAmzuYGFQLiQ13TsorsdT6ULTkPLKuu5+GsFpDlg6JFjUTwX2DyhMPG2be8uPrqsQ==}
 
-  wicklib@0.31.0:
-    resolution: {integrity: sha512-3mp7YotRIrc2wqLcF1ohJAbd58G8Li3EeY1fUlkW12rXz02XGaegxbbhqvuFZtXvEYwHoZz5pGRa1Dcv5tZYfw==}
+  wicklib@0.32.0:
+    resolution: {integrity: sha512-apw/fk5XN9UUziMOo5ka1JLCV1boRJipzh2g1AaI27EkdVtxB0qxjDd6vASInTae6JmAMhOpu+oCG3Q0sc05+w==}
     engines: {node: '>=24.0.0'}
 
   yaml@2.9.1:
@@ -3096,31 +3096,31 @@ snapshots:
 
   '@ungap/structured-clone@1.4.0': {}
 
-  '@wicklib/core@0.31.0': {}
+  '@wicklib/core@0.32.0': {}
 
-  '@wicklib/indicators@0.31.0(@wicklib/core@0.31.0)':
+  '@wicklib/indicators@0.32.0(@wicklib/core@0.32.0)':
     dependencies:
-      '@wicklib/core': 0.31.0
+      '@wicklib/core': 0.32.0
 
-  '@wicklib/layouts@0.31.0(@wicklib/core@0.31.0)':
+  '@wicklib/layouts@0.32.0(@wicklib/core@0.32.0)':
     dependencies:
-      '@wicklib/core': 0.31.0
+      '@wicklib/core': 0.32.0
 
-  '@wicklib/react@0.31.0(@wicklib/core@0.31.0)(react-dom@19.3.1(react@19.3.1))(react@19.3.1)':
+  '@wicklib/react@0.32.0(@wicklib/core@0.32.0)(react-dom@19.3.1(react@19.3.1))(react@19.3.1)':
     dependencies:
-      '@wicklib/core': 0.31.0
+      '@wicklib/core': 0.32.0
       react: 19.3.1
       react-dom: 19.3.1(react@19.3.1)
 
-  '@wicklib/script-editor@0.31.0(@wicklib/core@0.31.0)(@wicklib/script@0.31.0(@wicklib/core@0.31.0))(monaco-editor@0.57.0)':
+  '@wicklib/script-editor@0.32.0(@wicklib/core@0.32.0)(@wicklib/script@0.32.0(@wicklib/core@0.32.0))(monaco-editor@0.57.0)':
     dependencies:
-      '@wicklib/core': 0.31.0
-      '@wicklib/script': 0.31.0(@wicklib/core@0.31.0)
+      '@wicklib/core': 0.32.0
+      '@wicklib/script': 0.32.0(@wicklib/core@0.32.0)
       monaco-editor: 0.57.0
 
-  '@wicklib/script@0.31.0(@wicklib/core@0.31.0)':
+  '@wicklib/script@0.32.0(@wicklib/core@0.32.0)':
     dependencies:
-      '@wicklib/core': 0.31.0
+      '@wicklib/core': 0.32.0
       acorn: 8.19.0
       quickjs-emscripten: 0.32.0
       sucrase: 3.35.1
@@ -4533,11 +4533,11 @@ snapshots:
 
   web-namespaces@2.0.1: {}
 
-  wicklib@0.31.0:
+  wicklib@0.32.0:
     dependencies:
-      '@wicklib/core': 0.31.0
-      '@wicklib/indicators': 0.31.0(@wicklib/core@0.31.0)
-      '@wicklib/layouts': 0.31.0(@wicklib/core@0.31.0)
+      '@wicklib/core': 0.32.0
+      '@wicklib/indicators': 0.32.0(@wicklib/core@0.32.0)
+      '@wicklib/layouts': 0.32.0(@wicklib/core@0.32.0)
 
   yaml@2.9.1: {}
 

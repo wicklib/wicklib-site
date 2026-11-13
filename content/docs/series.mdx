@@ -84,6 +84,8 @@ series.priceScale().setOptions({ priceFormat: { precision: 4 } });
 const resolved = series.priceScale().getOptions();
 ```
 
+Price axes request denser ticks for taller panes, keeping roughly one tick per 30px of pane height before collision filtering.
+
 `precision` controls displayed decimal places. When omitted, `minMove` determines precision.
 If neither is set, Wicklib infers it from generated ticks. The format applies to axes,
 crosshair, drawings, price lines, and last-value labels.
