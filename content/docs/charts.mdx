@@ -80,6 +80,16 @@ selected against the actual chart background, with matching contrast text. Axis 
 
 ## Drawings hover and selection
 
+Select all drawings with visible-only behavior:
+
+```ts
+chart.selectAllDrawings(); // visible drawings only
+chart.selectAllDrawings({ visibleOnly: false }); // include hidden drawings
+```
+
+Locked visible drawings are selected; lock still prevents movement and deletion. Hidden drawings
+remain excluded from pointer hit testing.
+
 Hovering a drawing renders its handles without selecting it. Clicking still selects and enables dragging. Selected drawings retain their handles and normal selection behavior.
 
 ## Crosshair magnet

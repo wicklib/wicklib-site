@@ -721,7 +721,13 @@ Fits the time scale and restores auto-scale on every pane.
 
 ##### selectAllDrawings()
 
-> **selectAllDrawings**(): `void`
+> **selectAllDrawings**(`options?`): `void`
+
+###### Parameters
+
+###### options?
+
+[`SelectAllDrawingsOptions`](#selectalldrawingsoptions)
 
 ###### Returns
 
@@ -3644,6 +3650,20 @@ Fraction of the range reserved above and below the data.
 ###### top
 
 > **top**: `number`
+
+***
+
+### SelectAllDrawingsOptions
+
+Options for selecting every drawing.
+
+#### Properties
+
+##### visibleOnly?
+
+> `optional` **visibleOnly?**: `boolean`
+
+Exclude drawings whose visible option is false. Defaults to true.
 
 ***
 
